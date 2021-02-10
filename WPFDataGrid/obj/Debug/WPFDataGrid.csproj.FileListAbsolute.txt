@@ -1,0 +1,89 @@
+E:\[01] DonNet SQLite3 学习\GTSApps\WPFDataGrid\bin\Debug\WPFDataGrid.exe.config
+E:\[01] DonNet SQLite3 学习\GTSApps\WPFDataGrid\bin\Debug\WPFDataGrid.exe
+E:\[01] DonNet SQLite3 学习\GTSApps\WPFDataGrid\bin\Debug\WPFDataGrid.pdb
+E:\[01] DonNet SQLite3 学习\GTSApps\WPFDataGrid\obj\Debug\MainWindow.g.cs
+E:\[01] DonNet SQLite3 学习\GTSApps\WPFDataGrid\obj\Debug\UC\RowAngle.g.cs
+E:\[01] DonNet SQLite3 学习\GTSApps\WPFDataGrid\obj\Debug\App.g.cs
+E:\[01] DonNet SQLite3 学习\GTSApps\WPFDataGrid\obj\Debug\GeneratedInternalTypeHelper.g.cs
+E:\[01] DonNet SQLite3 学习\GTSApps\WPFDataGrid\obj\Debug\WPFDataGrid_MarkupCompile.cache
+E:\[01] DonNet SQLite3 学习\GTSApps\WPFDataGrid\obj\Debug\WPFDataGrid_MarkupCompile.lref
+E:\[01] DonNet SQLite3 学习\GTSApps\WPFDataGrid\obj\Debug\App.baml
+E:\[01] DonNet SQLite3 学习\GTSApps\WPFDataGrid\obj\Debug\Language\en-us.baml
+E:\[01] DonNet SQLite3 学习\GTSApps\WPFDataGrid\obj\Debug\Language\zh-cn.baml
+E:\[01] DonNet SQLite3 学习\GTSApps\WPFDataGrid\obj\Debug\MainWindow.baml
+E:\[01] DonNet SQLite3 学习\GTSApps\WPFDataGrid\obj\Debug\Theme\DataGrid.baml
+E:\[01] DonNet SQLite3 学习\GTSApps\WPFDataGrid\obj\Debug\UC\RowAngle.baml
+E:\[01] DonNet SQLite3 学习\GTSApps\WPFDataGrid\obj\Debug\WPFDataGrid.g.resources
+E:\[01] DonNet SQLite3 学习\GTSApps\WPFDataGrid\obj\Debug\WPFDataGrid.Properties.Resources.resources
+E:\[01] DonNet SQLite3 学习\GTSApps\WPFDataGrid\obj\Debug\WPFDataGrid.csproj.GenerateResource.cache
+E:\[01] DonNet SQLite3 学习\GTSApps\WPFDataGrid\obj\Debug\WPFDataGrid.csproj.CoreCompileInputs.cache
+E:\[01] DonNet SQLite3 学习\GTSApps\WPFDataGrid\obj\Debug\WPFDataGrid.exe
+E:\[01] DonNet SQLite3 学习\GTSApps\WPFDataGrid\obj\Debug\WPFDataGrid.pdb
+E:\[01] DonNet SQLite3 学习\GTSApps\WPFDataGrid\obj\Debug\WPFDataGrid.csprojAssemblyReference.cache
+E:\Github\GTSApps\WPFDataGrid\bin\Debug\WPFDataGrid.exe.config
+E:\Github\GTSApps\WPFDataGrid\bin\Debug\WPFDataGrid.exe
+E:\Github\GTSApps\WPFDataGrid\bin\Debug\WPFDataGrid.pdb
+E:\Github\GTSApps\WPFDataGrid\obj\Debug\MainWindow.g.cs
+E:\Github\GTSApps\WPFDataGrid\obj\Debug\UC\RowAngle.g.cs
+E:\Github\GTSApps\WPFDataGrid\obj\Debug\App.g.cs
+E:\Github\GTSApps\WPFDataGrid\obj\Debug\WPFDataGrid_MarkupCompile.cache
+E:\Github\GTSApps\WPFDataGrid\obj\Debug\WPFDataGrid_MarkupCompile.lref
+E:\Github\GTSApps\WPFDataGrid\obj\Debug\App.baml
+E:\Github\GTSApps\WPFDataGrid\obj\Debug\Language\en-us.baml
+E:\Github\GTSApps\WPFDataGrid\obj\Debug\Language\zh-cn.baml
+E:\Github\GTSApps\WPFDataGrid\obj\Debug\MainWindow.baml
+E:\Github\GTSApps\WPFDataGrid\obj\Debug\Theme\DataGrid.baml
+E:\Github\GTSApps\WPFDataGrid\obj\Debug\UC\RowAngle.baml
+E:\Github\GTSApps\WPFDataGrid\obj\Debug\WPFDataGrid.g.resources
+E:\Github\GTSApps\WPFDataGrid\obj\Debug\WPFDataGrid.Properties.Resources.resources
+E:\Github\GTSApps\WPFDataGrid\obj\Debug\WPFDataGrid.csproj.GenerateResource.cache
+E:\Github\GTSApps\WPFDataGrid\obj\Debug\WPFDataGrid.csproj.CoreCompileInputs.cache
+E:\Github\GTSApps\WPFDataGrid\obj\Debug\WPFDataGrid.exe
+E:\Github\GTSApps\WPFDataGrid\obj\Debug\WPFDataGrid.pdb
+E:\Github\GTSApps\WPFDataGrid\obj\Debug\Window1.g.cs
+E:\Github\GTSApps\WPFDataGrid\obj\Debug\Window1.baml
+E:\Github\GTSApps\WPFDataGrid\obj\Debug\Pages\Page1.g.cs
+E:\Github\GTSApps\WPFDataGrid\bin\Debug\DevExpress.Data.Desktop.v20.2.dll
+E:\Github\GTSApps\WPFDataGrid\bin\Debug\DevExpress.Data.v20.2.dll
+E:\Github\GTSApps\WPFDataGrid\bin\Debug\DevExpress.Mvvm.v20.2.dll
+E:\Github\GTSApps\WPFDataGrid\bin\Debug\DevExpress.Pdf.v20.2.Core.dll
+E:\Github\GTSApps\WPFDataGrid\bin\Debug\DevExpress.Printing.v20.2.Core.dll
+E:\Github\GTSApps\WPFDataGrid\bin\Debug\DevExpress.Xpf.Core.v20.2.dll
+E:\Github\GTSApps\WPFDataGrid\bin\Debug\DevExpress.Pdf.v20.2.Drawing.dll
+E:\Github\GTSApps\WPFDataGrid\bin\Debug\DevExpress.Data.Desktop.v20.2.xml
+E:\Github\GTSApps\WPFDataGrid\bin\Debug\DevExpress.Data.v20.2.xml
+E:\Github\GTSApps\WPFDataGrid\bin\Debug\DevExpress.Mvvm.v20.2.xml
+E:\Github\GTSApps\WPFDataGrid\bin\Debug\DevExpress.Pdf.v20.2.Core.xml
+E:\Github\GTSApps\WPFDataGrid\bin\Debug\DevExpress.Printing.v20.2.Core.xml
+E:\Github\GTSApps\WPFDataGrid\bin\Debug\DevExpress.Xpf.Core.v20.2.xml
+E:\Github\GTSApps\WPFDataGrid\bin\Debug\DevExpress.Pdf.v20.2.Drawing.xml
+E:\Github\GTSApps\WPFDataGrid\bin\Debug\de\DevExpress.Data.v20.2.resources.dll
+E:\Github\GTSApps\WPFDataGrid\bin\Debug\es\DevExpress.Data.v20.2.resources.dll
+E:\Github\GTSApps\WPFDataGrid\bin\Debug\ja\DevExpress.Data.v20.2.resources.dll
+E:\Github\GTSApps\WPFDataGrid\bin\Debug\ru\DevExpress.Data.v20.2.resources.dll
+E:\Github\GTSApps\WPFDataGrid\bin\Debug\de\DevExpress.Pdf.v20.2.Core.resources.dll
+E:\Github\GTSApps\WPFDataGrid\bin\Debug\es\DevExpress.Pdf.v20.2.Core.resources.dll
+E:\Github\GTSApps\WPFDataGrid\bin\Debug\ja\DevExpress.Pdf.v20.2.Core.resources.dll
+E:\Github\GTSApps\WPFDataGrid\bin\Debug\ru\DevExpress.Pdf.v20.2.Core.resources.dll
+E:\Github\GTSApps\WPFDataGrid\bin\Debug\de\DevExpress.Printing.v20.2.Core.resources.dll
+E:\Github\GTSApps\WPFDataGrid\bin\Debug\es\DevExpress.Printing.v20.2.Core.resources.dll
+E:\Github\GTSApps\WPFDataGrid\bin\Debug\ja\DevExpress.Printing.v20.2.Core.resources.dll
+E:\Github\GTSApps\WPFDataGrid\bin\Debug\ru\DevExpress.Printing.v20.2.Core.resources.dll
+E:\Github\GTSApps\WPFDataGrid\bin\Debug\de\DevExpress.Xpf.Core.v20.2.resources.dll
+E:\Github\GTSApps\WPFDataGrid\bin\Debug\es\DevExpress.Xpf.Core.v20.2.resources.dll
+E:\Github\GTSApps\WPFDataGrid\bin\Debug\ja\DevExpress.Xpf.Core.v20.2.resources.dll
+E:\Github\GTSApps\WPFDataGrid\bin\Debug\ru\DevExpress.Xpf.Core.v20.2.resources.dll
+E:\Github\GTSApps\WPFDataGrid\obj\Debug\Pages\Page1.baml
+E:\Github\GTSApps\WPFDataGrid\obj\Debug\WPFDataGrid.csproj.CopyComplete
+E:\Github\GTSApps\WPFDataGrid\obj\Debug\WPFDataGrid.csprojAssemblyReference.cache
+E:\Github\GTSApps\WPFDataGrid\bin\Debug\DevExpress.Xpf.Controls.v20.2.dll
+E:\Github\GTSApps\WPFDataGrid\bin\Debug\DevExpress.Xpf.Controls.v20.2.xml
+E:\Github\GTSApps\WPFDataGrid\bin\Debug\de\DevExpress.Xpf.Controls.v20.2.resources.dll
+E:\Github\GTSApps\WPFDataGrid\bin\Debug\es\DevExpress.Xpf.Controls.v20.2.resources.dll
+E:\Github\GTSApps\WPFDataGrid\bin\Debug\ja\DevExpress.Xpf.Controls.v20.2.resources.dll
+E:\Github\GTSApps\WPFDataGrid\bin\Debug\ru\DevExpress.Xpf.Controls.v20.2.resources.dll
+E:\Github\GTSApps\WPFDataGrid\obj\Debug\UC\UserControl1.g.cs
+E:\Github\GTSApps\WPFDataGrid\obj\Debug\UC\UserControl1.baml
+E:\Github\GTSApps\WPFDataGrid\obj\Debug\GeneratedInternalTypeHelper.g.cs
+E:\Github\GTSApps\WPFDataGrid\obj\Debug\Demos\LineWinDemo.g.cs
+E:\Github\GTSApps\WPFDataGrid\obj\Debug\Demos\LineWinDemo.baml

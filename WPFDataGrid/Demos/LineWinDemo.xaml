@@ -1,0 +1,135 @@
+﻿<Window
+    x:Class="WPFDataGrid.Demos.LineWinDemo"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WPFDataGrid.Demos"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="LineWinDemo"
+    Width="829"
+    Height="567"
+    mc:Ignorable="d">
+    <Grid>
+        <!--  StrokeThickness：图形轮廓的粗细度；StrokeDashArray：形状轮廓的虚线间隙的样式；StrokeStartLineCap/StrokeEndLineCap：直线始端/末端的图形样式，属性值有Flat、Round、Square、Triangle  -->
+        <!--
+            StrokeDashArray属性，里面是一组double类型的数值，标识虚线，实线的长短，一个数字表示相同大小的虚部分和实部分，两个数字表示虚部分和实部分的小小，再多表示第一段，第二段，第三段...
+            RadiusX和RadiusY属性需要联合使用表示角的角度，单独设置不生效，RadiusX表示X轴方向角的弯曲度，RadiusY表示Y轴方向的弯曲度。
+            StrokeDashCap属性用于设置虚线的时候，虚线段开除的形状，无虚线不生效
+            StrokeDashOffset表示破折号开始的距离，偏移量
+            StrokeEndLineCap设置开始或结束处的形状，闭合曲线无效
+            StrokeMiterLimit斜接长度与笔画厚度之比的极限。这个值总是大于等于1的正数。
+        -->
+        <Line
+           
+            Stroke="Pink"
+            StrokeThickness="10"
+            X1="10"
+            X2="500"
+            Y1="20"
+            Y2="20" />
+        <Line
+            Stroke="Black"
+            StrokeDashArray="6"
+            StrokeThickness="3"
+            X1="10"
+            X2="500"
+            Y1="50"
+            Y2="50" />
+        <Line
+            Stroke="Green"
+            StrokeEndLineCap="Flat"
+            StrokeThickness="10"
+            X1="10"
+            X2="500"
+            Y1="80"
+            Y2="80" />
+
+        <Line
+            Stretch="None"
+            Stroke="Black"
+            StrokeEndLineCap="Round"
+            StrokeThickness="10"
+            X1="10"
+            X2="500"
+            Y1="110"
+            Y2="110" />
+
+        <Line
+            Opacity="0.2"
+            OpacityMask="Black"
+            Stroke="Pink"
+            StrokeEndLineCap="Square"
+            StrokeThickness="10"
+            X1="10"
+            X2="500"
+            Y1="140"
+            Y2="140" />
+
+        <Line
+            Stroke="Pink"
+            StrokeEndLineCap="Triangle"
+            StrokeThickness="10"
+            X1="10"
+            X2="500"
+            Y1="170"
+            Y2="170" />
+        <Rectangle
+            Width="100"
+            Height="100"
+            Margin="10,190,682,129"
+            Fill="Pink"
+            Stretch="Uniform"
+            Stroke="Red"
+            StrokeThickness="2" />
+
+        <Rectangle
+            Width="200"
+            Height="200"
+            Margin="115,190,477,29"
+            Fill="Transparent"
+            Stroke="Blue"
+            StrokeDashArray="3"
+            StrokeDashCap="Flat"
+            StrokeDashOffset="100"
+            StrokeEndLineCap="Triangle"
+            StrokeLineJoin="Round"
+            StrokeMiterLimit="10"
+            StrokeThickness="15" />
+
+        <Grid Margin="345,190,388,184" Background="Transparent">
+            <Ellipse Fill="CornflowerBlue" Opacity="0.2" />
+            <Ellipse Stroke="Green" StrokeThickness="2" />
+            <Ellipse
+                Margin="4"
+                Stroke="Blue"
+                StrokeThickness="1" />
+            <Ellipse
+                Width="20"
+                Height="20"
+                Margin="8"
+                Fill="Red" />
+        </Grid>
+
+
+        <Border
+            x:Name="bottomLine"
+            Margin="58,484,246,36"
+            BorderThickness="1,0,0,1">
+            <Border.BorderBrush>
+                <VisualBrush>
+                    <VisualBrush.Visual>
+                        <Rectangle
+                            Width="{Binding RelativeSource={RelativeSource AncestorType={x:Type Border}}, Path=ActualWidth}"
+                            Height="{Binding RelativeSource={RelativeSource AncestorType={x:Type Border}}, Path=ActualHeight}"
+                            Stroke="Red"
+                            StrokeDashArray="1"
+                            StrokeThickness="5"/>
+                    </VisualBrush.Visual>
+                </VisualBrush>
+            </Border.BorderBrush>
+
+        </Border>
+
+
+    </Grid>
+</Window>

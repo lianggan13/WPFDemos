@@ -1,0 +1,45 @@
+﻿<Window
+    x:Class="WPFDataGrid.Window1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui"
+    xmlns:dxwuin="http://schemas.devexpress.com/winfx/2008/xaml/windowsui/navigation"
+    xmlns:local="clr-namespace:WPFDataGrid"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:uc="clr-namespace:WPFDataGrid.UC"
+    Title="Window1"
+    Width="749"
+    Height="262"
+    Loaded="Window_Loaded"
+    mc:Ignorable="d">
+
+    <Window.Resources>
+        <uc:UserControl1 x:Key="uc1" />
+    </Window.Resources>
+    <StackPanel>
+        <Canvas
+            x:Name="container"
+           
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch">
+
+            <Button
+                
+               
+                  Width="{Binding ElementName=container, Path=ActualWidth}"
+                Height="{Binding ElementName=container, Path=ActualHeight}"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                BorderBrush="Red"
+                Content="Center" />
+
+            <TextBlock
+                Canvas.Left="40.3"
+                Canvas.Top="20"
+                Text="sssss" />
+
+        </Canvas>
+    </StackPanel>
+
+</Window>
