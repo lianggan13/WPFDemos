@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFChart", "WPFChart\WPFCha
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFComboBox", "WPFComboBox\WPFComboBox.csproj", "{19A5995B-1538-48EC-BEB6-029273840FA4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFTextBox", "WPFTextBox\WPFTextBox.csproj", "{B892876D-8D83-4BBE-B7B2-D9AA6FFFC680}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{19A5995B-1538-48EC-BEB6-029273840FA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19A5995B-1538-48EC-BEB6-029273840FA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19A5995B-1538-48EC-BEB6-029273840FA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B892876D-8D83-4BBE-B7B2-D9AA6FFFC680}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B892876D-8D83-4BBE-B7B2-D9AA6FFFC680}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B892876D-8D83-4BBE-B7B2-D9AA6FFFC680}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B892876D-8D83-4BBE-B7B2-D9AA6FFFC680}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
