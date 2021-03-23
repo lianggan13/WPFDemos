@@ -1,0 +1,183 @@
+﻿<Window
+    x:Class="WPFTreeView.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converter="clr-namespace:WPFCommon.Converters;assembly=WPFCommon"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WPFTreeView"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:model="clr-namespace:WPFTreeView.Model"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <sys:String x:Key="HomePage">Home Page</sys:String>
+        <LinearGradientBrush x:Key="AccentBackground">
+            <GradientStop Color="#FF1F2022" />
+            <GradientStop Offset="1" Color="#FF434446" />
+        </LinearGradientBrush>
+
+        <converter:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+        <converter:BoolToInversedVisibilityConverter x:Key="BoolToInversedVisibilityConverter" />
+        <converter:IntToVisibilityConverter x:Key="IntToVisibilityConverter" />
+        <converter:InversedVisibilityConverter x:Key="InversedVisibilityConverter" />
+
+        <x:Array x:Key="templates" Type="{x:Type model:SingleTemplate}">
+            <model:SingleTemplate
+                Name="Template 1"
+                IsAvailable="True"
+                IsTemplateSelected="False"
+                ParentBatID="1"
+                State="0" />
+            <model:SingleTemplate
+                Name="Template 2"
+                IsAvailable="True"
+                IsTemplateSelected="False"
+                ParentBatID="1"
+                State="1" />
+            <model:SingleTemplate
+                Name="Template 3"
+                IsAvailable="True"
+                IsRenaming="True"
+                IsTemplateSelected="False"
+                ParentBatID="1"
+                State="0" />
+        </x:Array>
+        <x:Array x:Key="Batches" Type="{x:Type model:BatchModel}">
+            <model:BatchModel
+                Name="BatchModel 1"
+                ID="1"
+                IsBatchSelected="False"
+                IsSelected="True"
+                Templates="{StaticResource templates}" />
+            <model:BatchModel
+                Name="BatchModel 2"
+                ID="2"
+                IsBatchSelected="False"
+                Templates="{StaticResource templates}" />
+            <model:BatchModel
+                Name="BatchModel 3"
+                ID="3"
+                IsBatchSelected="True"
+                IsExpanded="True"
+                Templates="{StaticResource templates}" />
+        </x:Array>
+    </Window.Resources>
+    <Grid x:Name="LayoutRoot">
+        <TreeView Name="tvTestQueue" ItemsSource="{StaticResource Batches}">
+            <TreeView.Template>
+                <ControlTemplate TargetType="{x:Type TreeView}">
+                    <Border BorderBrush="Red" BorderThickness="1">
+                        <ItemsPresenter />
+                    </Border>
+                </ControlTemplate>
+            </TreeView.Template>
+            <TreeView.ItemContainerStyle>
+                <Style TargetType="TreeViewItem">
+                    <Setter Property="IsExpanded" Value="True" />
+                    <!--<Setter Property="Template">
+                        <Setter.Value >
+                            <ControlTemplate TargetType="{x:Type TreeViewItem}">
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>-->
+                </Style>
+            </TreeView.ItemContainerStyle>
+
+            <TreeView.Resources>
+                <HierarchicalDataTemplate DataType="{x:Type model:BatchModel}" ItemsSource="{Binding Templates}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition Height="1" />
+                        </Grid.RowDefinitions>
+                        <Border Name="groupBd" Margin="0">
+                            <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                                <TextBlock
+                                    x:Name="txtBlockTemplateSetsName"
+                                    VerticalAlignment="Center"
+                                    FontSize="12"
+                                    FontWeight="Bold"
+                                    Text="{Binding Name}"
+                                    TextAlignment="Center"
+                                    Visibility="{Binding IsRenaming, Converter={StaticResource BoolToInversedVisibilityConverter}}" />
+                                <TextBox
+                                    x:Name="txtBoxTemplateSetsName"
+                                    VerticalAlignment="Center"
+                                    Focusable="True"
+                                    FontSize="12"
+                                    Tag="{Binding ID}"
+                                    Text="{Binding Name}"
+                                    TextAlignment="Left"
+                                    ToolTip="{Binding Name}"
+                                    Visibility="{Binding ElementName=txtBlockTemplateSetsName, Path=Visibility, Converter={StaticResource InversedVisibilityConverter}}" />
+
+                            </StackPanel>
+                        </Border>
+                        <Border
+                            Grid.Row="1"
+                            Background="#376BFA"
+                            Visibility="{Binding IsDragOver, Converter={StaticResource BoolToVisibilityConverter}}" />
+                    </Grid>
+                </HierarchicalDataTemplate>
+
+                <DataTemplate DataType="{x:Type model:SingleTemplate}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition Height="1" />
+                        </Grid.RowDefinitions>
+                        <Border
+                            Name="groupTemp"
+                            HorizontalAlignment="Stretch"
+                            Background="Transparent">
+                            <StackPanel
+                                VerticalAlignment="Center"
+                                IsEnabled="{Binding IsEnable}"
+                                Orientation="Horizontal">
+                                <TextBlock
+                                    x:Name="txtBlockTemplateName"
+                                    Margin="3,0,0,0"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Text="{Binding Name}"
+                                    TextAlignment="Center"
+                                    ToolTip="{Binding Name}"
+                                    Visibility="{Binding IsRenaming, Converter={StaticResource BoolToInversedVisibilityConverter}}" />
+                                <TextBox
+                                    x:Name="txtBoxTemplateName"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Focusable="True"
+                                    Tag="{Binding TestId}"
+                                    Text="{Binding Name}"
+                                    TextAlignment="Center"
+                                    ToolTip="{Binding Name}"
+                                    Visibility="{Binding ElementName=txtBlockTemplateName, Path=Visibility, Converter={StaticResource InversedVisibilityConverter}}" />
+
+                                <TextBlock
+                                    x:Name="txtBlockState"
+                                    Margin="5,0,0,0"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Foreground="Red"
+                                    Text="未完成"
+                                    TextAlignment="Center"
+                                    Visibility="{Binding State, Converter={StaticResource IntToVisibilityConverter}}" />
+                            </StackPanel>
+                        </Border>
+                        <Border
+                            Grid.Row="1"
+                            Background="#376BFA"
+                            Visibility="{Binding IsDragOver, Converter={StaticResource BoolToVisibilityConverter}}" />
+                    </Grid>
+
+                </DataTemplate>
+            </TreeView.Resources>
+        </TreeView>
+
+    </Grid>
+</Window>

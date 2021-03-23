@@ -18,10 +18,10 @@ namespace WPFTextBox.ValidateTextBox
 
         public void Value_ErrorEvent(object sender, ValidationErrorEventArgs e)
         {
-            //if (e.Action == ValidationErrorEventAction.Added)
-            //    Errors.Add(e.Error);
-            //else
-            //    Errors.Remove(e.Error);
+            if (e.Action == ValidationErrorEventAction.Added)
+                VM.Errors.Add(e.Error);
+            else
+                VM.Errors.Remove(e.Error);
         }
     }
 }

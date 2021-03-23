@@ -8,15 +8,17 @@
     xmlns:local="clr-namespace:WPFChart"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:uc="clr-namespace:WPFChart.UC"
+    WindowStartupLocation="CenterScreen"
     Title="MainWindow"
-    Width="800"
-    Height="450"
+    Width="1042"
+    Height="564"
     mc:Ignorable="d">
     <Grid>
-
-        <dx:DXTabControl>
+        <StackPanel MouseDown="StackPanel_MouseDown"  VerticalAlignment="Top" Background="Brown" Height="30"></StackPanel>
+        <dx:DXTabControl Margin="0,25,0,0">
             <dx:DXTabItem x:Name="large2DPage" Header="Large 2D">
-                <uc:XYLargeData2DUC x:Name="chart2DUC" />
+                <!--<uc:XYLargeData2DUC x:Name="chart2DUC" />-->
+                <uc:Mbps2DChartUC />
             </dx:DXTabItem>
         </dx:DXTabControl>
     </Grid>

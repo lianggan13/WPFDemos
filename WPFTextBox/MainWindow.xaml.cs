@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 
 namespace WPFTextBox
 {
@@ -25,8 +24,9 @@ namespace WPFTextBox
                     errorMsg = "Empty Data";
                 }
 
-                Tuple<string, string> tp = new Tuple<string, string>(toolTip, errorMsg);
-                return tp;
+                txtSingle.VM.Model.ErrorMsg = errorMsg;
+                txtSingle.VM.Model.ToolTip = toolTip;
+
             });
 
 

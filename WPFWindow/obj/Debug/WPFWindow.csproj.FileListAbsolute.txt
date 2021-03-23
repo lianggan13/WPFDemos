@@ -19,7 +19,6 @@ E:\Github\GTSApps\WPFWindow\obj\Debug\Resource\style\Button.baml
 E:\Github\WPFDemos\WPFWindow\bin\Debug\WPFWindow.exe.config
 E:\Github\WPFDemos\WPFWindow\bin\Debug\WPFWindow.exe
 E:\Github\WPFDemos\WPFWindow\bin\Debug\WPFWindow.pdb
-E:\Github\WPFDemos\WPFWindow\obj\Debug\WPFWindow.csprojAssemblyReference.cache
 E:\Github\WPFDemos\WPFWindow\obj\Debug\MainWindow.g.cs
 E:\Github\WPFDemos\WPFWindow\obj\Debug\App.g.cs
 E:\Github\WPFDemos\WPFWindow\obj\Debug\WPFWindow_MarkupCompile.cache
@@ -34,3 +33,4 @@ E:\Github\WPFDemos\WPFWindow\obj\Debug\WPFWindow.csproj.GenerateResource.cache
 E:\Github\WPFDemos\WPFWindow\obj\Debug\WPFWindow.csproj.CoreCompileInputs.cache
 E:\Github\WPFDemos\WPFWindow\obj\Debug\WPFWindow.exe
 E:\Github\WPFDemos\WPFWindow\obj\Debug\WPFWindow.pdb
+E:\Github\WPFDemos\WPFWindow\obj\Debug\WPFWindow.csprojAssemblyReference.cache

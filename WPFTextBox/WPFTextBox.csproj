@@ -63,6 +63,7 @@
     </ApplicationDefinition>
     <Compile Include="Common\BoolToVisibilityConverter.cs" />
     <Compile Include="Common\NotifyPropertyChanged.cs" />
+    <Compile Include="Model\ValidatorBaseModel.cs" />
     <Compile Include="Model\SingleTextBoxModel.cs" />
     <Compile Include="ValidateTextBox\SingleTextBox.xaml.cs">
       <DependentUpon>SingleTextBox.xaml</DependentUpon>

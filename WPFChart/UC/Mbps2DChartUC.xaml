@@ -1,0 +1,482 @@
+﻿<UserControl
+    x:Class="WPFChart.UC.Mbps2DChartUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Interaction="http://schemas.microsoft.com/expression/2010/interactions"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:local="clr-namespace:WPFChart.UC"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:model="clr-namespace:WPFChart.Model"
+    xmlns:vm="clr-namespace:WPFChart.ViewModel"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <x:Array x:Key="Legends" Type="{x:Type model:LegendModel}">
+            <model:LegendModel
+                Name="30°"
+                IsChecked="False"
+                LegendBrush="Blue" />
+            <model:LegendModel
+                Name="50°"
+                IsChecked="False"
+                LegendBrush="Green" />
+            <model:LegendModel
+                Name="120°"
+                IsChecked="True"
+                LegendBrush="Red" />
+        </x:Array>
+        <ControlTemplate x:Key="TogButtonStyle" TargetType="{x:Type ButtonBase}">
+            <ContentPresenter
+                x:Name="contentPresenter"
+                Margin="{TemplateBinding Padding}"
+                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\Button.xaml;8;8"
+                Content="{TemplateBinding Content}"
+                ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                ContentTemplate="{TemplateBinding ContentTemplate}"
+                Focusable="False"
+                RecognizesAccessKey="True"
+                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+        </ControlTemplate>
+    </UserControl.Resources>
+    <UserControl.DataContext>
+        <vm:Mbps2DChartVM x:Name="VM" />
+    </UserControl.DataContext>
+    <Grid Background="#FFFFFF">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock
+                Margin="20,0,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Text="测量频率" />
+            <TextBlock
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Text=":" />
+            <TextBlock
+                Margin="5,0,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Text="{Binding Freq, StringFormat='{}{0}MHz'}" />
+            <Button
+                x:Name="btnTest"
+                Margin="20,0,0,0"
+                VerticalAlignment="Center"
+                Click="btnTest_Click"
+                Content="张亮测试" />
+        </StackPanel>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="83" />
+            </Grid.ColumnDefinitions>
+            <dxc:ChartControl
+                x:Name="chart"
+                HorizontalAlignment="Stretch"
+                AnimationMode="OnLoad"
+                BorderThickness="1"
+                CrosshairEnabled="True"
+                DataSource="{Binding MbpsPoints}"
+                ToolTipEnabled="False">
+                <dxc:ChartControl.Legend>
+                    <dxc:Legend
+                        Background="Transparent"
+                        BorderBrush="Transparent"
+                        BorderThickness="0"
+                        HorizontalPosition="RightOutside"
+                        MarkerMode="CheckBox"
+                        MaxCrosshairContentWidth="25"
+                        Orientation="Vertical"
+                        ReverseItems="False"
+                        VerticalPosition="Top"
+                        Visibility="Collapsed">
+                        <dxc:Legend.Title>
+                            <dxc:LegendTitle
+                                Content="Angle"
+                                FontSize="13"
+                                Visible="True" />
+                        </dxc:Legend.Title>
+                        <dxc:Legend.ItemTemplate>
+                            <DataTemplate>
+                                <dxc:LegendItemContainer Margin="0,0,0,0">
+                                    <ToggleButton
+                                        x:Name="togBtn"
+                                        Margin="0,8,0,0"
+                                        Padding="0"
+                                        HorizontalAlignment="Center"
+                                        BorderThickness="0"
+                                        Cursor="Hand"
+                                        IsChecked="{Binding ChartElement.CheckedInLegend, Mode=TwoWay}"
+                                        IsEnabled="{Binding IsEnabled}"
+                                        Template="{DynamicResource TogButtonStyle}">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition />
+                                                <ColumnDefinition />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid Width="10" Height="10">
+                                                <Ellipse
+                                                    x:Name="ellipse"
+                                                    Stretch="Uniform"
+                                                    Stroke="{Binding MarkerLineBrush}"
+                                                    StrokeDashArray="{Binding MarkerLineStyle.DashStyle.Dashes}"
+                                                    StrokeThickness="1" />
+                                            </Grid>
+                                            <TextBlock
+                                                Grid.Column="1"
+                                                Width="30"
+                                                Padding="5,0,0,0"
+                                                Foreground="{Binding MarkerLineBrush}"
+                                                Text="{Binding Text}" />
+                                        </Grid>
+                                    </ToggleButton>
+
+                                </dxc:LegendItemContainer>
+                                <DataTemplate.Triggers>
+                                    <DataTrigger Binding="{Binding ChartElement.CheckedInLegend, Mode=TwoWay}" Value="true">
+                                        <Setter TargetName="ellipse" Property="Fill" Value="{Binding MarkerLineBrush}" />
+                                        <!--<Setter TargetName="togBtn" Property="Background" Value="#376BFA" />-->
+                                    </DataTrigger>
+                                </DataTemplate.Triggers>
+                            </DataTemplate>
+                        </dxc:Legend.ItemTemplate>
+
+                    </dxc:Legend>
+
+                </dxc:ChartControl.Legend>
+
+                <!--#region Titles-->
+                <dxc:ChartControl.Titles>
+                    <dxc:Title
+                        HorizontalAlignment="Center"
+                        Content="ChartControl Title"
+                        Dock="Top"
+                        Visibility="Collapsed" />
+                </dxc:ChartControl.Titles>
+                <!--#endregion-->
+                <dxc:ChartControl.CrosshairOptions>
+                    <dxc:CrosshairOptions
+                        ContentShowMode="Label"
+                        CrosshairLabelMode="ShowCommonForAllSeries"
+                        GroupHeaderPattern="{}{A} dBm"
+                        LinesMode="Auto"
+                        ShowArgumentLabels="True"
+                        ShowGroupHeaders="True" />
+                </dxc:ChartControl.CrosshairOptions>
+
+
+                <dxc:ChartControl.ToolTipOptions>
+                    <dxc:ToolTipOptions
+                        ShowForPoints="True"
+                        ShowForSeries="False"
+                        ShowHint="False">
+                        <dxc:ToolTipOptions.ToolTipPosition>
+                            <dxc:ToolTipMousePosition Location="TopLeft" />
+                        </dxc:ToolTipOptions.ToolTipPosition>
+                    </dxc:ToolTipOptions>
+                </dxc:ChartControl.ToolTipOptions>
+
+
+                <dxc:ChartControl.ToolTipController>
+                    <dxc:ChartToolTipController
+                        AutoPopDelay="0"
+                        CloseOnClick="False"
+                        ContentMargin="1"
+                        InitialDelay="0:0:0.1"
+                        OpenMode="OnHover"
+                        ShowBeak="False"
+                        ShowShadow="False" />
+                </dxc:ChartControl.ToolTipController>
+
+                <dxc:XYDiagram2D
+                    x:Name="diagram"
+                    Margin="-10,0,-2,0"
+                    EnableAxisXNavigation="True"
+                    EnableAxisYNavigation="False"
+                    SeriesDataMember="Phi"
+                    Zoom="diagram_Zoom">
+                    <dxc:XYDiagram2D.SeriesTemplate>
+                        <dxc:LineSeries2D
+                            x:Name="series"
+                            AllowResample="False"
+                            AnimationAutoStartMode="SetFinalState"
+                            ArgumentDataMember="Power"
+                            CrosshairContentShowMode="Label"
+                            CrosshairLabelPattern="{}{S}° : {V:0.00} %"
+                            LabelsVisibility="False"
+                            LegendTextPattern="{}{S}°"
+                            MarkerSize="7"
+                            MarkerVisible="False"
+                            ShowInLegend="True"
+                            ToolTipPointPattern="{}{A}°,{V:0.00}"
+                            ValueDataMember="Mbps">
+                            <!--<dxc:LineSeries2D.LegendMarkerTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Grid Width="12" Height="12">
+                                            <Ellipse
+                                                x:Name="ellipse"
+                                                Stretch="Uniform"
+                                                Stroke="{Binding Path=MarkerLineBrush}"
+                                                StrokeDashArray="{Binding Path=MarkerLineStyle.DashStyle.Dashes}"
+                                                StrokeThickness="1" />
+                                        </Grid>
+                                        <TextBlock
+                                            Width="55"
+                                            Margin="4,0,0,0"
+                                            VerticalAlignment="Center"
+                                            Text="{Binding Path=Text}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </dxc:LineSeries2D.LegendMarkerTemplate>-->
+
+                            <dxc:LineSeries2D.MarkerModel>
+                                <dxc:SimpleMarker2DModel />
+                            </dxc:LineSeries2D.MarkerModel>
+
+                            <dxc:LineSeries2D.LineStyle>
+                                <dxc:LineStyle LineJoin="Round" Thickness="1">
+                                    <!--<dxc:LineStyle.DashStyle>
+                                    <DashStyle Dashes="" Offset="0" />
+                                </dxc:LineStyle.DashStyle>-->
+                                </dxc:LineStyle>
+                            </dxc:LineSeries2D.LineStyle>
+                        </dxc:LineSeries2D>
+                    </dxc:XYDiagram2D.SeriesTemplate>
+
+
+                    <!--#region AxisY-->
+                    <dxc:XYDiagram2D.AxisX>
+                        <dxc:AxisX2D
+                            Alignment="Near"
+                            GridLinesMinorVisible="False"
+                            GridLinesVisible="False"
+                            Interlaced="False"
+                            MinorCount="5"
+                            TickmarksMinorVisible="True">
+                            <!--  Content="{Binding XY2DModel.AxisXModel.Title}"  -->
+                            <dxc:AxisX2D.Title>
+                                <dxc:AxisTitle
+                                    Padding="0"
+                                    Content="Power (dBm)"
+                                    FontSize="12"
+                                    FontWeight="Medium"
+                                    Foreground="#333333" />
+                            </dxc:AxisX2D.Title>
+
+                            <dxc:AxisX2D.Label>
+                                <dxc:AxisLabel Padding="0" />
+                            </dxc:AxisX2D.Label>
+
+                            <dxc:AxisX2D.CrosshairAxisLabelOptions>
+                                <dxc:CrosshairAxisLabelOptions Pattern="{}{A:0} dBm" />
+                            </dxc:AxisX2D.CrosshairAxisLabelOptions>
+
+                            <dxc:AxisX2D.NumericScaleOptions>
+                                <!--<dxc:AutomaticNumericScaleOptions AggregateFunction="Maximum" />-->
+                                <dxc:ManualNumericScaleOptions
+                                    AggregateFunction="None"
+                                    AutoGrid="True"
+                                    GridSpacing="20" />
+                                <!--<dxc:ContinuousNumericScaleOptions />-->
+                                <!--<dxc:IntervalNumericScaleOptions AutoGrid="True"  ></dxc:IntervalNumericScaleOptions>-->
+                            </dxc:AxisX2D.NumericScaleOptions>
+
+                            <dxc:AxisX2D.ScrollingRange>
+                                <dxc:AxisRange />
+                            </dxc:AxisX2D.ScrollingRange>
+                            <!--<dxc:AxisX2D.WholeRange>
+                                <dxc:Range
+                                    dxc:AxisY2D.AlwaysShowZeroLevel="True"
+                                    MaxValue="{Binding XY2DModel.AxisXModel.RangeMax}"
+                                    MinValue="{Binding XY2DModel.AxisXModel.RangeMin}"
+                                    SideMarginsValue="0" />
+                            </dxc:AxisX2D.WholeRange>-->
+                        </dxc:AxisX2D>
+                    </dxc:XYDiagram2D.AxisX>
+                    <!--#endregion-->
+
+                    <!--#region AxisY-->
+                    <dxc:XYDiagram2D.AxisY>
+                        <dxc:AxisY2D
+                            Alignment="Near"
+                            GridLinesMinorVisible="False"
+                            GridLinesVisible="True"
+                            Interlaced="False"
+                            LabelVisibilityMode="AutoGeneratedAndCustom"
+                            TickmarksMinorVisible="True"
+                            WholeRange="{x:Null}">
+                            <dxc:AxisY2D.Title>
+                                <dxc:AxisTitle
+                                    Padding="0"
+                                    Content="Mbps (%)"
+                                    FontSize="12"
+                                    FontWeight="Medium"
+                                    Foreground="#333333" />
+                            </dxc:AxisY2D.Title>
+
+                            <dxc:AxisY2D.Label>
+                                <dxc:AxisLabel Padding="0" />
+                            </dxc:AxisY2D.Label>
+
+                            <dxc:AxisY2D.ConstantLinesInFront>
+                                <dxc:ConstantLine Brush="Red" Value="70">
+                                    <!--<dxc:ConstantLine.Title>
+                                        <dxc:ConstantLineTitle Content="70%"  />
+                                    </dxc:ConstantLine.Title>-->
+                                </dxc:ConstantLine>
+                            </dxc:AxisY2D.ConstantLinesInFront>
+
+                            <dxc:AxisY2D.CustomLabels>
+                                <dxc:CustomAxisLabel Value="70">
+                                    <TextBlock Foreground="Red" Text="70" />
+
+                                </dxc:CustomAxisLabel>
+                            </dxc:AxisY2D.CustomLabels>
+                            <dxc:AxisY2D.NumericScaleOptions>
+                                <dxc:ContinuousNumericScaleOptions AutoGrid="False" GridSpacing="10" />
+                            </dxc:AxisY2D.NumericScaleOptions>
+                        </dxc:AxisY2D>
+                    </dxc:XYDiagram2D.AxisY>
+                    <!--#endregion-->
+
+
+                    <dxc:XYDiagram2D.DefaultPane>
+                        <dxc:Pane x:Name="pane">
+                            <dxc:Pane.AxisXScrollBarOptions>
+                                <dxc:ScrollBarOptions BarThickness="10" Visible="False" />
+                            </dxc:Pane.AxisXScrollBarOptions>
+
+                            <dxc:Pane.AxisYScrollBarOptions>
+                                <dxc:ScrollBarOptions
+                                    Alignment="Near"
+                                    BarThickness="10"
+                                    Visible="True" />
+                            </dxc:Pane.AxisYScrollBarOptions>
+
+                        </dxc:Pane>
+                    </dxc:XYDiagram2D.DefaultPane>
+
+                    <dxc:XYDiagram2D.NavigationOptions>
+                        <dxc:NavigationOptions
+                            AxisXMaxZoomPercent="2500"
+                            AxisYMaxZoomPercent="2500"
+                            UseKeyboard="True"
+                            UseMouse="True"
+                            UseScrollBars="True" />
+                    </dxc:XYDiagram2D.NavigationOptions>
+
+                </dxc:XYDiagram2D>
+
+
+                <!--#endregion-->
+            </dxc:ChartControl>
+            <!--<ItemsControl Grid.Column="1" ItemsSource="{Binding Series, ElementName=diagram, UpdateSourceTrigger=PropertyChanged}">-->
+            <!--<ItemsControl Grid.Column="1" ItemsSource="{StaticResource Legends}">-->
+
+            <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" > 
+                <StackPanel>
+                    <TextBlock
+                        Margin="0,0,0,10"
+                        FontSize="14"
+                        FontWeight="Medium"
+                        Foreground="#333333"
+                        Text="Angle"
+                        TextAlignment="Center" />
+
+                    <ItemsControl ItemsSource="{Binding Legends}">
+                        <ItemsControl.Resources>
+                            <DataTemplate DataType="{x:Type model:LegendModel}">
+                                <Border
+                                    x:Name="border"
+                                    Margin="0,20,0,0"
+                                    CornerRadius="2,2,2,2"
+                                    Cursor="Hand"
+                                    Tag="{Binding}">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="MouseDown">
+                                            <Interaction:CallMethodAction MethodName="Legend_MouseDown" TargetObject="{Binding Path=DataContext, RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}}" />
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                    <Grid
+                                        x:Name="gd"
+                                        Width="81"
+                                        Height="24">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition />
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid Width="10" Height="10">
+                                            <Ellipse
+                                                x:Name="ellipse"
+                                                Fill="{Binding LegendBrush}"
+                                                Stretch="Uniform"
+                                                Stroke="{Binding LegendBrush}"
+                                                StrokeDashArray=""
+                                                StrokeThickness="1" />
+                                        </Grid>
+                                        <TextBlock
+                                            x:Name="txt"
+                                            Grid.Column="1"
+                                            VerticalAlignment="Center"
+                                            Foreground="#333333"
+                                            Text="{Binding Name}"
+                                            TextAlignment="Left" />
+                                    </Grid>
+                                </Border>
+                                <DataTemplate.Triggers>
+                                    <DataTrigger Binding="{Binding IsChecked, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Value="true">
+                                        <Setter TargetName="border" Property="Background" Value="#376BFA" />
+                                        <Setter TargetName="txt" Property="Foreground" Value="#FFFFFF" />
+                                    </DataTrigger>
+                                    <MultiDataTrigger>
+                                        <MultiDataTrigger.Conditions>
+                                            <Condition Binding="{Binding IsMouseOver, ElementName=border}" Value="true" />
+                                            <Condition Binding="{Binding IsChecked}" Value="false" />
+                                        </MultiDataTrigger.Conditions>
+                                        <MultiDataTrigger.Setters>
+                                            <Setter TargetName="border" Property="Background" Value="#7C9EFC" />
+                                            <Setter TargetName="txt" Property="Foreground" Value="#FFFFFF" />
+                                        </MultiDataTrigger.Setters>
+                                    </MultiDataTrigger>
+                                    <!--<DataTrigger Binding="{Binding IsMouseOver, ElementName=border}" Value="true">
+                                    <Setter TargetName="border" Property="Background" Value="#7C9EFC" />
+                                    <Setter TargetName="txt" Property="Foreground" Value="#FFFFFF" />
+                                </DataTrigger>-->
+                                </DataTemplate.Triggers>
+                            </DataTemplate>
+                        </ItemsControl.Resources>
+                        <!--<ItemsControl.ItemTemplate>
+                    <DataTemplate DataType="{x:Type model:LegendModel}">
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="{Binding Name}" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>-->
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+
+
+
+
+                </StackPanel>
+
+            </ScrollViewer>
+
+        </Grid>
+    </Grid>
+</UserControl>

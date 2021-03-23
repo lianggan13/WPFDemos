@@ -1,0 +1,6 @@
+E:\Github\WPFDemos\WPFCommon\bin\Debug\WPFCommon.dll
+E:\Github\WPFDemos\WPFCommon\bin\Debug\WPFCommon.pdb
+E:\Github\WPFDemos\WPFCommon\obj\Debug\WPFCommon.csprojAssemblyReference.cache
+E:\Github\WPFDemos\WPFCommon\obj\Debug\WPFCommon.csproj.CoreCompileInputs.cache
+E:\Github\WPFDemos\WPFCommon\obj\Debug\WPFCommon.dll
+E:\Github\WPFDemos\WPFCommon\obj\Debug\WPFCommon.pdb

@@ -1,14 +1,10 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Linq;
-using System.Text.RegularExpressions;
-using System.Windows.Controls;
 using System.Windows.Input;
-using WPFTextBox.Common;
 
 namespace WPFTextBox.Model
 {
-    public class SingleTextBoxModel : NotifyPropertyChanged, IDataErrorInfo
+    public class SingleTextBoxModel : ValidatorBaseModel
     {
         private string name;
         private string value;
@@ -95,21 +91,6 @@ namespace WPFTextBox.Model
             }
         }
 
-        private string errorMsg;
-        public string ErrorMsg
-        {
-            get
-            {
-                return errorMsg;
-            }
-            set
-            {
-                this.errorMsg = value;
-                OnPropertyChanged(nameof(ErrorMsg));
-            }
-        }
-
-        public string PreviewTextInputRegex { get; set; }
 
 
         public void SingleTextBox_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
@@ -120,67 +101,16 @@ namespace WPFTextBox.Model
             }
         }
 
-        public void SingleTextBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
-        {
-            if (string.IsNullOrEmpty(PreviewTextInputRegex))
-            {
-                e.Handled = false;
-                return;
-            }
-            Regex re = new Regex(PreviewTextInputRegex);
-            TextBox txtBox = sender as TextBox;
 
-            bool match = false;
-            string srcTxt = txtBox.Text;
-            string selTxt = txtBox.SelectedText;
-            string inChar = e.Text;
 
-            if (!string.IsNullOrEmpty(selTxt))
-            {
-                int sl = txtBox.CaretIndex;
-                int cl = selTxt.Length;
-                int el = srcTxt.Length - cl - sl;
-                string ss = srcTxt.Substring(0, sl);
-                string es = srcTxt.Substring(sl + cl, el);
-
-                string tryStr = ss + inChar + es;
-                match = re.IsMatch(tryStr);
-            }
-            else
-            {
-                string txt = txtBox.Text.Insert(txtBox.CaretIndex, e.Text);
-                match = re.IsMatch(txt);
-            }
-
-            if (match)
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-            }
-        }
-
-        public Func<string, Tuple<string, string>> Validator { get; set; }
-        public string Error => errorMsg;
-
-        public string this[string columnName]
+        public override string this[string columnName]
         {
             get
             {
-                ErrorMsg = string.Empty;
+                // ErrorMsg = string.Empty;
 
-                var tp = Validator?.Invoke(value);
-                if (tp != null)
-                {
-                    if (!string.IsNullOrEmpty(tp.Item2))
-                    {
-                        ErrorMsg += tp.Item2;
-                    }
+                Validator?.Invoke(value);
 
-                    ToolTip = tp.Item1;
-                }
                 return ErrorMsg;
             }
         }

@@ -14,32 +14,7 @@
     Loaded="Window_Loaded"
     mc:Ignorable="d">
 
-    <Window.Resources>
-        <uc:UserControl1 x:Key="uc1" />
-    </Window.Resources>
     <StackPanel>
-        <Canvas
-            x:Name="container"
-           
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch">
-
-            <Button
-                
-               
-                  Width="{Binding ElementName=container, Path=ActualWidth}"
-                Height="{Binding ElementName=container, Path=ActualHeight}"
-                HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch"
-                BorderBrush="Red"
-                Content="Center" />
-
-            <TextBlock
-                Canvas.Left="40.3"
-                Canvas.Top="20"
-                Text="sssss" />
-
-        </Canvas>
     </StackPanel>
 
 </Window>

@@ -35,18 +35,11 @@ namespace WPFTextBox.ViewModel
             Save?.Invoke();
         }
 
-        public void AddValidator(Func<string, Tuple<string, string>> validator)
+        public void AddValidator(Action<string> validator)
         {
             Model.Validator = validator;
         }
 
-        public void Value_ErrorEvent(object sender, ValidationErrorEventArgs e)
-        {
-            if (e.Action == ValidationErrorEventAction.Added)
-                Errors.Add(e.Error);
-            else
-                Errors.Remove(e.Error);
-        }
         private void SingleTextBoxModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             if (e.PropertyName == nameof(Model.Value))

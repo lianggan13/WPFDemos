@@ -67,19 +67,6 @@
                     <AdornedElementPlaceholder Margin="0,-1,-1,0" />
                 </Border>
             </Grid>
-            <!--<ControlTemplate.Triggers>
-                <MultiDataTrigger>
-                    <MultiDataTrigger.Conditions>
-                        <Condition Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type AdornedElementPlaceholder}}, Path= AdornedElement.IsKeyboardFocusWithin, Mode=OneWay}"
-                                           Value="True" />
-                        <Condition Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type AdornedElementPlaceholder}}, Path= AdornedElement.(Validation.HasError), Mode=OneWay}"
-                                           Value="True" />
-                    </MultiDataTrigger.Conditions>
-                    <Setter TargetName="validationTooltip"
-                                    Property="IsOpen"
-                                    Value="True" />
-                </MultiDataTrigger>
-            </ControlTemplate.Triggers>-->
         </ControlTemplate>
         <ControlTemplate x:Key="SingleTextBox.Template" TargetType="{x:Type TextBox}">
             <Border
@@ -119,7 +106,7 @@
             </ControlTemplate.Triggers>
         </ControlTemplate>
     </UserControl.Resources>
-    <Grid Height="24">
+    <Grid Height="24" FocusManager.FocusedElement="{Binding ElementName=txtValue}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="130" />
             <ColumnDefinition Width="*" />
@@ -142,7 +129,7 @@
             Validation.ErrorTemplate="{StaticResource advErrorTemplate}">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="PreviewTextInput">
-                    <Interaction:CallMethodAction MethodName="SingleTextBox_PreviewTextInput" TargetObject="{Binding Model}" />
+                    <Interaction:CallMethodAction MethodName="PreviewTextInput" TargetObject="{Binding Model}" />
                 </i:EventTrigger>
                 <i:EventTrigger EventName="PreviewKeyDown">
                     <Interaction:CallMethodAction MethodName="SingleTextBox_PreviewKeyDown" TargetObject="{Binding Model}" />

@@ -13,6 +13,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFComboBox", "WPFComboBox\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFTextBox", "WPFTextBox\WPFTextBox.csproj", "{B892876D-8D83-4BBE-B7B2-D9AA6FFFC680}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFTreeView", "WPFTreeView\WPFTreeView.csproj", "{8C4B6AD0-2D5F-462C-8321-429F02523159}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFTextBlock", "WPFTextBlock\WPFTextBlock.csproj", "{5FE8F81F-FDE9-478D-8BD2-A74C474B3AFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFContentControl", "WPFContentControl\WPFContentControl.csproj", "{C4764891-4F45-43F4-A1CA-DA66937F9624}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFTabControl", "WPFTabControl\WPFTabControl.csproj", "{4866E61C-11F0-464A-BE24-2B867D23459D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFCommon", "WPFCommon\WPFCommon.csproj", "{6D9366A5-C193-446E-A4D4-072587EEB590}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +49,26 @@ Global
 		{B892876D-8D83-4BBE-B7B2-D9AA6FFFC680}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B892876D-8D83-4BBE-B7B2-D9AA6FFFC680}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B892876D-8D83-4BBE-B7B2-D9AA6FFFC680}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C4B6AD0-2D5F-462C-8321-429F02523159}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C4B6AD0-2D5F-462C-8321-429F02523159}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C4B6AD0-2D5F-462C-8321-429F02523159}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C4B6AD0-2D5F-462C-8321-429F02523159}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FE8F81F-FDE9-478D-8BD2-A74C474B3AFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FE8F81F-FDE9-478D-8BD2-A74C474B3AFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FE8F81F-FDE9-478D-8BD2-A74C474B3AFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FE8F81F-FDE9-478D-8BD2-A74C474B3AFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4764891-4F45-43F4-A1CA-DA66937F9624}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4764891-4F45-43F4-A1CA-DA66937F9624}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4764891-4F45-43F4-A1CA-DA66937F9624}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4764891-4F45-43F4-A1CA-DA66937F9624}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4866E61C-11F0-464A-BE24-2B867D23459D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4866E61C-11F0-464A-BE24-2B867D23459D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4866E61C-11F0-464A-BE24-2B867D23459D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4866E61C-11F0-464A-BE24-2B867D23459D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D9366A5-C193-446E-A4D4-072587EEB590}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D9366A5-C193-446E-A4D4-072587EEB590}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D9366A5-C193-446E-A4D4-072587EEB590}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D9366A5-C193-446E-A4D4-072587EEB590}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
