@@ -1,0 +1,14 @@
+E:\Github\WPFDemos\WPFVisualState\bin\Debug\WPFVisualState.exe.config
+E:\Github\WPFDemos\WPFVisualState\bin\Debug\WPFVisualState.exe
+E:\Github\WPFDemos\WPFVisualState\bin\Debug\WPFVisualState.pdb
+E:\Github\WPFDemos\WPFVisualState\obj\Debug\MainWindow.g.cs
+E:\Github\WPFDemos\WPFVisualState\obj\Debug\App.g.cs
+E:\Github\WPFDemos\WPFVisualState\obj\Debug\WPFVisualState_MarkupCompile.cache
+E:\Github\WPFDemos\WPFVisualState\obj\Debug\WPFVisualState_MarkupCompile.lref
+E:\Github\WPFDemos\WPFVisualState\obj\Debug\MainWindow.baml
+E:\Github\WPFDemos\WPFVisualState\obj\Debug\WPFVisualState.g.resources
+E:\Github\WPFDemos\WPFVisualState\obj\Debug\WPFVisualState.Properties.Resources.resources
+E:\Github\WPFDemos\WPFVisualState\obj\Debug\WPFVisualState.csproj.GenerateResource.cache
+E:\Github\WPFDemos\WPFVisualState\obj\Debug\WPFVisualState.csproj.CoreCompileInputs.cache
+E:\Github\WPFDemos\WPFVisualState\obj\Debug\WPFVisualState.exe
+E:\Github\WPFDemos\WPFVisualState\obj\Debug\WPFVisualState.pdb

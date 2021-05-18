@@ -65,9 +65,13 @@
     <Compile Include="Common\NotifyPropertyChanged.cs" />
     <Compile Include="Model\ValidatorBaseModel.cs" />
     <Compile Include="Model\SingleTextBoxModel.cs" />
+    <Compile Include="ValidateTextBox\SearchTextBox.xaml.cs">
+      <DependentUpon>SearchTextBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ValidateTextBox\SingleTextBox.xaml.cs">
       <DependentUpon>SingleTextBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ValidateTextBox\WatermarkTextBox.cs" />
     <Compile Include="ViewModel\SingleTextBoxVM.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -81,6 +85,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ValidateTextBox\SearchTextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ValidateTextBox\SingleTextBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

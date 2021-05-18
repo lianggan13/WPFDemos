@@ -96,11 +96,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\WPFCommon\WPFCommon.csproj">
-      <Project>{6D9366A5-C193-446E-A4D4-072587EEB590}</Project>
-      <Name>WPFCommon</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -14,5 +14,6 @@
             Content="Home"
             ContentStringFormat="{}{0} Page"
             FontSize="15" />
+        
     </Grid>
 </UserControl>

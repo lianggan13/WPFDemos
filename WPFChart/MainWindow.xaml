@@ -6,20 +6,96 @@
     xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
     xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
     xmlns:local="clr-namespace:WPFChart"
+    xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+    xmlns:lvcs="clr-namespace:LiveCharts;assembly=LiveCharts"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:uc="clr-namespace:WPFChart.UC"
-    WindowStartupLocation="CenterScreen"
+    xmlns:uc1="clr-namespace:GTS.MaxSign.Controls.UC"
+    xmlns:uc2="clr-namespace:WPFChart.View"
     Title="MainWindow"
     Width="1042"
     Height="564"
+    WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <Grid>
-        <StackPanel MouseDown="StackPanel_MouseDown"  VerticalAlignment="Top" Background="Brown" Height="30"></StackPanel>
-        <dx:DXTabControl Margin="0,25,0,0">
-            <dx:DXTabItem x:Name="large2DPage" Header="Large 2D">
-                <!--<uc:XYLargeData2DUC x:Name="chart2DUC" />-->
-                <uc:Mbps2DChartUC />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Button Click="Button_Click" Content="测试数据" />
+        <dx:DXTabControl
+            Grid.Row="1"
+            Margin="0,25,0,0"
+            SelectedIndex="0">
+            <dx:DXTabItem Header="Testing 2D">
+                <uc2:Testing2DChart x:Name="test" />
             </dx:DXTabItem>
+
+            <dx:DXTabItem Header="Mbps 2D">
+                <uc1:Mbps2DChartUC x:Name="mbps" />
+            </dx:DXTabItem>
+
+
+            <dx:DXTabItem Header="GPS CN-Power 2D">
+                <uc:GpsCnPowerChart x:Name="gps" />
+            </dx:DXTabItem>
+
+
+
+            <!--#region LiveChart-->
+            <!--<dx:DXTabItem Header="Live 2D Chart">
+                <Grid>
+                    <StackPanel
+                        Margin="40,15"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top">
+                        <Border
+                            Width="40"
+                            Height="40"
+                            Background="#EDFAF0"
+                            CornerRadius="5">
+                            <TextBlock
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontWeight="Bold"
+                                Foreground="#7ADA95"
+                                Text="32%" />
+                        </Border>
+                    </StackPanel>
+                    <lvc:CartesianChart>
+                        <lvc:CartesianChart.Series>
+                            <lvc:LineSeries
+                                Fill="Transparent"
+                                PointGeometrySize="3"
+                                Stroke="#FECC71"
+                                Values="1,2,3,34,5,6" />
+                            <lvc:LineSeries
+                                Fill="Transparent"
+                                PointGeometrySize="0"
+                                Stroke="#FF7261"
+                                Values="1,1,3,40,5,6,7" />
+                            <lvc:LineSeries
+                                Fill="Transparent"
+                                PointGeometrySize="0"
+                                Stroke="Green"
+                                Values="5,2,3,20,5,6,7" />
+                        </lvc:CartesianChart.Series>
+                        <lvc:CartesianChart.AxisX>
+                            <lvc:Axis ShowLabels="True" />
+                        </lvc:CartesianChart.AxisX>
+                        <lvc:CartesianChart.AxisY>
+                            <lvc:Axis
+                                MaxValue="100"
+                                MinValue="0"
+                                ShowLabels="True" />
+                        </lvc:CartesianChart.AxisY>
+
+                    </lvc:CartesianChart>
+                </Grid>
+            </dx:DXTabItem>-->
+
+            <!--#endregion-->
+
         </dx:DXTabControl>
     </Grid>
 </Window>

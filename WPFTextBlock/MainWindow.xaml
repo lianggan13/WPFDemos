@@ -9,158 +9,39 @@
     Width="800"
     Height="450"
     mc:Ignorable="d">
-    <Window.Resources>
 
-        <Storyboard
-            x:Key="OnLoaded"
-            AutoReverse="True"
-            RepeatBehavior="Forever">
-
-            <ColorAnimationUsingKeyFrames Storyboard.TargetName="txtWaiting" Storyboard.TargetProperty="(Foreground).(SolidColorBrush.Color)">
-                <EasingColorKeyFrame KeyTime="0:0:1" Value="Black" />
-                <EasingColorKeyFrame KeyTime="0:0:2" Value="#999999" />
-            </ColorAnimationUsingKeyFrames>
-        </Storyboard>
-
-        <!--<Style TargetType="TextBlock">
-            <Style.Triggers>
-                <DataTrigger Binding="{Binding IsIdle}" Value="False">
-                    <DataTrigger.EnterActions>
-                        <BeginStoryboard x:Name="tt">
-                            <Storyboard Storyboard.TargetProperty="(TextBlock.Background).(SolidColorBrush.Color)">
-                                <ColorAnimation
-                                    By="Blue"
-                                    FillBehavior="Stop"
-                                    RepeatBehavior="Forever"
-                                    From="Red"
-                                    To="Transparent"
-                                    Duration="0:0:0.5" />
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </DataTrigger.EnterActions>
-                    <DataTrigger.ExitActions>
-                        <RemoveStoryboard BeginStoryboardName="tt" />
-                    </DataTrigger.ExitActions>
-                </DataTrigger>
-            </Style.Triggers>
-        </Style>-->
-    </Window.Resources>
-    <Window.Triggers>
-        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
-            <!--<BeginStoryboard Storyboard="{StaticResource OnLoaded}" />-->
-        </EventTrigger>
-
-    </Window.Triggers>
 
     <StackPanel>
-        <TextBlock FontSize="14">
-            <TextBlock.Triggers>
-                <EventTrigger RoutedEvent="Loaded">
-                    <BeginStoryboard>
-                        <Storyboard>
-                            <ColorAnimation
-                                AutoReverse="True"
-                                RepeatBehavior="Forever"
-                                Storyboard.TargetName="Test"
-                                Storyboard.TargetProperty="Color"
-                                From="Black"
-                                To="#999999"
-                                Duration="0:0:1" />
-                        </Storyboard>
-                    </BeginStoryboard>
-                </EventTrigger>
-            </TextBlock.Triggers>
-            <Run>
-                <Run.Foreground>
-                    <SolidColorBrush x:Name="Test" Color="Black" />
-                </Run.Foreground>
-                吞吐率测量中</Run>
+        <TextBlock>
+            <Hyperlink>
+                详情
+            </Hyperlink>
         </TextBlock>
 
-        <TextBlock
-            x:Name="txtWaiting"
-            FontSize="14"
-            Text="吞吐率测量中">
-            <TextBlock.Triggers>
-                <EventTrigger RoutedEvent="Loaded">
-                    <BeginStoryboard>
-                        <Storyboard AutoReverse="True" RepeatBehavior="Forever">
-                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Foreground).(SolidColorBrush.Color)">
-                                <!--<EasingColorKeyFrame KeyTime="0:0:1" Value="Black" />-->
-                                <EasingColorKeyFrame KeyTime="0:0:2" Value="#999999" />
-                            </ColorAnimationUsingKeyFrames>
-                        </Storyboard>
-                    </BeginStoryboard>
-                </EventTrigger>
-            </TextBlock.Triggers>
+
+        <TextBlock >
+            <Hyperlink >
+                <Hyperlink.Style>
+                    <Style>
+                        <Setter Property="TextBlock.TextDecorations" Value="{x:Null}" />
+                        <Style.Triggers>
+                            <Trigger Property="TextBlock.IsMouseOver" Value="True">
+                                <Setter Property="TextBlock.TextDecorations">
+                                    <Setter.Value>
+                                        <TextDecorationCollection>
+                                            <TextDecoration Location="Underline" />
+
+                                        </TextDecorationCollection>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+
+                </Hyperlink.Style>
+                详情
+            </Hyperlink>
         </TextBlock>
 
-        <TextBlock FontSize="14" Text="吞吐率测量中">
-            <TextBlock.Triggers>
-                <EventTrigger RoutedEvent="Loaded">
-                    <BeginStoryboard>
-                        <Storyboard AutoReverse="True" RepeatBehavior="Forever">
-                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Foreground).(SolidColorBrush.Color)">
-                                <!--<EasingColorKeyFrame KeyTime="0:0:1" Value="Black" />-->
-                                <EasingColorKeyFrame KeyTime="0:0:2" Value="#999999" />
-                            </ColorAnimationUsingKeyFrames>
-                        </Storyboard>
-                    </BeginStoryboard>
-                </EventTrigger>
-            </TextBlock.Triggers>
-        </TextBlock>
-
-        <TextBlock
-            x:Name="txtInMatrix"
-            Margin="0,0,3,0"
-            FontSize="12"
-            Text="ssss">
-            <TextBlock.Triggers>
-                <EventTrigger RoutedEvent="Loaded">
-                    <BeginStoryboard>
-                        <Storyboard AutoReverse="True" RepeatBehavior="Forever">
-                            <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Foreground).(SolidColorBrush.Color)">
-                                <EasingColorKeyFrame KeyTime="0:0:2" Value="#999999" />
-                            </ColorAnimationUsingKeyFrames>
-                        </Storyboard>
-                    </BeginStoryboard>
-                </EventTrigger>
-            </TextBlock.Triggers>
-        </TextBlock>
-
-        <TextBlock
-            x:Name="txtPoints"
-            FontSize="15"
-            Text="." />
-
-        <TextBlock
-            x:Name="TextBlockRecording"
-            HorizontalAlignment="Center"
-            FontSize="48"
-            FontWeight="Medium"
-            Foreground="#ED4646"
-            Text="录像中">
-            <TextBlock.Triggers>
-                <EventTrigger RoutedEvent="FrameworkElement.Loaded">
-                    <BeginStoryboard>
-                        <Storyboard
-                            AutoReverse="True"
-                            BeginTime="0:0:0"
-                            RepeatBehavior="Forever"
-                            Duration="0:0:4">
-                            <ColorAnimation
-                                RepeatBehavior="Forever"
-                                Storyboard.TargetName="TextBlockRecording"
-                                Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)"
-                                From="#ED4646"
-                                To="#F0F2F7"
-                                Duration="0:0:2" />
-                        </Storyboard>
-                    </BeginStoryboard>
-                </EventTrigger>
-            </TextBlock.Triggers>
-        </TextBlock>
-
-       
     </StackPanel>
 </Window>

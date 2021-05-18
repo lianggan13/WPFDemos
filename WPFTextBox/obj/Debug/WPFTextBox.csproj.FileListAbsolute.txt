@@ -19,3 +19,5 @@ E:\Github\WPFDemos\WPFTextBox\obj\Debug\GeneratedInternalTypeHelper.g.cs
 E:\Github\WPFDemos\WPFTextBox\bin\Debug\Microsoft.Expression.Interactions.dll
 E:\Github\WPFDemos\WPFTextBox\bin\Debug\System.Windows.Interactivity.dll
 E:\Github\WPFDemos\WPFTextBox\obj\Debug\WPFTextBox.csproj.CopyComplete
+E:\Github\WPFDemos\WPFTextBox\obj\Debug\ValidateTextBox\SearchTextBox.g.cs
+E:\Github\WPFDemos\WPFTextBox\obj\Debug\ValidateTextBox\SearchTextBox.baml

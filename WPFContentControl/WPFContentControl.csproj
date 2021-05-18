@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Common\ContentTypeDpObj.cs" />
     <Compile Include="View\CenterPage.xaml.cs">
       <DependentUpon>CenterPage.xaml</DependentUpon>
     </Compile>
@@ -117,7 +118,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WPFCommon\WPFCommon.csproj">
-      <Project>{6D9366A5-C193-446E-A4D4-072587EEB590}</Project>
+      <Project>{A0F9C22B-B526-44DD-B58A-A837E3A833EC}</Project>
       <Name>WPFCommon</Name>
     </ProjectReference>
   </ItemGroup>

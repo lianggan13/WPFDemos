@@ -12,7 +12,7 @@ namespace WPFWindow
         public MainWindow()
         {
             InitializeComponent();
-
+            this.MaxHeight = SystemParameters.PrimaryScreenHeight;
         }
 
         #region frame ui

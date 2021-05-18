@@ -47,6 +47,12 @@
     <Reference Include="DevExpress.Xpf.Charts.v20.2, Version=20.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Xpf.Core.v20.2, Version=20.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Xpf.Printing.v20.2, Version=20.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Gitee\Automotive OTA\automotiveota\code\3rdPartDll\Microsoft.Expression.Interactions.dll</HintPath>
@@ -55,6 +61,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Printing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Gitee\Automotive OTA\automotiveota\code\3rdPartDll\System.Windows.Interactivity.dll</HintPath>
@@ -78,16 +85,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Common\ColorUtils.cs" />
-    <Compile Include="Common\NotifyPropertyChanged.cs" />
+    <Compile Include="Model\LegendModel.cs" />
     <Compile Include="Model\Mbps2DChartModel.cs" />
-    <Compile Include="UC\Mbps2DChartUC.xaml.cs">
+    <Compile Include="Model\GpsCnPowerModel.cs" />
+    <Compile Include="Model\Testing2DModel.cs" />
+    <Compile Include="ViewModel\Testing2DVM.cs" />
+    <Compile Include="View\GpsCnPowerChart.xaml.cs">
+      <DependentUpon>GpsCnPowerChart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Mbps2DChartUC.xaml.cs">
       <DependentUpon>Mbps2DChartUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UC\XYLargeData2DUC.xaml.cs">
-      <DependentUpon>XYLargeData2DUC.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="ViewModel\GpsCnPowerVM.cs" />
     <Compile Include="ViewModel\Mbps2DChartVM.cs" />
+    <Compile Include="View\Testing2DChart.xaml.cs">
+      <DependentUpon>Testing2DChart.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -100,11 +113,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="UC\Mbps2DChartUC.xaml">
+    <Page Include="View\GpsCnPowerChart.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UC\XYLargeData2DUC.xaml">
+    <Page Include="View\Mbps2DChartUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Testing2DChart.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -127,7 +144,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Resource Include="Data\nsidc_global_nt_final_and_nrt.dat" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -136,5 +153,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WPFCommon\WPFCommon.csproj">
+      <Project>{a0f9c22b-b526-44dd-b58a-a837e3a833ec}</Project>
+      <Name>WPFCommon</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
