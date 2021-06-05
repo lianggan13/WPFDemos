@@ -365,6 +365,8 @@
 
     <!--#region DXChart-->
     <Style x:Key="Style.DXChart" TargetType="{x:Type dxc:ChartControl}">
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Margin" Value="0" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="CrosshairEnabled" Value="True" />
         <Setter Property="CrosshairOptions" Value="{StaticResource Style.DXChart.CrosshairOptions}" />

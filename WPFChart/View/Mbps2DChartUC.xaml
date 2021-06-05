@@ -14,253 +14,180 @@
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <UserControl.Resources>
-        <ControlTemplate x:Key="TogButtonStyle" TargetType="{x:Type ButtonBase}">
-            <ContentPresenter
-                x:Name="contentPresenter"
-                Margin="{TemplateBinding Padding}"
-                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\Button.xaml;8;8"
-                Content="{TemplateBinding Content}"
-                ContentStringFormat="{TemplateBinding ContentStringFormat}"
-                ContentTemplate="{TemplateBinding ContentTemplate}"
-                Focusable="False"
-                RecognizesAccessKey="True"
-                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-        </ControlTemplate>
-    </UserControl.Resources>
     <UserControl.DataContext>
         <vm:Mbps2DChartVM x:Name="VM" />
     </UserControl.DataContext>
-    <Grid Background="#FFFFFF">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal">
-            <TextBlock
-                Margin="50,0,0,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center"
-                FontSize="14"
-                Foreground="#333333"
-                Text="{DynamicResource trans0413}" />
-            <TextBlock
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                FontSize="14"
-                Foreground="#333333"
-                Text=":" />
-            <TextBlock
-                Margin="5,0,0,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center"
-                FontSize="14"
-                Foreground="#333333"
-                Text="{Binding Freq, StringFormat='{}{0} MHz'}" />
-        </StackPanel>
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="100" />
-            </Grid.ColumnDefinitions>
-            <dxc:ChartControl
-                x:Name="chart"
-                DataSource="{Binding MbpsPoints}"
-                Style="{StaticResource Style.DXChart}">
-                <!--#region Titles-->
-                <dxc:ChartControl.Titles>
-                    <dxc:Title Content="吞吐率测量中" Style="{StaticResource Style.DXChart.Title}" />
-                </dxc:ChartControl.Titles>
-                <!--#endregion-->
 
-                <dxc:XYDiagram2D
-                    SeriesDataMember="Phi"
-                    Style="{StaticResource Style.DXChart.XYDiagram2D}"
-                    Zoom="XYDiagram2D_Zoom">
-                    <!--#region Pane-->
-                    <dxc:XYDiagram2D.DefaultPane>
-                        <dxc:Pane Focusable="False">
-                            <dxc:Pane.AxisXScrollBarOptions>
-                                <dxc:ScrollBarOptions BarThickness="10" Visible="False" />
-                            </dxc:Pane.AxisXScrollBarOptions>
-                            <dxc:Pane.AxisYScrollBarOptions>
-                                <dxc:ScrollBarOptions BarThickness="10" Visible="False" />
-                            </dxc:Pane.AxisYScrollBarOptions>
-                        </dxc:Pane>
-                    </dxc:XYDiagram2D.DefaultPane>
-                    <!--#endregion-->
+        <Border BorderBrush="#E1E1E1" BorderThickness="0,0,0,1">
+            <Grid Margin="20,6,0,6">
+                <Grid.Resources>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="VerticalAlignment" Value="Center" />
+                    </Style>
+                </Grid.Resources>
 
-                    <!--#region Axes-->
-                    <dxc:XYDiagram2D.AxisX>
-                        <dxc:AxisX2D Style="{StaticResource Style.DXChart.AxisX}">
-                            <dxc:AxisX2D.Title>
-                                <dxc:AxisTitle Content="Power (dBm)" Style="{StaticResource Style.DXChart.AxisTitle}" />
-                            </dxc:AxisX2D.Title>
-
-                            <dxc:AxisX2D.Label>
-                                <dxc:AxisLabel Style="{StaticResource Style.DXChart.AxisLabel}" />
-                            </dxc:AxisX2D.Label>
-                        </dxc:AxisX2D>
-
-                    </dxc:XYDiagram2D.AxisX>
-
-                    <dxc:XYDiagram2D.AxisY>
-                        <dxc:AxisY2D Style="{StaticResource Style.DXChart.AxisY}">
-                            <dxc:AxisY2D.Title>
-                                <dxc:AxisTitle Content="Throughput (Mbps)" Style="{StaticResource Style.DXChart.AxisTitle}" />
-                            </dxc:AxisY2D.Title>
-
-                            <dxc:AxisY2D.Label>
-                                <dxc:AxisLabel Style="{StaticResource Style.DXChart.AxisLabel}" />
-                            </dxc:AxisY2D.Label>
-
-                            <dxc:AxisY2D.ConstantLinesInFront>
-                                <dxc:ConstantLine Brush="Red" Value="70">
-                                    <!--<dxc:ConstantLine.Title>
-                                        <dxc:ConstantLineTitle Content="70%" />
-                                    </dxc:ConstantLine.Title>-->
-                                </dxc:ConstantLine>
-                            </dxc:AxisY2D.ConstantLinesInFront>
-
-                            <dxc:AxisY2D.CustomLabels>
-                                <dxc:CustomAxisLabel Value="70">
-                                    <TextBlock Foreground="Red" Text="70" />
-                                </dxc:CustomAxisLabel>
-                            </dxc:AxisY2D.CustomLabels>
-                        </dxc:AxisY2D>
-                    </dxc:XYDiagram2D.AxisY>
-                    <!--#endregion-->
-
-                    <!--#region Series-->
-                    <dxc:XYDiagram2D.SeriesTemplate>
-                        <dxc:LineSeries2D
-                            ArgumentDataMember="Power"
-                            CrosshairLabelPattern="{}{S}° : {V:n2} %"
-                            Style="{StaticResource Style.DXChart.LineSeries2D}"
-                            ValueDataMember="Mbps">
-                            <dxc:LineSeries2D.LineStyle>
-                                <dxc:LineStyle LineJoin="Round" Thickness="1">
-                                    <!--<dxc:LineStyle.DashStyle>
-                                        <DashStyle Dashes="0" Offset="0" />
-                                    </dxc:LineStyle.DashStyle>-->
-                                </dxc:LineStyle>
-                            </dxc:LineSeries2D.LineStyle>
-                        </dxc:LineSeries2D>
-                    </dxc:XYDiagram2D.SeriesTemplate>
-                    <!--#endregion-->
-                </dxc:XYDiagram2D>
-            </dxc:ChartControl>
-
-            <Border
-                Grid.Column="1"
-                Style="{StaticResource Style.DXChart.Legend.Border}"
-                Visibility="{DXBinding 'Legends.Count>0?`Visible`:`Collapsed`'}">
-                <ItemsControl ItemTemplate="{StaticResource Style.DXChart.Legend.ItemTemplate}" ItemsSource="{Binding Legends}" />
-            </Border>
-
-            <!--<ItemsControl Grid.Column="1" ItemsSource="{StaticResource Legends}">-->
-            <!--<ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
-                <StackPanel>
-                    <TextBlock
-                        Margin="0,0,0,10"
-                        FontSize="14"
-                        FontWeight="Medium"
-                        Foreground="#333333"
-                        Text="Azimuth"
-                        TextAlignment="Center" />
-                    <ItemsControl ItemsSource="{Binding Legends}">
-                        <ItemsControl.Resources>
-                            <DataTemplate DataType="{x:Type model:LegendModel}">
-                                <Border
-                                    x:Name="border"
-                                    Margin="0,2,0,0"
-                                    CornerRadius="2,2,2,2"
-                                    Cursor="Hand"
-                                    MouseDown="Legend_MouseDown"
-                                    Tag="{Binding}">
-            -->
-            <!--<i:Interaction.Triggers>
-                                    <i:EventTrigger EventName="MouseDown">
-                                        <Interaction:CallMethodAction MethodName="Legend_MouseDown" TargetObject="{Binding Path=DataContext, RelativeSource={RelativeSource AncestorType=UserControl, Mode=FindAncestor}}" />
-                                    </i:EventTrigger>
-                                </i:Interaction.Triggers>-->
-            <!--
-                                    <Grid
-                                        x:Name="gd"
-                                        Width="81"
-                                        Height="24">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition />
-                                            <ColumnDefinition />
-                                        </Grid.ColumnDefinitions>
-                                        <Grid Width="10" Height="10">
-                                            <Ellipse
-                                                x:Name="ellipse"
-                                                Fill="{Binding LegendBrush}"
-                                                Stretch="Uniform"
-                                                Stroke="{Binding LegendBrush}"
-                                                StrokeDashArray=""
-                                                StrokeThickness="1" />
-                                        </Grid>
-                                        <TextBlock
-                                            x:Name="txt"
-                                            Grid.Column="1"
-                                            VerticalAlignment="Center"
-                                            Foreground="#333333"
-                                            Text="{Binding Name}"
-                                            TextAlignment="Left" />
-                                    </Grid>
-                                </Border>
-                                <DataTemplate.Triggers>
-                                    <DataTrigger Binding="{Binding IsChecked, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Value="true">
-                                        <Setter TargetName="border" Property="Background" Value="#376BFA" />
-                                        <Setter TargetName="txt" Property="Foreground" Value="#FFFFFF" />
-                                    </DataTrigger>
-                                    <MultiDataTrigger>
-                                        <MultiDataTrigger.Conditions>
-                                            <Condition Binding="{Binding IsMouseOver, ElementName=border}" Value="true" />
-                                            <Condition Binding="{Binding IsChecked}" Value="false" />
-                                        </MultiDataTrigger.Conditions>
-                                        <MultiDataTrigger.Setters>
-                                            <Setter TargetName="border" Property="Background" Value="#7C9EFC" />
-                                            <Setter TargetName="txt" Property="Foreground" Value="#FFFFFF" />
-                                        </MultiDataTrigger.Setters>
-                                    </MultiDataTrigger>
-            -->
-            <!--<DataTrigger Binding="{Binding IsMouseOver, ElementName=border}" Value="true">
-                                    <Setter TargetName="border" Property="Background" Value="#7C9EFC" />
-                                    <Setter TargetName="txt" Property="Foreground" Value="#FFFFFF" />
-                                </DataTrigger>-->
-            <!--
-                                </DataTemplate.Triggers>
-                            </DataTemplate>
-                        </ItemsControl.Resources>
-            -->
-            <!--<ItemsControl.ItemTemplate>
-                    <DataTemplate DataType="{x:Type model:LegendModel}">
-                        <TextBlock
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Text="{Binding Name}" />
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>-->
-            <!--
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <StackPanel />
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                    </ItemsControl>
-
-
-
+                <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                    <TextBlock Text="{DynamicResource trans0412}" />
+                    <TextBlock x:Name="txtWaiting" Text="">
+                        <TextBlock.Triggers>
+                            <EventTrigger RoutedEvent="Loaded">
+                                <BeginStoryboard x:Name="st">
+                                    <Storyboard  RepeatBehavior="Forever">
+                                        <StringAnimationUsingKeyFrames
+                                            AutoReverse="False"
+                                            RepeatBehavior="Forever"
+                                            Storyboard.TargetName="txtWaiting"
+                                            Storyboard.TargetProperty="Text">
+                                            <DiscreteStringKeyFrame KeyTime="0:0:0" Value="" />
+                                            <DiscreteStringKeyFrame KeyTime="0:0:1" Value="." />
+                                            <DiscreteStringKeyFrame KeyTime="0:0:2" Value=".." />
+                                            <DiscreteStringKeyFrame KeyTime="0:0:3" Value="..." />
+                                            <DiscreteStringKeyFrame KeyTime="0:0:4" Value="...." />
+                                            <DiscreteStringKeyFrame KeyTime="0:0:5" Value="....." />
+                                            <DiscreteStringKeyFrame KeyTime="0:0:6" Value="......" />
+                                            <DiscreteStringKeyFrame KeyTime="0:0:7" Value="" />
+                                        </StringAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="Unloaded">
+                                <StopStoryboard BeginStoryboardName="st" />
+                            </EventTrigger>
+                        </TextBlock.Triggers>
+                    </TextBlock>
                 </StackPanel>
 
-            </ScrollViewer>-->
+                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                    <Button Margin="0,0,20,0" Content="{DynamicResource trans0466}" />
+                </StackPanel>
+            </Grid>
+        </Border>
 
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
 
+            <StackPanel Margin="35,5,0,0" Orientation="Horizontal">
+                <TextBlock>
+                    <Run Text="{DynamicResource trans0413}" />
+                    <Run Text=":" />
+                </TextBlock>
+                <TextBlock Text="{Binding Freq, StringFormat='{}{0} MHz'}" />
+            </StackPanel>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="100" />
+                </Grid.ColumnDefinitions>
+                <dxc:ChartControl
+                    x:Name="chart"
+                    DataSource="{Binding MbpsPoints}"
+                    Style="{StaticResource Style.DXChart}">
+                    <!--#region Titles-->
+                    <dxc:ChartControl.Titles>
+                        <dxc:Title
+                            Content="Mimo"
+                            Style="{StaticResource Style.DXChart.Title}"
+                            Visibility="Collapsed" />
+                    </dxc:ChartControl.Titles>
+                    <!--#endregion-->
+
+                    <dxc:XYDiagram2D
+                        SeriesDataMember="Phi"
+                        Style="{StaticResource Style.DXChart.XYDiagram2D}"
+                        Zoom="XYDiagram2D_Zoom">
+                        <!--#region Pane-->
+                        <dxc:XYDiagram2D.DefaultPane>
+                            <dxc:Pane Focusable="False">
+                                <dxc:Pane.AxisXScrollBarOptions>
+                                    <dxc:ScrollBarOptions BarThickness="10" Visible="False" />
+                                </dxc:Pane.AxisXScrollBarOptions>
+                                <dxc:Pane.AxisYScrollBarOptions>
+                                    <dxc:ScrollBarOptions BarThickness="10" Visible="False" />
+                                </dxc:Pane.AxisYScrollBarOptions>
+                            </dxc:Pane>
+                        </dxc:XYDiagram2D.DefaultPane>
+                        <!--#endregion-->
+
+                        <!--#region Axes-->
+                        <dxc:XYDiagram2D.AxisX>
+                            <dxc:AxisX2D Style="{StaticResource Style.DXChart.AxisX}">
+                                <dxc:AxisX2D.Title>
+                                    <dxc:AxisTitle Content="Power (dBm)" Style="{StaticResource Style.DXChart.AxisTitle}" />
+                                </dxc:AxisX2D.Title>
+
+                                <dxc:AxisX2D.Label>
+                                    <dxc:AxisLabel Style="{StaticResource Style.DXChart.AxisLabel}" />
+                                </dxc:AxisX2D.Label>
+                            </dxc:AxisX2D>
+
+                        </dxc:XYDiagram2D.AxisX>
+
+                        <dxc:XYDiagram2D.AxisY>
+                            <dxc:AxisY2D Style="{StaticResource Style.DXChart.AxisY}">
+                                <dxc:AxisY2D.Title>
+                                    <dxc:AxisTitle Content="Throughput (Mbps)" Style="{StaticResource Style.DXChart.AxisTitle}" />
+                                </dxc:AxisY2D.Title>
+
+                                <dxc:AxisY2D.Label>
+                                    <dxc:AxisLabel Style="{StaticResource Style.DXChart.AxisLabel}" />
+                                </dxc:AxisY2D.Label>
+
+                                <dxc:AxisY2D.ConstantLinesInFront>
+                                    <dxc:ConstantLine Brush="Red" Value="70">
+                                        <!--<dxc:ConstantLine.Title>
+                                        <dxc:ConstantLineTitle Content="70%" />
+                                    </dxc:ConstantLine.Title>-->
+                                    </dxc:ConstantLine>
+                                </dxc:AxisY2D.ConstantLinesInFront>
+
+                                <dxc:AxisY2D.CustomLabels>
+                                    <dxc:CustomAxisLabel Value="70">
+                                        <TextBlock Foreground="Red" Text="70" />
+                                    </dxc:CustomAxisLabel>
+                                </dxc:AxisY2D.CustomLabels>
+                            </dxc:AxisY2D>
+                        </dxc:XYDiagram2D.AxisY>
+                        <!--#endregion-->
+
+                        <!--#region Series-->
+                        <dxc:XYDiagram2D.SeriesTemplate>
+                            <dxc:SplineSeries2D
+                                ArgumentDataMember="Power"
+                                CrosshairLabelPattern="{}{S}° : {V:n2} %"
+                                Style="{StaticResource Style.DXChart.LineSeries2D}"
+                                ValueDataMember="Mbps">
+                                <dxc:LineSeries2D.LineStyle>
+                                    <dxc:LineStyle LineJoin="Round" Thickness="1">
+                                        <!--<dxc:LineStyle.DashStyle>
+                                        <DashStyle Dashes="0" Offset="0" />
+                                    </dxc:LineStyle.DashStyle>-->
+                                    </dxc:LineStyle>
+                                </dxc:LineSeries2D.LineStyle>
+                            </dxc:SplineSeries2D>
+                        </dxc:XYDiagram2D.SeriesTemplate>
+                        <!--#endregion-->
+                    </dxc:XYDiagram2D>
+                </dxc:ChartControl>
+
+                <Border
+                    Grid.Column="1"
+                    Style="{StaticResource Style.DXChart.Legend.Border}"
+                    Visibility="{DXBinding 'Legends.Count>0?`Visible`:`Collapsed`'}">
+                    <ItemsControl ItemTemplate="{StaticResource Style.DXChart.Legend.ItemTemplate}" ItemsSource="{Binding Legends}" />
+                </Border>
+            </Grid>
         </Grid>
+
+
+
+
     </Grid>
 </UserControl>

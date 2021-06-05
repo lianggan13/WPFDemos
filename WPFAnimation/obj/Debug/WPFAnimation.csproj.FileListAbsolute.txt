@@ -13,3 +13,12 @@ E:\Github\WPFDemos\WPFAnimation\obj\Debug\WPFAnimation.csproj.GenerateResource.c
 E:\Github\WPFDemos\WPFAnimation\obj\Debug\WPFAnimation.csproj.CoreCompileInputs.cache
 E:\Github\WPFDemos\WPFAnimation\obj\Debug\WPFAnimation.exe
 E:\Github\WPFDemos\WPFAnimation\obj\Debug\WPFAnimation.pdb
+E:\Github\WPFDemos\WPFAnimation\obj\Debug\View\BrushView.g.cs
+E:\Github\WPFDemos\WPFAnimation\obj\Debug\GeneratedInternalTypeHelper.g.cs
+E:\Github\WPFDemos\WPFAnimation\obj\Debug\View\BrushView.baml
+E:\Github\WPFDemos\WPFAnimation\obj\Debug\View\LinearAnimationView.g.cs
+E:\Github\WPFDemos\WPFAnimation\obj\Debug\View\KeyFrameAnimationView.g.cs
+E:\Github\WPFDemos\WPFAnimation\obj\Debug\View\LinearAnimationView.baml
+E:\Github\WPFDemos\WPFAnimation\obj\Debug\View\KeyFrameAnimationView.baml
+E:\Github\WPFDemos\WPFAnimation\obj\Debug\View\PathAnimationView.g.cs
+E:\Github\WPFDemos\WPFAnimation\obj\Debug\View\PathAnimationView.baml

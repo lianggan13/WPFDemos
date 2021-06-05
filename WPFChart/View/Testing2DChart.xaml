@@ -66,7 +66,7 @@
                     </ComboBox>
 
                     <TextBlock>
-                        <Run Text="频率" />
+                        <Run Text="{DynamicResource trans0077}" />
                         <Run Text=":" />
                     </TextBlock>
                     <ComboBox
@@ -88,7 +88,7 @@
                                             HorizontalAlignment="Left"
                                             VerticalAlignment="Center"
                                             FontSize="11"
-                                            Text="最多勾选5项" />
+                                            Text="{DynamicResource trans0078}" />
                                         <ItemsControl
                                             Grid.Row="1"
                                             Width="{DXBinding @e(cmbFreq).ActualWidth - 4}"
@@ -118,7 +118,7 @@
                         </ComboBoxItem>
                     </ComboBox>
                     <TextBlock>
-                        <Run Text="极化" />
+                        <Run Text="{DynamicResource trans0070}" />
                         <Run Text=":" />
                     </TextBlock>
                     <ComboBox
@@ -157,7 +157,7 @@
                         </ComboBoxItem>
                     </ComboBox>
                     <TextBlock>
-                        <Run Text="转台角度(φ)" />
+                        <Run Text="{DynamicResource trans0100}" />
                         <Run Text=":" />
                     </TextBlock>
                     <ComboBox
@@ -197,116 +197,127 @@
                 </StackPanel>
 
                 <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-                    <Button Margin="0,0,10,0" Content="估计结果" />
-                    <Button Content="查看任务" />
+                    <Button Margin="0,0,10,0" Content="{DynamicResource trans0295}" />
+                    <Button Margin="0,0,20,0" Content="{DynamicResource trans0466}" />
                 </StackPanel>
             </Grid>
         </Border>
 
         <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition Width="100" />
-            </Grid.ColumnDefinitions>
-            <dxc:ChartControl
-                x:Name="chart"
-                DataSource="{Binding TestPoints}"
-                Style="{StaticResource Style.DXChart}">
-                <!--#region Titles-->
-                <dxc:ChartControl.Titles>
-                    <dxc:Title Style="{StaticResource Style.DXChart.Title}">
-                        <dxc:Title.ContentTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="剩余时间(预估)：" />
-                                    <TextBlock Text="30:20" />
-                                </StackPanel>
-                            </DataTemplate>
-                        </dxc:Title.ContentTemplate>
-                    </dxc:Title>
-                </dxc:ChartControl.Titles>
-                <!--#endregion-->
-
-
-                <dxc:XYDiagram2D
-                    SeriesDataMember="Legend"
-                    Style="{StaticResource Style.DXChart.XYDiagram2D}"
-                    Zoom="XYDiagram2D_Zoom">
-
-                    <!--#region Pane-->
-                    <dxc:XYDiagram2D.DefaultPane>
-                        <dxc:Pane Focusable="False">
-                            <dxc:Pane.AxisXScrollBarOptions>
-                                <dxc:ScrollBarOptions BarThickness="10" Visible="False" />
-                            </dxc:Pane.AxisXScrollBarOptions>
-                            <dxc:Pane.AxisYScrollBarOptions>
-                                <dxc:ScrollBarOptions BarThickness="10" Visible="False" />
-                            </dxc:Pane.AxisYScrollBarOptions>
-                        </dxc:Pane>
-                    </dxc:XYDiagram2D.DefaultPane>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <StackPanel Margin="35,5,0,0" Orientation="Horizontal">
+                <TextBlock Text="{DynamicResource trans0349}" />
+                <TextBlock Text=":" />
+                <TextBlock Text="{Binding RemainingTime}" />
+            </StackPanel>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="100" />
+                </Grid.ColumnDefinitions>
+                <dxc:ChartControl
+                    x:Name="chart"
+                    DataSource="{Binding TestPoints}"
+                    Style="{StaticResource Style.DXChart}">
+                    <!--#region Titles-->
+                    <dxc:ChartControl.Titles>
+                        <dxc:Title Style="{StaticResource Style.DXChart.Title}" Visibility="Collapsed">
+                            <dxc:Title.ContentTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{DynamicResource trans0349}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </dxc:Title.ContentTemplate>
+                        </dxc:Title>
+                    </dxc:ChartControl.Titles>
                     <!--#endregion-->
 
-                    <!--#region Axes-->
-                    <dxc:XYDiagram2D.AxisX>
-                        <dxc:AxisX2D Style="{StaticResource Style.DXChart.AxisX}">
-                            <dxc:AxisX2D.Title>
-                                <dxc:AxisTitle Content="{DynamicResource trans0066}" Style="{StaticResource Style.DXChart.AxisTitle}" />
-                            </dxc:AxisX2D.Title>
 
-                            <dxc:AxisX2D.Label>
-                                <dxc:AxisLabel Style="{StaticResource Style.DXChart.AxisLabel}" />
-                            </dxc:AxisX2D.Label>
-                        </dxc:AxisX2D>
-                    </dxc:XYDiagram2D.AxisX>
+                    <dxc:XYDiagram2D
+                        SeriesDataMember="Legend"
+                        Style="{StaticResource Style.DXChart.XYDiagram2D}"
+                        Zoom="XYDiagram2D_Zoom">
 
-                    <dxc:XYDiagram2D.AxisY>
-                        <dxc:AxisY2D Style="{StaticResource Style.DXChart.AxisY}">
-                            <dxc:AxisY2D.Title>
-                                <dxc:AxisTitle Content="{DynamicResource trans0069}" Style="{StaticResource Style.DXChart.AxisTitle}">
-                                    <dxc:AxisTitle.ContentTemplate>
-                                        <DataTemplate>
-                                            <StackPanel Orientation="Horizontal">
-                                                <TextBlock Text="{DynamicResource trans0069}" />
-                                                <TextBlock Text="(dB)" />
-                                            </StackPanel>
-                                        </DataTemplate>
-                                    </dxc:AxisTitle.ContentTemplate>
-                                </dxc:AxisTitle>
-                            </dxc:AxisY2D.Title>
+                        <!--#region Pane-->
+                        <dxc:XYDiagram2D.DefaultPane>
+                            <dxc:Pane Focusable="False">
+                                <dxc:Pane.AxisXScrollBarOptions>
+                                    <dxc:ScrollBarOptions BarThickness="10" Visible="False" />
+                                </dxc:Pane.AxisXScrollBarOptions>
+                                <dxc:Pane.AxisYScrollBarOptions>
+                                    <dxc:ScrollBarOptions BarThickness="10" Visible="False" />
+                                </dxc:Pane.AxisYScrollBarOptions>
+                            </dxc:Pane>
+                        </dxc:XYDiagram2D.DefaultPane>
+                        <!--#endregion-->
 
-                            <dxc:AxisY2D.Label>
-                                <dxc:AxisLabel Style="{StaticResource Style.DXChart.AxisLabel}" />
-                            </dxc:AxisY2D.Label>
+                        <!--#region Axes-->
+                        <dxc:XYDiagram2D.AxisX>
+                            <dxc:AxisX2D Style="{StaticResource Style.DXChart.AxisX}">
+                                <dxc:AxisX2D.Title>
+                                    <dxc:AxisTitle Content="{DynamicResource trans0066}" Style="{StaticResource Style.DXChart.AxisTitle}" />
+                                </dxc:AxisX2D.Title>
 
-                        </dxc:AxisY2D>
-                    </dxc:XYDiagram2D.AxisY>
-                    <!--#endregion-->
+                                <dxc:AxisX2D.Label>
+                                    <dxc:AxisLabel Style="{StaticResource Style.DXChart.AxisLabel}" />
+                                </dxc:AxisX2D.Label>
+                            </dxc:AxisX2D>
+                        </dxc:XYDiagram2D.AxisX>
 
-                    <!--#region Series-->
-                    <dxc:XYDiagram2D.SeriesTemplate>
-                        <dxc:LineSeries2D
-                            ArgumentDataMember="Theta"
-                            Style="{StaticResource Style.DXChart.LineSeries2D}"
-                            ValueDataMember="Power">
-                            <dxc:LineSeries2D.LineStyle>
-                                <dxc:LineStyle LineJoin="Round" Thickness="1">
-                                    <!--<dxc:LineStyle.DashStyle>
+                        <dxc:XYDiagram2D.AxisY>
+                            <dxc:AxisY2D Style="{StaticResource Style.DXChart.AxisY}">
+                                <dxc:AxisY2D.Title>
+                                    <dxc:AxisTitle Content="{DynamicResource trans0069}" Style="{StaticResource Style.DXChart.AxisTitle}">
+                                        <dxc:AxisTitle.ContentTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock Text="{DynamicResource trans0069}" />
+                                                    <TextBlock Text="(dB)" />
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </dxc:AxisTitle.ContentTemplate>
+                                    </dxc:AxisTitle>
+                                </dxc:AxisY2D.Title>
+
+                                <dxc:AxisY2D.Label>
+                                    <dxc:AxisLabel Style="{StaticResource Style.DXChart.AxisLabel}" />
+                                </dxc:AxisY2D.Label>
+
+                            </dxc:AxisY2D>
+                        </dxc:XYDiagram2D.AxisY>
+                        <!--#endregion-->
+
+                        <!--#region Series-->
+                        <dxc:XYDiagram2D.SeriesTemplate>
+                            <dxc:SplineSeries2D
+                                ArgumentDataMember="Theta"
+                                Style="{StaticResource Style.DXChart.LineSeries2D}"
+                                ValueDataMember="Power">
+                                <dxc:LineSeries2D.LineStyle>
+                                    <dxc:LineStyle LineJoin="Round" Thickness="1">
+                                        <!--<dxc:LineStyle.DashStyle>
                                         <DashStyle Dashes="0" Offset="0" />
                                     </dxc:LineStyle.DashStyle>-->
-                                </dxc:LineStyle>
-                            </dxc:LineSeries2D.LineStyle>
-                        </dxc:LineSeries2D>
-                    </dxc:XYDiagram2D.SeriesTemplate>
-                    <!--#endregion-->
-                </dxc:XYDiagram2D>
-            </dxc:ChartControl>
+                                    </dxc:LineStyle>
+                                </dxc:LineSeries2D.LineStyle>
+                            </dxc:SplineSeries2D>
+                        </dxc:XYDiagram2D.SeriesTemplate>
+                        <!--#endregion-->
+                    </dxc:XYDiagram2D>
+                </dxc:ChartControl>
 
-            <Border
-                Grid.Column="1"
-                Style="{StaticResource Style.DXChart.Legend.Border}"
-                Visibility="{DXBinding 'Legends.Count>0?`Visible`:`Collapsed`'}">
-                <ItemsControl ItemTemplate="{StaticResource Style.DXChart.Legend.ItemTemplate}" ItemsSource="{Binding Legends}" />
-            </Border>
+                <Border
+                    Grid.Column="1"
+                    Margin="5,8,2,0"
+                    Style="{StaticResource Style.DXChart.Legend.Border}"
+                    Visibility="{DXBinding 'Legends.Count>0?`Visible`:`Collapsed`'}">
+                    <ItemsControl ItemTemplate="{StaticResource Style.DXChart.Legend.ItemTemplate}" ItemsSource="{Binding Legends}" />
+                </Border>
+            </Grid>
         </Grid>
     </Grid>
 </UserControl>

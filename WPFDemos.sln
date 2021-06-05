@@ -37,6 +37,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFButton", "WPFButton\WPFB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFCommon", "WPFCommon\WPFCommon.csproj", "{A0F9C22B-B526-44DD-B58A-A837E3A833EC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF2DGraphics", "WPF2DGraphics\WPF2DGraphics.csproj", "{345D9C10-5ED4-41E4-A418-E4F658D02956}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +113,10 @@ Global
 		{A0F9C22B-B526-44DD-B58A-A837E3A833EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0F9C22B-B526-44DD-B58A-A837E3A833EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0F9C22B-B526-44DD-B58A-A837E3A833EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{345D9C10-5ED4-41E4-A418-E4F658D02956}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{345D9C10-5ED4-41E4-A418-E4F658D02956}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{345D9C10-5ED4-41E4-A418-E4F658D02956}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{345D9C10-5ED4-41E4-A418-E4F658D02956}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -12,6 +12,12 @@ namespace WPFChart.ViewModel
 {
     public class Testing2DVM : NotifyPropertyChanged
     {
+        private string remainingTime;
+        public string RemainingTime
+        {
+            get { return remainingTime; }
+            set { remainingTime = value; OnPropertyChanged(); }
+        }
         public ChkCmbModel Freq { get; set; } = new ChkCmbModel();
         public ChkCmbModel Polar { get; set; } = new ChkCmbModel();
         public ChkCmbModel TurnAngle { get; set; } = new ChkCmbModel();

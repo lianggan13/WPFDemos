@@ -6,9 +6,12 @@
     xmlns:Custom1="http://schemas.devexpress.com/winfx/2008/xaml/core/internal"
     xmlns:Custom2="http://schemas.devexpress.com/winfx/2008/xaml/editors/internal"
     xmlns:Custom3="http://schemas.devexpress.com/winfx/2008/xaml/editors/themekeys"
+    xmlns:Interaction="http://schemas.microsoft.com/expression/2010/interactions"
+    xmlns:com="clr-namespace:WPFComboBox.Common"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
     xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
     xmlns:local="clr-namespace:WPFComboBox"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="MainWindow"
@@ -16,6 +19,7 @@
     Height="450"
     mc:Ignorable="d">
     <Window.Resources>
+
         <Style x:Key="ComboBoxStyle1" TargetType="{x:Type ComboBox}">
             <Setter Property="Background" Value="White" />
             <Setter Property="BorderBrush" Value="#FFABABAB" />
@@ -103,7 +107,11 @@
                                 dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\ComboBox.xaml;114;14"
                                 AllowsTransparency="True"
                                 IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}"
-                                Placement="Bottom">
+                                Placement="Bottom"
+                                StaysOpen="True">
+                                <i:Interaction.Behaviors>
+                                    <com:AutoRepositionPopupBehavior />
+                                </i:Interaction.Behaviors>
                                 <Grid
                                     MinWidth="{Binding ActualWidth, ElementName=Root}"
                                     MaxHeight="{TemplateBinding MaxDropDownHeight}"
@@ -533,7 +541,7 @@
                                     FontWeight="{TemplateBinding FontWeight}"
                                     Foreground="{TemplateBinding Foreground}"
                                     IsChecked="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
-                                    
+
                                     <ToggleButton.Style>
                                         <Style TargetType="{x:Type ToggleButton}">
                                             <Setter Property="Template">
@@ -974,6 +982,92 @@
             </Setter>
             <Setter Property="VerticalContentAlignment" Value="Stretch" />
         </Style>
+        <ControlTemplate x:Key="ButtonEditControlTemplate1" TargetType="{x:Type dxe:ButtonEdit}">
+            <ContentControl
+                x:Name="PART_Root"
+                HorizontalContentAlignment="Stretch"
+                VerticalContentAlignment="Stretch"
+                Custom1:AppearanceOptions.BorderThickness="{Binding (Custom1:AppearanceOptions.BorderThickness), RelativeSource={RelativeSource TemplatedParent}}"
+                Custom1:AppearanceOptions.CornerRadius="{Binding (Custom1:AppearanceOptions.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}"
+                Custom1:AppearanceOptions.HasBorderThickness="{Binding (Custom1:AppearanceOptions.HasBorderThickness), RelativeSource={RelativeSource TemplatedParent}}"
+                Custom1:AppearanceOptions.HasCornerRadius="{Binding (Custom1:AppearanceOptions.HasCornerRadius), RelativeSource={RelativeSource TemplatedParent}}"
+                Custom2:ControlHelper.IsReadOnly="{TemplateBinding IsReadOnly}"
+                Custom2:ControlHelper.ShowFocusedState="{Binding IsKeyboardFocusWithin, RelativeSource={RelativeSource TemplatedParent}}"
+                dx:BlendHelper2.ThemeInfo="Core\Core\Editors\Themes\Generic\ButtonEdit.xaml;85;6"
+                dx:FocusHelper2.Focusable="False"
+                dxe:EditorAppearanceProperties.FocusedBorderBrush="{Binding (dxe:EditorAppearanceProperties.FocusedBorderBrush), RelativeSource={RelativeSource TemplatedParent}}"
+                dxe:EditorAppearanceProperties.ReadOnlyBackground="{Binding (dxe:EditorAppearanceProperties.ReadOnlyBackground), RelativeSource={RelativeSource TemplatedParent}}"
+                dxe:EditorAppearanceProperties.ReadOnlyBorderBrush="{Binding (dxe:EditorAppearanceProperties.ReadOnlyBorderBrush), RelativeSource={RelativeSource TemplatedParent}}"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                Focusable="False"
+                Template="{TemplateBinding ActualBorderTemplate}">
+                <Grid
+                    x:Name="ButtonEditGrid"
+                    dx:BlendHelper2.ThemeInfo="Core\Core\Editors\Themes\Generic\ButtonEdit.xaml;86;8"
+                    SnapsToDevicePixels="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <dxe:ErrorControl x:Name="PART_ErrorPresenter" dx:BlendHelper2.ThemeInfo="Core\Core\Editors\Themes\Generic\ButtonEdit.xaml;93;10" />
+                    <dxe:ButtonsControl
+                        x:Name="PART_LeftButtons"
+                        Grid.Column="1"
+                        dx:BlendHelper2.ThemeInfo="Core\Core\Editors\Themes\Generic\ButtonEdit.xaml;94;10">
+                        <dxe:ButtonsControl.Visibility>
+                            <Binding Path="ActualShowLeftButtons" RelativeSource="{RelativeSource TemplatedParent}">
+                                <Binding.Converter>
+                                    <dx:BoolToVisibilityConverter />
+                                </Binding.Converter>
+                            </Binding>
+                        </dxe:ButtonsControl.Visibility>
+                    </dxe:ButtonsControl>
+                    <dxe:EditorControl
+                        x:Name="PART_Content"
+                        Grid.Column="2"
+                        VerticalAlignment="Stretch"
+                        dx:BlendHelper2.ThemeInfo="Core\Core\Editors\Themes\Generic\ButtonEdit.xaml;95;10"
+                        dx:FocusHelper2.Focusable="False"
+                        Focusable="False"
+                        Template="{TemplateBinding ActualEditorControlTemplate}" />
+                    <dxe:ButtonsControl
+                        x:Name="PART_RightButtons"
+                        Grid.Column="3"
+                        dx:BlendHelper2.ThemeInfo="Core\Core\Editors\Themes\Generic\ButtonEdit.xaml;96;10">
+                        <dxe:ButtonsControl.Visibility>
+                            <Binding Path="ActualShowRightButtons" RelativeSource="{RelativeSource TemplatedParent}">
+                                <Binding.Converter>
+                                    <dx:BoolToVisibilityConverter />
+                                </Binding.Converter>
+                            </Binding>
+                        </dxe:ButtonsControl.Visibility>
+                    </dxe:ButtonsControl>
+                </Grid>
+            </ContentControl>
+            <ControlTemplate.Triggers>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding (dxe:BaseEdit.OwnerEdit).(dxe:ActualPropertyProvider.Properties).IsTextEditable, RelativeSource={RelativeSource Self}}" Value="true" />
+                        <Condition Binding="{Binding EditMode, RelativeSource={RelativeSource Self}}" Value="Standalone" />
+                    </MultiDataTrigger.Conditions>
+                    <Setter TargetName="PART_Content" Property="Template" Value="{Binding EditTemplate, RelativeSource={RelativeSource TemplatedParent}}" />
+                </MultiDataTrigger>
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding (dxe:BaseEdit.OwnerEdit).(dxe:ActualPropertyProvider.Properties).IsTextEditable, RelativeSource={RelativeSource Self}}" Value="false" />
+                        <Condition Binding="{Binding EditMode, RelativeSource={RelativeSource Self}}" Value="Standalone" />
+                    </MultiDataTrigger.Conditions>
+                    <Setter TargetName="PART_Content" Property="Template" Value="{Binding EditNonEditableTemplate, RelativeSource={RelativeSource TemplatedParent}}" />
+                </MultiDataTrigger>
+                <DataTrigger Binding="{Binding ShowBorder, RelativeSource={RelativeSource Self}}" Value="true">
+                    <Setter TargetName="PART_ErrorPresenter" Property="dx:WpfSvgPalette.Palette" Value="{DynamicResource {Custom3:InplaceBaseEditThemeKey ResourceKey=ValidationErrorSvgPalette, ThemeName=Office2019Colorful}}" />
+                </DataTrigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
     </Window.Resources>
     <StackPanel>
         <dxe:ComboBoxEdit
@@ -982,6 +1076,7 @@
             HorizontalAlignment="Left"
             ShowCustomItems="False"
             ShowSizeGrip="False"
+            Template="{DynamicResource ButtonEditControlTemplate1}"
             Text="Employees">
             <dxe:ComboBoxEdit.EditNonEditableTemplate>
                 <ControlTemplate>
@@ -999,13 +1094,40 @@
             <dxe:ComboBoxEditItem Content="Mike" />
         </dxe:ComboBoxEdit>
 
+        <dxe:ComboBoxEdit
+            Width="150"
+            Margin="0,5"
+            HorizontalAlignment="Left"
+            PopupClosing="ComboBoxEdit_PopupClosing"
+            ShowCustomItems="False"
+            ShowSizeGrip="False"
+            Text="Employees">
+
+            <dxe:ComboBoxEditItem>
+                <TreeView MaxHeight="50">
+                    <TreeViewItem Header="123">
+                        <TreeViewItem Header="A" />
+                        <TreeViewItem Header="B" />
+                        <TreeViewItem Header="C" />
+                    </TreeViewItem>
+                </TreeView>
+
+            </dxe:ComboBoxEditItem>
+
+            <!--<dxe:ComboBoxEditItem Content="Tom" />
+            <dxe:ComboBoxEditItem Content="Jack" />
+            <dxe:ComboBoxEditItem Content="Bob" />
+            <dxe:ComboBoxEditItem Content="Mike" />-->
+        </dxe:ComboBoxEdit>
+
         <ComboBox
             Width="150"
             Margin="0,5"
             HorizontalAlignment="Left"
             IsEditable="True"
             SelectionChanged="ComboBox_SelectionChanged"
-            Style="{DynamicResource ComboBoxStyle1}"
+            StaysOpenOnEdit="False"
+            Style="{StaticResource ComboBoxStyle1}"
             Text="sssss">
             <ComboBoxItem Content="自动递增（A）" />
             <ComboBoxItem Content="自动递增（A）" />
@@ -1036,23 +1158,33 @@
 
         <dxe:ComboBoxEdit
             x:Name="checkedComboBox"
-            Margin="0,5"  Width="150"
+            Width="150"
+            Margin="0,5"
+            HorizontalAlignment="Left"
             IsTextEditable="False"
             ShowCustomItems="False"
             ShowSizeGrip="False"
-            HorizontalAlignment="Left"
             Text="I'am checkedComboBox">
             <dxe:ComboBoxEdit.StyleSettings>
                 <dxe:CheckedComboBoxStyleSettings />
             </dxe:ComboBoxEdit.StyleSettings>
         </dxe:ComboBoxEdit>
 
-        <Expander x:Name="exp" HorizontalAlignment="Left" Width="150" Margin="0,5" Style="{DynamicResource ExpanderStyle1}">
+        <Expander
+            x:Name="exp"
+            Width="150"
+            Margin="0,5"
+            HorizontalAlignment="Left"
+            Style="{DynamicResource ExpanderStyle1}">
             <Expander.Header>
                 <TextBlock FontWeight="Bold" Text="标题" />
             </Expander.Header>
             <Expander.Content>
-                <Popup IsOpen="{Binding Path=IsExpanded, ElementName=exp,Mode=TwoWay}" Placement="Bottom" StaysOpen="False" AllowsTransparency="True">
+                <Popup
+                    AllowsTransparency="True"
+                    IsOpen="{Binding Path=IsExpanded, ElementName=exp, Mode=TwoWay}"
+                    Placement="Bottom"
+                    StaysOpen="False">
                     <StackPanel>
                         <ComboBoxItem x:Name="cmbItem" Content="自动递增（A）" />
                         <ComboBoxItem Content="自动递增（B）" />

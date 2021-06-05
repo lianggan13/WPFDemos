@@ -19,8 +19,10 @@ namespace WPFComboBox
 
         }
 
-
-
+        private void ComboBoxEdit_PopupClosing(object sender, DevExpress.Xpf.Editors.ClosingPopupEventArgs e)
+        {
+            e.Handled = true;
+        }
     }
 
 

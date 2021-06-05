@@ -1,5 +1,4 @@
 ﻿using DevExpress.Xpf.Charts;
-using GTS.MaxSign.Controls.ViewModel;
 using System.Windows.Controls;
 
 
@@ -10,22 +9,10 @@ namespace GTS.MaxSign.Controls.UC
     /// </summary>
     public partial class Mbps2DChartUC : UserControl
     {
-        public Mbps2DChartVM VMChart { get => VM; }
         public Mbps2DChartUC()
         {
             InitializeComponent();
             chart.Diagram.Series.CollectionChanged += VM.Series_CollectionChanged;
-        }
-
-        private void diagram_Zoom(object sender, XYDiagram2DZoomEventArgs e)
-        {
-
-        }
-
-
-        private void Legend_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            //VM.Legend_MouseDown(sender, e);
         }
 
         private void XYDiagram2D_Zoom(object sender, XYDiagram2DZoomEventArgs e)
