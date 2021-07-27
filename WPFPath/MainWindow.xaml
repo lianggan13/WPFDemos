@@ -4,74 +4,42 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:WPFPath"
-    xmlns:uc="clr-namespace:WPFPath.UC"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:uc="clr-namespace:WPFPath.UC"
+    xmlns:vm="clr-namespace:WPFPath.View"
     Title="MainWindow"
     Width="799"
     Height="532"
     mc:Ignorable="d">
     <Grid>
-        <Path Data="M 20,10 h40 v40 h-40 v-40" Stroke="Black" />
-        <Path Data="M 20,60 L 100,200 L 300,400" Stroke="DarkCyan" />
-        <Path Data="M 10,100 L 100,100 100,50 Z M 10,10 L 100,10 100,40 Z" Stroke="Blue" />
+        <UniformGrid Columns="3">
+            <uc:CircularProgressBar Width="150" Height="150" />
 
-        <Path
-            Data="M 150,10 S 250,100 80,280"
-            Stroke="Black"
-            StrokeThickness="1" />
-        <Path
-            Data="M 150,10 L 250,100 80,280"
-            Stroke="Black"
-            StrokeThickness="1" />
+            <vm:CoolingTower
+                Width="205"
+                Height="245"
+                IsRunning="True" />
 
-        <Path
-            Data="M 150,10 T 250,100 80,280"
-            Stroke="Red"
-            StrokeDashArray="1,2,1"
-            StrokeThickness="2" />
-
-     
-        <Path
-            Data="M 300,300 A 100,100 0 1 1 290,300 Z"
-            Stroke="DarkBlue"
-            StrokeThickness="2" />
-
-        <Path
-            Data="M 300,300 A 100,100 0 1 1 300,0 Z"
-            Stroke="Black"
-            StrokeThickness="2" />
-        <Path
-            Data="M 300,300 A 100,100 0 1 1 300,100 Z"
-            Stroke="Red"
-            StrokeThickness="2" />
-        <Path
-            Data="M 300,300 A 150,150 0 1 0 300,240 Z"
-            Stroke="Violet"
-            StrokeThickness="2" />
-
-        <Path
-            Data="M 75 75 A 72,72 0 1 1 74,75 Z"
-            Stroke="Yellow"
-            StrokeThickness="4" />
-        <TextBlock Margin="300,300,0,0">
-            <TextBlock.Text>
-                
-                <MultiBinding StringFormat="{}M({0},{1})">
-                    <Binding Path="Margin.Left" RelativeSource="{RelativeSource Mode=Self}" />
-                    <Binding Path="Margin.Top" RelativeSource="{RelativeSource Mode=Self}" />
-                </MultiBinding>
-            </TextBlock.Text>
-        </TextBlock>
-        <TextBlock Margin="300,240,0,0"  >
-            <TextBlock.Text>
-                <MultiBinding StringFormat="{}Z({0},{1})">
-                    <Binding Path="Margin.Left" RelativeSource="{RelativeSource Mode=Self}" />
-                    <Binding Path="Margin.Top" RelativeSource="{RelativeSource Mode=Self}" />
-                </MultiBinding>
-            </TextBlock.Text>
-        </TextBlock>
-
-        <uc:CircularProgressBar Width="150" Height="150"></uc:CircularProgressBar>
+            <Grid Width="20" Height="20">
+                <Line
+                    x:Name="ellipse"
+                    Stretch="Uniform"
+                    Stroke="Green"
+                    StrokeDashArray="1,2,1,2"
+                    StrokeThickness="2"
+                    X1="0"
+                    X2="1" />
+                <!--  StrokeThickness="{Binding Series.LineStyle.Thickness}"  -->
+            </Grid>
+            <TextBlock
+                x:Name="txt"
+                Grid.Column="1"
+                Margin="3,0,0,0"
+                VerticalAlignment="Center"
+                Foreground="#333333"
+                Text="{Binding Series.DisplayName}"
+                TextAlignment="Left" />
+        </UniformGrid>
 
     </Grid>
 </Window>

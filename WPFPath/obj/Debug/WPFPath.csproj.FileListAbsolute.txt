@@ -5,13 +5,11 @@ E:\Github\WPFDemos\WPFPath\bin\Debug\WPFCommon.dll
 E:\Github\WPFDemos\WPFPath\bin\Debug\WPFCommon.pdb
 E:\Github\WPFDemos\WPFPath\obj\Debug\WPFPath.csprojAssemblyReference.cache
 E:\Github\WPFDemos\WPFPath\obj\Debug\MainWindow.g.cs
-E:\Github\WPFDemos\WPFPath\obj\Debug\UC\CircularProgressBar.g.cs
 E:\Github\WPFDemos\WPFPath\obj\Debug\App.g.cs
 E:\Github\WPFDemos\WPFPath\obj\Debug\GeneratedInternalTypeHelper.g.cs
 E:\Github\WPFDemos\WPFPath\obj\Debug\WPFPath_MarkupCompile.cache
 E:\Github\WPFDemos\WPFPath\obj\Debug\WPFPath_MarkupCompile.lref
 E:\Github\WPFDemos\WPFPath\obj\Debug\MainWindow.baml
-E:\Github\WPFDemos\WPFPath\obj\Debug\UC\CircularProgressBar.baml
 E:\Github\WPFDemos\WPFPath\obj\Debug\WPFPath.g.resources
 E:\Github\WPFDemos\WPFPath\obj\Debug\WPFPath.Properties.Resources.resources
 E:\Github\WPFDemos\WPFPath\obj\Debug\WPFPath.csproj.GenerateResource.cache
@@ -19,3 +17,9 @@ E:\Github\WPFDemos\WPFPath\obj\Debug\WPFPath.csproj.CoreCompileInputs.cache
 E:\Github\WPFDemos\WPFPath\obj\Debug\WPFPath.csproj.CopyComplete
 E:\Github\WPFDemos\WPFPath\obj\Debug\WPFPath.exe
 E:\Github\WPFDemos\WPFPath\obj\Debug\WPFPath.pdb
+E:\Github\WPFDemos\WPFPath\obj\Debug\View\CircularProgressBar.g.cs
+E:\Github\WPFDemos\WPFPath\obj\Debug\View\CoolingTower.g.cs
+E:\Github\WPFDemos\WPFPath\obj\Debug\View\GeneralPath.g.cs
+E:\Github\WPFDemos\WPFPath\obj\Debug\View\CircularProgressBar.baml
+E:\Github\WPFDemos\WPFPath\obj\Debug\View\CoolingTower.baml
+E:\Github\WPFDemos\WPFPath\obj\Debug\View\GeneralPath.baml

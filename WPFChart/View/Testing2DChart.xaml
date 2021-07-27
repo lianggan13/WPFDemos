@@ -300,8 +300,8 @@
                                 <dxc:LineSeries2D.LineStyle>
                                     <dxc:LineStyle LineJoin="Round" Thickness="1">
                                         <!--<dxc:LineStyle.DashStyle>
-                                        <DashStyle Dashes="0" Offset="0" />
-                                    </dxc:LineStyle.DashStyle>-->
+                                            <DashStyle Dashes="1,4,1" Offset="0" />
+                                        </dxc:LineStyle.DashStyle>-->
                                     </dxc:LineStyle>
                                 </dxc:LineSeries2D.LineStyle>
                             </dxc:SplineSeries2D>

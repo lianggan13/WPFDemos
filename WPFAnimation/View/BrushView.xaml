@@ -9,8 +9,8 @@
     d:DesignWidth="800"
     mc:Ignorable="d">
     <Grid Background="White">
-        <WrapPanel HorizontalAlignment="Left">
-            <Rectangle Width="100" Height="100">
+        <UniformGrid Columns="4" Rows="2">
+            <Rectangle>
                 <Rectangle.Fill>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                         <GradientStop Offset="0" Color="Red" />
@@ -22,10 +22,7 @@
                 </Rectangle.Fill>
             </Rectangle>
 
-            <Rectangle
-                Width="180"
-                Height="100"
-                Margin="5,0,0,0">
+            <Rectangle Margin="5,0,0,0">
                 <Rectangle.Fill>
                     <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                         <GradientStop Offset="0" Color="Red" />
@@ -37,10 +34,7 @@
                 </Rectangle.Fill>
             </Rectangle>
 
-            <Rectangle
-                Width="180"
-                Height="100"
-                Margin="5,0,0,0">
+            <Rectangle Margin="5,0,0,0">
                 <Rectangle.Fill>
                     <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
                         <GradientStop Offset="0" Color="Red" />
@@ -52,9 +46,16 @@
                 </Rectangle.Fill>
             </Rectangle>
 
-        </WrapPanel>
-
-
+            <Rectangle Margin="5,0,0,0">
+                <Rectangle.Fill>
+                    <RadialGradientBrush Center="0.5,0.7" GradientOrigin="0.5,0.7" RadiusX="0.8" RadiusY="0.8">
+                        <GradientStop Color="#FFA4B3D3" />
+                        <GradientStop Offset="0.163" Color="#FF96AAD4" />
+                        <GradientStop Offset="0.952" Color="#FF302C5D" />
+                    </RadialGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+        </UniformGrid>
 
     </Grid>
 </UserControl>

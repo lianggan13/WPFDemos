@@ -7,7 +7,6 @@
     xmlns:Custom2="http://schemas.devexpress.com/winfx/2008/xaml/editors/internal"
     xmlns:Custom3="http://schemas.devexpress.com/winfx/2008/xaml/editors/themekeys"
     xmlns:Interaction="http://schemas.microsoft.com/expression/2010/interactions"
-    xmlns:com="clr-namespace:WPFComboBox.Common"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
     xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
@@ -18,13 +17,171 @@
     Width="800"
     Height="450"
     mc:Ignorable="d">
-    <Window.Resources>
-
+    <Window.Resources >
+        <!--  Combox  -->
         <Style x:Key="ComboBoxStyle1" TargetType="{x:Type ComboBox}">
             <Setter Property="Background" Value="White" />
             <Setter Property="BorderBrush" Value="#FFABABAB" />
             <Setter Property="BorderThickness" Value="1" />
-            <Setter Property="Foreground" Value="#FF444444" />
+            <Setter Property="Foreground" Value="#333333" />
+            <Setter Property="Cursor" Value="Hand" />
+            <!--<Setter Property="VerticalAlignment" Value="Center"></Setter>-->
+            <Setter Property="ScrollViewer.CanContentScroll" Value="True" />
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
+            <Setter Property="ScrollViewer.PanningMode" Value="Both" />
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+            <Setter Property="Stylus.IsFlicksEnabled" Value="False" />
+            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ComboBox}">
+                        <Grid x:Name="Root">
+                            <Grid x:Name="PART_Editor">
+                                <Border
+                                    x:Name="IsDefault"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}" />
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition x:Name="ColumnField" Width="*" />
+                                        <ColumnDefinition x:Name="ColumnButton" Width="16" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <ContentPresenter
+                                        x:Name="Content"
+                                        Grid.Column="0"
+                                        Margin="{TemplateBinding Padding}"
+                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                        VerticalAlignment="Center"
+                                        Content="{TemplateBinding Text}"
+                                        IsHitTestVisible="False" />
+
+                                </Grid>
+
+                                <ToggleButton
+                                    x:Name="DropDownButton"
+                                    Height="{TemplateBinding Height}"
+                                    Focusable="False"
+                                    IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
+                                    <ToggleButton.Style>
+                                        <Style TargetType="{x:Type ToggleButton}">
+                                            <Setter Property="Background" Value="Transparent" />
+                                            <Setter Property="BorderThickness" Value="1" />
+                                            <Setter Property="ClickMode" Value="Press" />
+                                            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+                                            <Setter Property="Foreground" Value="#FF444444" />
+                                            <Setter Property="OverridesDefaultStyle" Value="True" />
+                                            <Setter Property="SnapsToDevicePixels" Value="True" />
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                                                        <Grid x:Name="Root" Background="Transparent">
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition x:Name="ColumnContent" Width="*" />
+                                                                <ColumnDefinition x:Name="ColumnButton" Width="16" />
+                                                            </Grid.ColumnDefinitions>
+                                                            <Grid Grid.Column="1">
+                                                                <Border
+                                                                    x:Name="IsDefault"
+                                                                    Margin="0"
+                                                                    Background="{TemplateBinding Background}" />
+                                                                <Path
+                                                                    x:Name="Content"
+                                                                    Uid="@Fill=Foreground"
+                                                                    Margin="3"
+                                                                    Fill="#FF444444">
+                                                                    <Path.Style>
+                                                                        <Style TargetType="{x:Type Path}">
+                                                                            <Setter Property="Data" Value="M 0 0 L 4 4 L 8 0 Z" />
+                                                                            <Setter Property="Fill" Value="#FF444444" />
+                                                                            <Setter Property="Height" Value="4" />
+                                                                            <Setter Property="HorizontalAlignment" Value="Center" />
+                                                                            <Setter Property="Margin" Value="0,1,0,0" />
+                                                                            <Setter Property="SnapsToDevicePixels" Value="True" />
+                                                                            <Setter Property="Stretch" Value="Fill" />
+                                                                            <Setter Property="VerticalAlignment" Value="Center" />
+                                                                            <Setter Property="Width" Value="8" />
+                                                                        </Style>
+                                                                    </Path.Style>
+                                                                </Path>
+                                                            </Grid>
+                                                        </Grid>
+                                                        <ControlTemplate.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter TargetName="Content" Property="Fill" Value="#FF444444" />
+                                                                <Setter TargetName="IsDefault" Property="Background" Value="#FFCBCACA" />
+                                                            </Trigger>
+                                                            <Trigger Property="IsPressed" Value="True">
+                                                                <Setter TargetName="Content" Property="Fill" Value="#FF444444" />
+                                                                <Setter TargetName="IsDefault" Property="Background" Value="#FFBABAB9" />
+                                                            </Trigger>
+                                                            <Trigger Property="IsChecked" Value="True">
+                                                                <Setter TargetName="Content" Property="Fill" Value="#FF444444" />
+                                                                <Setter TargetName="IsDefault" Property="Background" Value="#FFBABAB9" />
+                                                                <Setter TargetName="Content" Property="Data" Value="M 0 0 L 4 -4 L 8 0 Z" />
+                                                            </Trigger>
+                                                            <Trigger Property="IsEnabled" Value="False">
+                                                                <Setter TargetName="Root" Property="Opacity" Value="0.38" />
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </ToggleButton.Style>
+                                </ToggleButton>
+                            </Grid>
+
+                            <Popup
+                                GotFocus="PART_Popup_GotFocus"
+                                Opened="PART_Popup_Opened"
+                                x:Name="PART_Popup"
+                                MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                                Margin="1"
+                                AllowsTransparency="True"
+                                IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}"
+                                Placement="Bottom"
+                                StaysOpen="False"
+                                VerticalOffset="-1">
+                                <Grid MinWidth="{Binding ActualWidth, ElementName=Root}" MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                    <Border
+                                        x:Name="DropDownBorder"
+                                        Uid="@Background=Editor.Background;BorderBrush=Border"
+                                        Background="#FAFAFA"
+                                        BorderBrush="#FFABABAB"
+                                        BorderThickness="1">
+                                        <ScrollViewer x:Name="DropDownScrollViewer">
+                                            <Grid RenderOptions.ClearTypeHint="Enabled">
+                                                <Canvas HorizontalAlignment="Left" VerticalAlignment="Top">
+                                                    <Rectangle
+                                                        x:Name="OpaqueRect"
+                                                        Width="{Binding ActualWidth, ElementName=DropDownBorder}"
+                                                        Height="{Binding ActualHeight, ElementName=DropDownBorder}"
+                                                        Fill="{Binding Background, ElementName=DropDownBorder}" />
+                                                </Canvas>
+                                                <ItemsPresenter
+                                                    x:Name="ItemsPresenter"
+                                                    Margin="1"
+                                                    KeyboardNavigation.DirectionalNavigation="Contained" />
+                                            </Grid>
+                                        </ScrollViewer>
+                                    </Border>
+                                </Grid>
+                            </Popup>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background" Value="#DEDEDE" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="True">
+                                <Setter Property="Background" Value="White" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
             <Setter Property="ItemContainerStyle">
                 <Setter.Value>
                     <Style TargetType="{x:Type ComboBoxItem}">
@@ -39,39 +196,43 @@
                         <Setter Property="Template">
                             <Setter.Value>
                                 <ControlTemplate TargetType="{x:Type ListBoxItem}">
-                                    <Grid x:Name="Root" dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\ComboBoxItem.xaml;19;12">
-                                        <dx:DXBorder
+                                    <Grid x:Name="Root">
+                                        <Border
                                             x:Name="IsDefault"
-                                            dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\ComboBoxItem.xaml;20;14"
                                             Background="{TemplateBinding Background}"
                                             BorderBrush="{TemplateBinding BorderBrush}"
-                                            BorderThickness="{TemplateBinding BorderThickness}"
-                                            EnableDPICorrection="{x:Null}" />
+                                            BorderThickness="{TemplateBinding BorderThickness}" />
+                                        <!--<ContentPresenter
+                                        x:Name="Content"
+                                        Margin="{TemplateBinding Padding}"
+                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                        Content="{TemplateBinding Content}"
+                                        ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                        ContentTemplate="{TemplateBinding ContentTemplate}" />-->
+
                                         <ContentPresenter
                                             x:Name="Content"
                                             Margin="{TemplateBinding Padding}"
                                             HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                             VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                            dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\ComboBoxItem.xaml;21;14"
-                                            Content="{TemplateBinding Content}"
-                                            ContentStringFormat="{TemplateBinding ContentStringFormat}"
-                                            ContentTemplate="{TemplateBinding ContentTemplate}" />
+                                            ContentSource="{Binding Source}" />
                                     </Grid>
                                     <ControlTemplate.Triggers>
                                         <Trigger Property="IsKeyboardFocused" Value="True">
                                             <Setter Property="Foreground" Value="#FF444444" />
-                                            <Setter TargetName="IsDefault" Property="Background" Value="#FFE6F2FA" />
-                                            <Setter TargetName="IsDefault" Property="BorderBrush" Value="#FFE6F2FA" />
+                                            <!--<Setter TargetName="IsDefault" Property="Background" Value="#FFE6F2FA" />
+                                        <Setter TargetName="IsDefault" Property="BorderBrush" Value="#FFE6F2FA" />-->
                                         </Trigger>
                                         <Trigger Property="IsMouseOver" Value="True">
                                             <Setter Property="Foreground" Value="#FF444444" />
-                                            <Setter TargetName="IsDefault" Property="Background" Value="#FFE6F2FA" />
-                                            <Setter TargetName="IsDefault" Property="BorderBrush" Value="#FFE6F2FA" />
+                                            <Setter TargetName="IsDefault" Property="Background" Value="#EAEAEA" />
+                                            <Setter TargetName="IsDefault" Property="BorderBrush" Value="#EAEAEA" />
                                         </Trigger>
                                         <Trigger Property="IsSelected" Value="True">
                                             <Setter Property="Foreground" Value="#FF444444" />
-                                            <Setter TargetName="IsDefault" Property="Background" Value="#FFCDE6F7" />
-                                            <Setter TargetName="IsDefault" Property="BorderBrush" Value="#FFCDE6F7" />
+                                            <Setter TargetName="IsDefault" Property="Background" Value="#DCDCDC" />
+                                            <Setter TargetName="IsDefault" Property="BorderBrush" Value="#DCDCDC" />
                                         </Trigger>
                                         <Trigger Property="IsEnabled" Value="False">
                                             <Setter TargetName="Root" Property="Opacity" Value="0.38" />
@@ -81,1120 +242,143 @@
                             </Setter.Value>
                         </Setter>
                         <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type ItemsControl}}}" />
-                        <Style.Triggers>
-                            <Trigger Property="dx:ThemeManager.IsTouchEnabled" Value="True">
-                                <Setter Property="Padding" Value="14" />
-                            </Trigger>
-                        </Style.Triggers>
                     </Style>
                 </Setter.Value>
             </Setter>
-            <Setter Property="Padding" Value="2,2,21,2" />
-            <Setter Property="ScrollViewer.CanContentScroll" Value="True" />
-            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
-            <Setter Property="ScrollViewer.PanningMode" Value="Both" />
-            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
-            <Setter Property="Stylus.IsFlicksEnabled" Value="False" />
-            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type ComboBox}">
-                        <Grid x:Name="Root" dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\ComboBox.xaml;113;12">
-                            <Popup
-                                x:Name="PART_Popup"
-                                MaxHeight="{TemplateBinding MaxDropDownHeight}"
-                                Margin="1"
-                                dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\ComboBox.xaml;114;14"
-                                AllowsTransparency="True"
-                                IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}"
-                                Placement="Bottom"
-                                StaysOpen="True">
-                                <i:Interaction.Behaviors>
-                                    <com:AutoRepositionPopupBehavior />
-                                </i:Interaction.Behaviors>
-                                <Grid
-                                    MinWidth="{Binding ActualWidth, ElementName=Root}"
-                                    MaxHeight="{TemplateBinding MaxDropDownHeight}"
-                                    dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\ComboBox.xaml;115;16">
-                                    <dx:DXBorder
-                                        x:Name="DropDownBorder"
-                                        Uid="@Background=Button.Background;BorderBrush=Border"
-                                        dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\ComboBox.xaml;116;18"
-                                        Background="#FFFDFDFD"
-                                        BorderBrush="#FFABABAB"
-                                        BorderThickness="1"
-                                        EnableDPICorrection="{x:Null}">
-                                        <ScrollViewer x:Name="DropDownScrollViewer" dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\ComboBox.xaml;117;20">
-                                            <Grid dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\ComboBox.xaml;118;22" RenderOptions.ClearTypeHint="Enabled">
-                                                <Canvas
-                                                    HorizontalAlignment="Left"
-                                                    VerticalAlignment="Top"
-                                                    dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\ComboBox.xaml;119;24">
-                                                    <Rectangle
-                                                        x:Name="OpaqueRect"
-                                                        Width="{Binding ActualWidth, ElementName=DropDownBorder}"
-                                                        Height="{Binding ActualHeight, ElementName=DropDownBorder}"
-                                                        dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\ComboBox.xaml;120;26"
-                                                        Fill="{Binding Background, ElementName=DropDownBorder}" />
-                                                </Canvas>
-                                                <ItemsPresenter
-                                                    x:Name="ItemsPresenter"
-                                                    Margin="1"
-                                                    dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\ComboBox.xaml;122;24"
-                                                    KeyboardNavigation.DirectionalNavigation="Contained" />
-                                            </Grid>
-                                        </ScrollViewer>
-                                    </dx:DXBorder>
-                                </Grid>
-                            </Popup>
-                            <TextBox
-                                x:Name="PART_EditableTextBox"
-                                Padding="{TemplateBinding Padding}"
-                                dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\ComboBox.xaml;128;14"
-                                Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}"
-                                Text="{TemplateBinding SelectionBoxItem}">
-                                <TextBox.Style>
-                                    <Style TargetType="{x:Type TextBox}">
-                                        <Setter Property="dx:ScrollBarExtensions.ScrollBehavior" Value="{dx:TextBoxScrollBehavior}" />
-                                        <Setter Property="AllowDrop" Value="True" />
-                                        <Setter Property="Background" Value="White" />
-                                        <Setter Property="BorderBrush" Value="#FFABABAB" />
-                                        <Setter Property="BorderThickness" Value="1" />
-                                        <Setter Property="CaretBrush" Value="#FF444444" />
-                                        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
-                                        <Setter Property="Foreground" Value="#FF444444" />
-                                        <Setter Property="Padding" Value="2" />
-                                        <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst" />
-                                        <Setter Property="SelectionBrush" Value="#FF0173C7" />
-                                        <Setter Property="Stylus.IsFlicksEnabled" Value="False" />
-                                        <Setter Property="Template">
-                                            <Setter.Value>
-                                                <ControlTemplate TargetType="{x:Type TextBox}">
-                                                    <dx:DXBorder
-                                                        x:Name="IsDefault"
-                                                        dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\TextBox.xaml;23;12"
-                                                        Background="{TemplateBinding Background}"
-                                                        BorderBrush="{TemplateBinding BorderBrush}"
-                                                        BorderThickness="{TemplateBinding BorderThickness}"
-                                                        EnableDPICorrection="{x:Null}">
-                                                        <ScrollViewer
-                                                            x:Name="PART_ContentHost"
-                                                            Padding="{TemplateBinding Padding}"
-                                                            dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\TextBox.xaml;24;14" />
-                                                    </dx:DXBorder>
-                                                    <ControlTemplate.Triggers>
-                                                        <Trigger Property="IsEnabled" Value="False">
-                                                            <Setter TargetName="IsDefault" Property="Opacity" Value="0.38" />
-                                                        </Trigger>
-                                                    </ControlTemplate.Triggers>
-                                                </ControlTemplate>
-                                            </Setter.Value>
-                                        </Setter>
-                                        <Style.Triggers>
-                                            <Trigger Property="IsReadOnly" Value="True">
-                                                <Setter Property="BorderBrush" Value="#FFABABAB" />
-                                                <Setter Property="Background" Value="{DynamicResource {Custom:CommonThemeKey ResourceKey=ReadOnlyBackgroundBrush, ThemeName=Office2019Colorful}}" />
-                                            </Trigger>
-                                            <Trigger Property="IsFocused" Value="True">
-                                                <Setter Property="BorderBrush" Value="#FF0173C7" />
-                                            </Trigger>
-                                            <Trigger Property="dx:ThemeManager.IsTouchEnabled" Value="True">
-                                                <Setter Property="Padding" Value="13" />
-                                            </Trigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </TextBox.Style>
-                            </TextBox>
-                            <ToggleButton
-                                x:Name="DropDownButton"
-                                Width="16"
-                                HorizontalAlignment="Right"
-                                dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\ComboBox.xaml;129;14"
-                                Focusable="False"
-                                IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
-                                <ToggleButton.Style>
-                                    <Style TargetType="{x:Type ToggleButton}">
-                                        <Setter Property="Background" Value="Transparent" />
-                                        <Setter Property="BorderThickness" Value="1" />
-                                        <Setter Property="ClickMode" Value="Press" />
-                                        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
-                                        <Setter Property="Foreground" Value="#FF444444" />
-                                        <Setter Property="OverridesDefaultStyle" Value="True" />
-                                        <Setter Property="SnapsToDevicePixels" Value="True" />
-                                        <Setter Property="Template">
-                                            <Setter.Value>
-                                                <ControlTemplate TargetType="{x:Type ToggleButton}">
-                                                    <Grid
-                                                        x:Name="Root"
-                                                        dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\ComboBox.xaml;19;12"
-                                                        Background="Transparent">
-                                                        <Grid.ColumnDefinitions>
-                                                            <ColumnDefinition x:Name="ColumnContent" Width="*" />
-                                                            <ColumnDefinition x:Name="ColumnButton" Width="16" />
-                                                        </Grid.ColumnDefinitions>
-                                                        <Grid Grid.Column="1" dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\ComboBox.xaml;24;14">
-                                                            <dx:DXBorder
-                                                                x:Name="IsDefault"
-                                                                Margin="1"
-                                                                dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\ComboBox.xaml;25;16"
-                                                                Background="{TemplateBinding Background}"
-                                                                EnableDPICorrection="{x:Null}" />
-                                                            <Path
-                                                                x:Name="Content"
-                                                                Uid="@Fill=Foreground"
-                                                                Margin="3"
-                                                                dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\ComboBox.xaml;26;16"
-                                                                Fill="#FF444444">
-                                                                <Path.Style>
-                                                                    <Style TargetType="{x:Type Path}">
-                                                                        <Setter Property="Data" Value="F1M0,0L8,0 4,4 0,0z" />
-                                                                        <Setter Property="Fill" Value="#FF444444" />
-                                                                        <Setter Property="Height" Value="4" />
-                                                                        <Setter Property="HorizontalAlignment" Value="Center" />
-                                                                        <Setter Property="Margin" Value="0,1,0,0" />
-                                                                        <Setter Property="SnapsToDevicePixels" Value="True" />
-                                                                        <Setter Property="Stretch" Value="Fill" />
-                                                                        <Setter Property="VerticalAlignment" Value="Center" />
-                                                                        <Setter Property="Width" Value="8" />
-                                                                    </Style>
-                                                                </Path.Style>
-                                                            </Path>
-                                                        </Grid>
-                                                    </Grid>
-                                                    <ControlTemplate.Triggers>
-                                                        <Trigger Property="IsMouseOver" Value="True">
-                                                            <Setter TargetName="Content" Property="Fill" Value="#FF444444" />
-                                                            <Setter TargetName="IsDefault" Property="Background" Value="#FFCBCACA" />
-                                                        </Trigger>
-                                                        <Trigger Property="IsPressed" Value="True">
-                                                            <Setter TargetName="Content" Property="Fill" Value="#FF444444" />
-                                                            <Setter TargetName="IsDefault" Property="Background" Value="#FFBABAB9" />
-                                                        </Trigger>
-                                                        <Trigger Property="IsChecked" Value="True">
-                                                            <Setter TargetName="Content" Property="Fill" Value="#FF444444" />
-                                                            <Setter TargetName="IsDefault" Property="Background" Value="#FFBABAB9" />
-                                                        </Trigger>
-                                                        <Trigger Property="IsEnabled" Value="False">
-                                                            <Setter TargetName="Root" Property="Opacity" Value="0.38" />
-                                                        </Trigger>
-                                                        <Trigger Property="dx:ThemeManager.IsTouchEnabled" Value="True">
-                                                            <Setter TargetName="ColumnButton" Property="Width" Value="42" />
-                                                            <Setter TargetName="Content" Property="Margin" Value="14" />
-                                                        </Trigger>
-                                                    </ControlTemplate.Triggers>
-                                                </ControlTemplate>
-                                            </Setter.Value>
-                                        </Setter>
-                                    </Style>
-                                </ToggleButton.Style>
-                            </ToggleButton>
-                        </Grid>
-                        <ControlTemplate.Triggers>
-                            <Trigger SourceName="PART_Popup" Property="HasDropShadow" Value="True" />
-                            <Trigger Property="HasItems" Value="False">
-                                <Setter TargetName="DropDownBorder" Property="Height" Value="95" />
-                            </Trigger>
-                            <Trigger Property="IsEnabled" Value="False">
-                                <Setter TargetName="DropDownButton" Property="IsEnabled" Value="False" />
-                                <Setter TargetName="PART_EditableTextBox" Property="IsEnabled" Value="False" />
-                            </Trigger>
-                            <Trigger Property="IsGrouping" Value="True">
-                                <Setter Property="ScrollViewer.CanContentScroll" Value="False" />
-                            </Trigger>
-                            <Trigger SourceName="DropDownScrollViewer" Property="CanContentScroll" Value="False">
-                                <Setter TargetName="OpaqueRect" Property="Canvas.Left" Value="{Binding HorizontalOffset, ElementName=DropDownScrollViewer}" />
-                                <Setter TargetName="OpaqueRect" Property="Canvas.Top" Value="{Binding VerticalOffset, ElementName=DropDownScrollViewer}" />
-                            </Trigger>
-                            <Trigger Property="dx:ThemeManager.IsTouchEnabled" Value="True">
-                                <Setter TargetName="DropDownButton" Property="MinWidth" Value="42" />
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            <Style.Triggers>
-                <Trigger Property="IsFocused" Value="True">
-                    <Setter Property="BorderBrush" Value="#FF0173C7" />
-                </Trigger>
-                <Trigger Property="IsEditable" Value="False">
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="{x:Type ComboBox}">
-                                <Grid x:Name="Root" dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\ComboBox.xaml;56;6">
-                                    <Grid x:Name="PART_Editor" dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\ComboBox.xaml;57;8">
-                                        <dx:DXBorder
-                                            x:Name="IsDefault"
-                                            dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\ComboBox.xaml;58;10"
-                                            Background="{TemplateBinding Background}"
-                                            BorderBrush="{TemplateBinding BorderBrush}"
-                                            BorderThickness="{TemplateBinding BorderThickness}"
-                                            EnableDPICorrection="{x:Null}" />
-                                        <Grid dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\ComboBox.xaml;59;10">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition x:Name="ColumnField" Width="*" />
-                                                <ColumnDefinition x:Name="ColumnButton" Width="16" />
-                                            </Grid.ColumnDefinitions>
-                                            <ContentPresenter
-                                                x:Name="Content"
-                                                Grid.Column="0"
-                                                Margin="{TemplateBinding Padding}"
-                                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                                dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\ComboBox.xaml;64;12"
-                                                Content="{TemplateBinding SelectionBoxItem}"
-                                                ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
-                                                IsHitTestVisible="False" />
-                                        </Grid>
-                                        <ToggleButton
-                                            x:Name="DropDownButton"
-                                            dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\ComboBox.xaml;66;10"
-                                            Focusable="False"
-                                            IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
-                                            <ToggleButton.Style>
-                                                <Style TargetType="{x:Type ToggleButton}">
-                                                    <Setter Property="Background" Value="Transparent" />
-                                                    <Setter Property="BorderThickness" Value="1" />
-                                                    <Setter Property="ClickMode" Value="Press" />
-                                                    <Setter Property="FocusVisualStyle" Value="{x:Null}" />
-                                                    <Setter Property="Foreground" Value="#FF444444" />
-                                                    <Setter Property="OverridesDefaultStyle" Value="True" />
-                                                    <Setter Property="SnapsToDevicePixels" Value="True" />
-                                                    <Setter Property="Template">
-                                                        <Setter.Value>
-                                                            <ControlTemplate TargetType="{x:Type ToggleButton}">
-                                                                <Grid
-                                                                    x:Name="Root"
-                                                                    dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\ComboBox.xaml;19;12"
-                                                                    Background="Transparent">
-                                                                    <Grid.ColumnDefinitions>
-                                                                        <ColumnDefinition x:Name="ColumnContent" Width="*" />
-                                                                        <ColumnDefinition x:Name="ColumnButton" Width="16" />
-                                                                    </Grid.ColumnDefinitions>
-                                                                    <Grid Grid.Column="1" dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\ComboBox.xaml;24;14">
-                                                                        <dx:DXBorder
-                                                                            x:Name="IsDefault"
-                                                                            Margin="1"
-                                                                            dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\ComboBox.xaml;25;16"
-                                                                            Background="{TemplateBinding Background}"
-                                                                            EnableDPICorrection="{x:Null}" />
-                                                                        <Path
-                                                                            x:Name="Content"
-                                                                            Uid="@Fill=Foreground"
-                                                                            Margin="3"
-                                                                            dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\ComboBox.xaml;26;16"
-                                                                            Fill="#FF444444">
-                                                                            <Path.Style>
-                                                                                <Style TargetType="{x:Type Path}">
-                                                                                    <Setter Property="Data" Value="F1M0,0L8,0 4,4 0,0z" />
-                                                                                    <Setter Property="Fill" Value="#FF444444" />
-                                                                                    <Setter Property="Height" Value="4" />
-                                                                                    <Setter Property="HorizontalAlignment" Value="Center" />
-                                                                                    <Setter Property="Margin" Value="0,1,0,0" />
-                                                                                    <Setter Property="SnapsToDevicePixels" Value="True" />
-                                                                                    <Setter Property="Stretch" Value="Fill" />
-                                                                                    <Setter Property="VerticalAlignment" Value="Center" />
-                                                                                    <Setter Property="Width" Value="8" />
-                                                                                </Style>
-                                                                            </Path.Style>
-                                                                        </Path>
-                                                                    </Grid>
-                                                                </Grid>
-                                                                <ControlTemplate.Triggers>
-                                                                    <Trigger Property="IsMouseOver" Value="True">
-                                                                        <Setter TargetName="Content" Property="Fill" Value="#FF444444" />
-                                                                        <Setter TargetName="IsDefault" Property="Background" Value="#FFCBCACA" />
-                                                                    </Trigger>
-                                                                    <Trigger Property="IsPressed" Value="True">
-                                                                        <Setter TargetName="Content" Property="Fill" Value="#FF444444" />
-                                                                        <Setter TargetName="IsDefault" Property="Background" Value="#FFBABAB9" />
-                                                                    </Trigger>
-                                                                    <Trigger Property="IsChecked" Value="True">
-                                                                        <Setter TargetName="Content" Property="Fill" Value="#FF444444" />
-                                                                        <Setter TargetName="IsDefault" Property="Background" Value="#FFBABAB9" />
-                                                                    </Trigger>
-                                                                    <Trigger Property="IsEnabled" Value="False">
-                                                                        <Setter TargetName="Root" Property="Opacity" Value="0.38" />
-                                                                    </Trigger>
-                                                                    <Trigger Property="dx:ThemeManager.IsTouchEnabled" Value="True">
-                                                                        <Setter TargetName="ColumnButton" Property="Width" Value="42" />
-                                                                        <Setter TargetName="Content" Property="Margin" Value="14" />
-                                                                    </Trigger>
-                                                                </ControlTemplate.Triggers>
-                                                            </ControlTemplate>
-                                                        </Setter.Value>
-                                                    </Setter>
-                                                </Style>
-                                            </ToggleButton.Style>
-                                        </ToggleButton>
-                                        <dx:DXBorder
-                                            x:Name="IsFocus"
-                                            Uid="@BorderBrush=HoverForeground"
-                                            dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\ComboBox.xaml;67;10"
-                                            BorderBrush="#FF444444"
-                                            BorderThickness="{TemplateBinding BorderThickness}"
-                                            EnableDPICorrection="{x:Null}"
-                                            Opacity="0" />
-                                    </Grid>
-                                    <Popup
-                                        x:Name="PART_Popup"
-                                        MaxHeight="{TemplateBinding MaxDropDownHeight}"
-                                        Margin="1"
-                                        dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\ComboBox.xaml;69;8"
-                                        AllowsTransparency="True"
-                                        IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}"
-                                        Placement="Bottom"
-                                        VerticalOffset="-1">
-                                        <Grid
-                                            MinWidth="{Binding ActualWidth, ElementName=Root}"
-                                            MaxHeight="{TemplateBinding MaxDropDownHeight}"
-                                            dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\ComboBox.xaml;70;10">
-                                            <dx:DXBorder
-                                                x:Name="DropDownBorder"
-                                                Uid="@Background=Editor.Background;BorderBrush=Border"
-                                                dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\ComboBox.xaml;71;12"
-                                                Background="White"
-                                                BorderBrush="#FFABABAB"
-                                                BorderThickness="1"
-                                                EnableDPICorrection="{x:Null}">
-                                                <ScrollViewer x:Name="DropDownScrollViewer" dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\ComboBox.xaml;72;14">
-                                                    <Grid dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\ComboBox.xaml;73;16" RenderOptions.ClearTypeHint="Enabled">
-                                                        <Canvas
-                                                            HorizontalAlignment="Left"
-                                                            VerticalAlignment="Top"
-                                                            dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\ComboBox.xaml;74;18">
-                                                            <Rectangle
-                                                                x:Name="OpaqueRect"
-                                                                Width="{Binding ActualWidth, ElementName=DropDownBorder}"
-                                                                Height="{Binding ActualHeight, ElementName=DropDownBorder}"
-                                                                dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\ComboBox.xaml;75;20"
-                                                                Fill="{Binding Background, ElementName=DropDownBorder}" />
-                                                        </Canvas>
-                                                        <ItemsPresenter
-                                                            x:Name="ItemsPresenter"
-                                                            Margin="1"
-                                                            dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\ComboBox.xaml;77;18"
-                                                            KeyboardNavigation.DirectionalNavigation="Contained" />
-                                                    </Grid>
-                                                </ScrollViewer>
-                                            </dx:DXBorder>
-                                        </Grid>
-                                    </Popup>
-                                </Grid>
-                                <ControlTemplate.Triggers>
-                                    <Trigger Property="IsFocused" Value="True">
-                                        <Setter TargetName="IsDefault" Property="Opacity" Value="1" />
-                                    </Trigger>
-                                    <Trigger Property="IsEnabled" Value="False">
-                                        <Setter TargetName="Root" Property="Opacity" Value="0.38" />
-                                    </Trigger>
-                                    <Trigger Property="dx:ThemeManager.IsTouchEnabled" Value="True">
-                                        <Setter TargetName="ColumnButton" Property="MinWidth" Value="42" />
-                                    </Trigger>
-                                </ControlTemplate.Triggers>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                    <Setter Property="Padding" Value="5,3" />
-                </Trigger>
-                <MultiTrigger>
-                    <MultiTrigger.Conditions>
-                        <Condition Property="IsEditable" Value="True" />
-                        <Condition Property="dx:ThemeManager.IsTouchEnabled" Value="True" />
-                    </MultiTrigger.Conditions>
-                    <Setter Property="Padding" Value="12,12,44,12" />
-                </MultiTrigger>
-                <MultiTrigger>
-                    <MultiTrigger.Conditions>
-                        <Condition Property="IsEditable" Value="False" />
-                        <Condition Property="dx:ThemeManager.IsTouchEnabled" Value="True" />
-                    </MultiTrigger.Conditions>
-                    <Setter Property="Padding" Value="14" />
-                </MultiTrigger>
-            </Style.Triggers>
         </Style>
-        <Style x:Key="ExpanderStyle1" TargetType="{x:Type Expander}">
-            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Expander}">
-                        <Grid
-                            x:Name="Root"
-                            dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\Expander.xaml;178;12"
-                            Background="Transparent">
-                            <DockPanel dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\Expander.xaml;179;14">
-                                <ToggleButton
-                                    x:Name="Header"
-                                    Margin="1"
-                                    Padding="{TemplateBinding Padding}"
-                                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                    dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\Expander.xaml;180;16"
-                                    Content="{TemplateBinding Header}"
-                                    ContentTemplate="{TemplateBinding HeaderTemplate}"
-                                    DockPanel.Dock="Top"
-                                    FontFamily="{TemplateBinding FontFamily}"
-                                    FontSize="{TemplateBinding FontSize}"
-                                    FontStretch="{TemplateBinding FontStretch}"
-                                    FontStyle="{TemplateBinding FontStyle}"
-                                    FontWeight="{TemplateBinding FontWeight}"
-                                    Foreground="{TemplateBinding Foreground}"
-                                    IsChecked="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
 
-                                    <ToggleButton.Style>
-                                        <Style TargetType="{x:Type ToggleButton}">
-                                            <Setter Property="Template">
-                                                <Setter.Value>
-                                                    <ControlTemplate TargetType="{x:Type ToggleButton}">
-                                                        <Grid
-                                                            x:Name="Root"
-                                                            dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\Expander.xaml;59;12"
-                                                            Background="Transparent">
-                                                            <StackPanel
-                                                                Margin="{TemplateBinding Padding}"
-                                                                dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\Expander.xaml;60;14"
-                                                                Orientation="Horizontal">
-                                                                <ContentPresenter
-                                                                    x:Name="Content"
-                                                                    Margin="4,0,0,0"
-                                                                    dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\Expander.xaml;66;16"
-                                                                    Content="{TemplateBinding Content}"
-                                                                    ContentStringFormat="{TemplateBinding ContentStringFormat}"
-                                                                    ContentTemplate="{TemplateBinding ContentTemplate}"
-                                                                    RecognizesAccessKey="True" />
-                                                                <Grid
-                                                                    x:Name="Button"
-                                                                    Width="16"
-                                                                    Height="16"
-                                                                    dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\Expander.xaml;61;16">
-                                                                    <dx:DXBorder
-                                                                        x:Name="IsDefault"
-                                                                        dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\Expander.xaml;62;18"
-                                                                        Background="Transparent"
-                                                                        EnableDPICorrection="{x:Null}" />
-                                                                    <Path
-                                                                        x:Name="Collapsed"
-                                                                        Uid="@Fill=Foreground"
-                                                                        dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\Expander.xaml;63;18"
-                                                                        Fill="#FF444444">
-                                                                        <Path.Style>
-                                                                            <Style TargetType="{x:Type Path}">
-                                                                                <Setter Property="Data" Value="F1M0,0L8,0 4,4 0,0z" />
-                                                                                <Setter Property="Fill" Value="#FF444444" />
-                                                                                <Setter Property="Height" Value="4" />
-                                                                                <Setter Property="HorizontalAlignment" Value="Center" />
-                                                                                <Setter Property="Margin" Value="0,1,0,0" />
-                                                                                <Setter Property="SnapsToDevicePixels" Value="True" />
-                                                                                <Setter Property="Stretch" Value="Fill" />
-                                                                                <Setter Property="VerticalAlignment" Value="Center" />
-                                                                                <Setter Property="Width" Value="8" />
-                                                                            </Style>
-                                                                        </Path.Style>
-                                                                    </Path>
-                                                                    <Path
-                                                                        x:Name="Expanded"
-                                                                        Uid="@Fill=Foreground"
-                                                                        dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\Expander.xaml;64;18"
-                                                                        Fill="#FF444444"
-                                                                        Visibility="Collapsed">
-                                                                        <Path.Style>
-                                                                            <Style TargetType="{x:Type Path}">
-                                                                                <Setter Property="Data" Value="F1M4,0L8,4 0,4 4,0z" />
-                                                                                <Setter Property="Fill" Value="#FF444444" />
-                                                                                <Setter Property="Height" Value="4" />
-                                                                                <Setter Property="HorizontalAlignment" Value="Center" />
-                                                                                <Setter Property="Margin" Value="0,0,0,1" />
-                                                                                <Setter Property="SnapsToDevicePixels" Value="True" />
-                                                                                <Setter Property="Stretch" Value="Fill" />
-                                                                                <Setter Property="VerticalAlignment" Value="Center" />
-                                                                                <Setter Property="Width" Value="8" />
-                                                                            </Style>
-                                                                        </Path.Style>
-                                                                    </Path>
-                                                                </Grid>
-                                                            </StackPanel>
-                                                        </Grid>
-                                                        <ControlTemplate.Triggers>
-                                                            <Trigger Property="IsChecked" Value="True">
-                                                                <Setter TargetName="Collapsed" Property="Visibility" Value="Collapsed" />
-                                                                <Setter TargetName="Expanded" Property="Visibility" Value="Visible" />
-                                                            </Trigger>
-                                                            <Trigger Property="IsMouseOver" Value="True">
-                                                                <Setter TargetName="Collapsed" Property="Fill" Value="#FF444444" />
-                                                                <Setter TargetName="Expanded" Property="Fill" Value="#FF444444" />
-                                                                <Setter TargetName="IsDefault" Property="Background" Value="#FFE6F2FA" />
-                                                            </Trigger>
-                                                            <Trigger Property="IsPressed" Value="True">
-                                                                <Setter TargetName="Collapsed" Property="Fill" Value="#FF444444" />
-                                                                <Setter TargetName="Expanded" Property="Fill" Value="#FF444444" />
-                                                                <Setter TargetName="IsDefault" Property="Background" Value="#FFCDE6F7" />
-                                                            </Trigger>
-                                                            <Trigger Property="dx:ThemeManager.IsTouchEnabled" Value="True">
-                                                                <Setter TargetName="Button" Property="MinHeight" Value="44" />
-                                                                <Setter TargetName="Button" Property="MinWidth" Value="44" />
-                                                                <Setter TargetName="Content" Property="Margin" Value="14" />
-                                                            </Trigger>
-                                                        </ControlTemplate.Triggers>
-                                                    </ControlTemplate>
-                                                </Setter.Value>
-                                            </Setter>
-                                        </Style>
-                                    </ToggleButton.Style>
-                                </ToggleButton>
-                                <ContentPresenter
-                                    x:Name="Button"
-                                    Margin="{TemplateBinding Padding}"
-                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                    dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\Expander.xaml;181;16"
-                                    Content="{TemplateBinding Content}"
-                                    ContentStringFormat="{TemplateBinding ContentStringFormat}"
-                                    ContentTemplate="{TemplateBinding ContentTemplate}"
-                                    DockPanel.Dock="Bottom"
-                                    Focusable="False"
-                                    Visibility="Collapsed" />
-                            </DockPanel>
-                        </Grid>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsExpanded" Value="True">
-                                <Setter TargetName="Button" Property="Visibility" Value="Visible" />
-                            </Trigger>
-                            <Trigger Property="ExpandDirection" Value="Right">
-                                <Setter TargetName="Button" Property="DockPanel.Dock" Value="Right" />
-                                <Setter TargetName="Header" Property="DockPanel.Dock" Value="Left" />
-                                <Setter TargetName="Header" Property="Style">
-                                    <Setter.Value>
-                                        <Style TargetType="{x:Type ToggleButton}">
-                                            <Setter Property="Template">
-                                                <Setter.Value>
-                                                    <ControlTemplate TargetType="{x:Type ToggleButton}">
-                                                        <Grid
-                                                            x:Name="Root"
-                                                            dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\Expander.xaml;98;12"
-                                                            Background="Transparent">
-                                                            <StackPanel
-                                                                Margin="{TemplateBinding Padding}"
-                                                                dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\Expander.xaml;99;14"
-                                                                Orientation="Vertical">
-                                                                <Grid
-                                                                    x:Name="Button"
-                                                                    Width="16"
-                                                                    Height="16"
-                                                                    dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\Expander.xaml;100;16">
-                                                                    <dx:DXBorder
-                                                                        x:Name="IsDefault"
-                                                                        dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\Expander.xaml;101;18"
-                                                                        Background="Transparent"
-                                                                        EnableDPICorrection="{x:Null}" />
-                                                                    <Path
-                                                                        x:Name="Collapsed"
-                                                                        Uid="@Fill=Foreground"
-                                                                        dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\Expander.xaml;102;18"
-                                                                        Fill="#FF444444">
-                                                                        <Path.Style>
-                                                                            <Style TargetType="{x:Type Path}">
-                                                                                <Setter Property="Data" Value="F1M0,0L0,8 4,4 0,0z" />
-                                                                                <Setter Property="Fill" Value="#FF444444" />
-                                                                                <Setter Property="Height" Value="8" />
-                                                                                <Setter Property="HorizontalAlignment" Value="Center" />
-                                                                                <Setter Property="Margin" Value="1,0,0,0" />
-                                                                                <Setter Property="SnapsToDevicePixels" Value="True" />
-                                                                                <Setter Property="Stretch" Value="Fill" />
-                                                                                <Setter Property="VerticalAlignment" Value="Center" />
-                                                                                <Setter Property="Width" Value="4" />
-                                                                            </Style>
-                                                                        </Path.Style>
-                                                                    </Path>
-                                                                    <Path
-                                                                        x:Name="Expanded"
-                                                                        Uid="@Fill=Foreground"
-                                                                        dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\Expander.xaml;103;18"
-                                                                        Fill="#FF444444"
-                                                                        Visibility="Collapsed">
-                                                                        <Path.Style>
-                                                                            <Style TargetType="{x:Type Path}">
-                                                                                <Setter Property="Data" Value="F1M0,4L4,0 4,8 0,4z" />
-                                                                                <Setter Property="Fill" Value="#FF444444" />
-                                                                                <Setter Property="Height" Value="8" />
-                                                                                <Setter Property="HorizontalAlignment" Value="Center" />
-                                                                                <Setter Property="Margin" Value="0,0,1,0" />
-                                                                                <Setter Property="SnapsToDevicePixels" Value="True" />
-                                                                                <Setter Property="Stretch" Value="Fill" />
-                                                                                <Setter Property="VerticalAlignment" Value="Center" />
-                                                                                <Setter Property="Width" Value="4" />
-                                                                            </Style>
-                                                                        </Path.Style>
-                                                                    </Path>
-                                                                </Grid>
-                                                                <ContentPresenter
-                                                                    x:Name="Content"
-                                                                    dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\Expander.xaml;105;16"
-                                                                    Content="{TemplateBinding Content}"
-                                                                    ContentStringFormat="{TemplateBinding ContentStringFormat}"
-                                                                    ContentTemplate="{TemplateBinding ContentTemplate}"
-                                                                    RecognizesAccessKey="True" />
-                                                            </StackPanel>
-                                                        </Grid>
-                                                        <ControlTemplate.Triggers>
-                                                            <Trigger Property="IsChecked" Value="True">
-                                                                <Setter TargetName="Collapsed" Property="Visibility" Value="Collapsed" />
-                                                                <Setter TargetName="Expanded" Property="Visibility" Value="Visible" />
-                                                            </Trigger>
-                                                            <Trigger Property="IsMouseOver" Value="True">
-                                                                <Setter TargetName="Collapsed" Property="Fill" Value="#FF444444" />
-                                                                <Setter TargetName="Expanded" Property="Fill" Value="#FF444444" />
-                                                                <Setter TargetName="IsDefault" Property="Background" Value="#FFE6F2FA" />
-                                                            </Trigger>
-                                                            <Trigger Property="IsPressed" Value="True">
-                                                                <Setter TargetName="Collapsed" Property="Fill" Value="#FF444444" />
-                                                                <Setter TargetName="Expanded" Property="Fill" Value="#FF444444" />
-                                                                <Setter TargetName="IsDefault" Property="Background" Value="#FFCDE6F7" />
-                                                            </Trigger>
-                                                            <Trigger Property="dx:ThemeManager.IsTouchEnabled" Value="True">
-                                                                <Setter TargetName="Button" Property="MinHeight" Value="44" />
-                                                                <Setter TargetName="Button" Property="MinWidth" Value="44" />
-                                                                <Setter TargetName="Content" Property="Margin" Value="14" />
-                                                            </Trigger>
-                                                        </ControlTemplate.Triggers>
-                                                    </ControlTemplate>
-                                                </Setter.Value>
-                                            </Setter>
-                                        </Style>
-                                    </Setter.Value>
-                                </Setter>
-                            </Trigger>
-                            <Trigger Property="ExpandDirection" Value="Up">
-                                <Setter TargetName="Button" Property="DockPanel.Dock" Value="Top" />
-                                <Setter TargetName="Header" Property="DockPanel.Dock" Value="Bottom" />
-                                <Setter TargetName="Header" Property="Style">
-                                    <Setter.Value>
-                                        <Style TargetType="{x:Type ToggleButton}">
-                                            <Setter Property="Template">
-                                                <Setter.Value>
-                                                    <ControlTemplate TargetType="{x:Type ToggleButton}">
-                                                        <Grid
-                                                            x:Name="Root"
-                                                            dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\Expander.xaml;20;12"
-                                                            Background="Transparent">
-                                                            <StackPanel
-                                                                Margin="{TemplateBinding Padding}"
-                                                                dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\Expander.xaml;21;14"
-                                                                Orientation="Horizontal">
-                                                                <Grid
-                                                                    x:Name="Button"
-                                                                    Width="16"
-                                                                    Height="16"
-                                                                    dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\Expander.xaml;22;16">
-                                                                    <dx:DXBorder
-                                                                        x:Name="IsDefault"
-                                                                        dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\Expander.xaml;23;18"
-                                                                        Background="Transparent"
-                                                                        EnableDPICorrection="{x:Null}" />
-                                                                    <Path
-                                                                        x:Name="Collapsed"
-                                                                        Uid="@Fill=Foreground"
-                                                                        dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\Expander.xaml;24;18"
-                                                                        Fill="#FF444444">
-                                                                        <Path.Style>
-                                                                            <Style TargetType="{x:Type Path}">
-                                                                                <Setter Property="Data" Value="F1M4,0L8,4 0,4 4,0z" />
-                                                                                <Setter Property="Fill" Value="#FF444444" />
-                                                                                <Setter Property="Height" Value="4" />
-                                                                                <Setter Property="HorizontalAlignment" Value="Center" />
-                                                                                <Setter Property="Margin" Value="0,0,0,1" />
-                                                                                <Setter Property="SnapsToDevicePixels" Value="True" />
-                                                                                <Setter Property="Stretch" Value="Fill" />
-                                                                                <Setter Property="VerticalAlignment" Value="Center" />
-                                                                                <Setter Property="Width" Value="8" />
-                                                                            </Style>
-                                                                        </Path.Style>
-                                                                    </Path>
-                                                                    <Path
-                                                                        x:Name="Expanded"
-                                                                        Uid="@Fill=Foreground"
-                                                                        dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\Expander.xaml;25;18"
-                                                                        Fill="#FF444444"
-                                                                        Visibility="Collapsed">
-                                                                        <Path.Style>
-                                                                            <Style TargetType="{x:Type Path}">
-                                                                                <Setter Property="Data" Value="F1M0,0L8,0 4,4 0,0z" />
-                                                                                <Setter Property="Fill" Value="#FF444444" />
-                                                                                <Setter Property="Height" Value="4" />
-                                                                                <Setter Property="HorizontalAlignment" Value="Center" />
-                                                                                <Setter Property="Margin" Value="0,1,0,0" />
-                                                                                <Setter Property="SnapsToDevicePixels" Value="True" />
-                                                                                <Setter Property="Stretch" Value="Fill" />
-                                                                                <Setter Property="VerticalAlignment" Value="Center" />
-                                                                                <Setter Property="Width" Value="8" />
-                                                                            </Style>
-                                                                        </Path.Style>
-                                                                    </Path>
-                                                                </Grid>
-                                                                <ContentPresenter
-                                                                    x:Name="Content"
-                                                                    Margin="4,0,0,0"
-                                                                    dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\Expander.xaml;27;16"
-                                                                    Content="{TemplateBinding Content}"
-                                                                    ContentStringFormat="{TemplateBinding ContentStringFormat}"
-                                                                    ContentTemplate="{TemplateBinding ContentTemplate}"
-                                                                    RecognizesAccessKey="True" />
-                                                            </StackPanel>
-                                                        </Grid>
-                                                        <ControlTemplate.Triggers>
-                                                            <Trigger Property="IsChecked" Value="True">
-                                                                <Setter TargetName="Collapsed" Property="Visibility" Value="Collapsed" />
-                                                                <Setter TargetName="Expanded" Property="Visibility" Value="Visible" />
-                                                            </Trigger>
-                                                            <Trigger Property="IsMouseOver" Value="True">
-                                                                <Setter TargetName="Collapsed" Property="Fill" Value="#FF444444" />
-                                                                <Setter TargetName="Expanded" Property="Fill" Value="#FF444444" />
-                                                                <Setter TargetName="IsDefault" Property="Background" Value="#FFE6F2FA" />
-                                                            </Trigger>
-                                                            <Trigger Property="IsPressed" Value="True">
-                                                                <Setter TargetName="Collapsed" Property="Fill" Value="#FF444444" />
-                                                                <Setter TargetName="Expanded" Property="Fill" Value="#FF444444" />
-                                                                <Setter TargetName="IsDefault" Property="Background" Value="#FFCDE6F7" />
-                                                            </Trigger>
-                                                            <Trigger Property="dx:ThemeManager.IsTouchEnabled" Value="True">
-                                                                <Setter TargetName="Button" Property="MinHeight" Value="44" />
-                                                                <Setter TargetName="Button" Property="MinWidth" Value="44" />
-                                                                <Setter TargetName="Content" Property="Margin" Value="14" />
-                                                            </Trigger>
-                                                        </ControlTemplate.Triggers>
-                                                    </ControlTemplate>
-                                                </Setter.Value>
-                                            </Setter>
-                                        </Style>
-                                    </Setter.Value>
-                                </Setter>
-                            </Trigger>
-                            <Trigger Property="ExpandDirection" Value="Left">
-                                <Setter TargetName="Button" Property="DockPanel.Dock" Value="Left" />
-                                <Setter TargetName="Header" Property="DockPanel.Dock" Value="Right" />
-                                <Setter TargetName="Header" Property="Style">
-                                    <Setter.Value>
-                                        <Style TargetType="{x:Type ToggleButton}">
-                                            <Setter Property="Template">
-                                                <Setter.Value>
-                                                    <ControlTemplate TargetType="{x:Type ToggleButton}">
-                                                        <Grid
-                                                            x:Name="Root"
-                                                            dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\Expander.xaml;137;12"
-                                                            Background="Transparent">
-                                                            <StackPanel
-                                                                Margin="{TemplateBinding Padding}"
-                                                                dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\Expander.xaml;138;14"
-                                                                Orientation="Vertical">
-                                                                <Grid
-                                                                    x:Name="Button"
-                                                                    Width="16"
-                                                                    Height="16"
-                                                                    dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\Expander.xaml;139;16">
-                                                                    <dx:DXBorder
-                                                                        x:Name="IsDefault"
-                                                                        dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\Expander.xaml;140;18"
-                                                                        Background="Transparent"
-                                                                        EnableDPICorrection="{x:Null}" />
-                                                                    <Path
-                                                                        x:Name="Collapsed"
-                                                                        Uid="@Fill=Foreground"
-                                                                        dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\Expander.xaml;141;18"
-                                                                        Fill="#FF444444">
-                                                                        <Path.Style>
-                                                                            <Style TargetType="{x:Type Path}">
-                                                                                <Setter Property="Data" Value="F1M0,4L4,0 4,8 0,4z" />
-                                                                                <Setter Property="Fill" Value="#FF444444" />
-                                                                                <Setter Property="Height" Value="8" />
-                                                                                <Setter Property="HorizontalAlignment" Value="Center" />
-                                                                                <Setter Property="Margin" Value="0,0,1,0" />
-                                                                                <Setter Property="SnapsToDevicePixels" Value="True" />
-                                                                                <Setter Property="Stretch" Value="Fill" />
-                                                                                <Setter Property="VerticalAlignment" Value="Center" />
-                                                                                <Setter Property="Width" Value="4" />
-                                                                            </Style>
-                                                                        </Path.Style>
-                                                                    </Path>
-                                                                    <Path
-                                                                        x:Name="Expanded"
-                                                                        Uid="@Fill=Foreground"
-                                                                        dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\Expander.xaml;142;18"
-                                                                        Fill="#FF444444"
-                                                                        Visibility="Collapsed">
-                                                                        <Path.Style>
-                                                                            <Style TargetType="{x:Type Path}">
-                                                                                <Setter Property="Data" Value="F1M0,0L0,8 4,4 0,0z" />
-                                                                                <Setter Property="Fill" Value="#FF444444" />
-                                                                                <Setter Property="Height" Value="8" />
-                                                                                <Setter Property="HorizontalAlignment" Value="Center" />
-                                                                                <Setter Property="Margin" Value="1,0,0,0" />
-                                                                                <Setter Property="SnapsToDevicePixels" Value="True" />
-                                                                                <Setter Property="Stretch" Value="Fill" />
-                                                                                <Setter Property="VerticalAlignment" Value="Center" />
-                                                                                <Setter Property="Width" Value="4" />
-                                                                            </Style>
-                                                                        </Path.Style>
-                                                                    </Path>
-                                                                </Grid>
-                                                                <ContentPresenter
-                                                                    x:Name="Content"
-                                                                    dx:BlendHelper2.ThemeInfo="Core\Core\Themes\Office2019Colorful\StandardControls\Expander.xaml;144;16"
-                                                                    Content="{TemplateBinding Content}"
-                                                                    ContentStringFormat="{TemplateBinding ContentStringFormat}"
-                                                                    ContentTemplate="{TemplateBinding ContentTemplate}"
-                                                                    RecognizesAccessKey="True" />
-                                                            </StackPanel>
-                                                        </Grid>
-                                                        <ControlTemplate.Triggers>
-                                                            <Trigger Property="IsChecked" Value="True">
-                                                                <Setter TargetName="Collapsed" Property="Visibility" Value="Collapsed" />
-                                                                <Setter TargetName="Expanded" Property="Visibility" Value="Visible" />
-                                                            </Trigger>
-                                                            <Trigger Property="IsMouseOver" Value="True">
-                                                                <Setter TargetName="Collapsed" Property="Fill" Value="#FF444444" />
-                                                                <Setter TargetName="Expanded" Property="Fill" Value="#FF444444" />
-                                                                <Setter TargetName="IsDefault" Property="Background" Value="#FFE6F2FA" />
-                                                            </Trigger>
-                                                            <Trigger Property="IsPressed" Value="True">
-                                                                <Setter TargetName="Collapsed" Property="Fill" Value="#FF444444" />
-                                                                <Setter TargetName="Expanded" Property="Fill" Value="#FF444444" />
-                                                                <Setter TargetName="IsDefault" Property="Background" Value="#FFCDE6F7" />
-                                                            </Trigger>
-                                                            <Trigger Property="dx:ThemeManager.IsTouchEnabled" Value="True">
-                                                                <Setter TargetName="Button" Property="MinHeight" Value="44" />
-                                                                <Setter TargetName="Button" Property="MinWidth" Value="44" />
-                                                                <Setter TargetName="Content" Property="Margin" Value="14" />
-                                                            </Trigger>
-                                                        </ControlTemplate.Triggers>
-                                                    </ControlTemplate>
-                                                </Setter.Value>
-                                            </Setter>
-                                        </Style>
-                                    </Setter.Value>
-                                </Setter>
-                            </Trigger>
-                            <Trigger Property="IsEnabled" Value="False">
-                                <Setter TargetName="Root" Property="Opacity" Value="0.38" />
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            <Setter Property="VerticalContentAlignment" Value="Stretch" />
-        </Style>
-        <ControlTemplate x:Key="ButtonEditControlTemplate1" TargetType="{x:Type dxe:ButtonEdit}">
-            <ContentControl
-                x:Name="PART_Root"
-                HorizontalContentAlignment="Stretch"
-                VerticalContentAlignment="Stretch"
-                Custom1:AppearanceOptions.BorderThickness="{Binding (Custom1:AppearanceOptions.BorderThickness), RelativeSource={RelativeSource TemplatedParent}}"
-                Custom1:AppearanceOptions.CornerRadius="{Binding (Custom1:AppearanceOptions.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}"
-                Custom1:AppearanceOptions.HasBorderThickness="{Binding (Custom1:AppearanceOptions.HasBorderThickness), RelativeSource={RelativeSource TemplatedParent}}"
-                Custom1:AppearanceOptions.HasCornerRadius="{Binding (Custom1:AppearanceOptions.HasCornerRadius), RelativeSource={RelativeSource TemplatedParent}}"
-                Custom2:ControlHelper.IsReadOnly="{TemplateBinding IsReadOnly}"
-                Custom2:ControlHelper.ShowFocusedState="{Binding IsKeyboardFocusWithin, RelativeSource={RelativeSource TemplatedParent}}"
-                dx:BlendHelper2.ThemeInfo="Core\Core\Editors\Themes\Generic\ButtonEdit.xaml;85;6"
-                dx:FocusHelper2.Focusable="False"
-                dxe:EditorAppearanceProperties.FocusedBorderBrush="{Binding (dxe:EditorAppearanceProperties.FocusedBorderBrush), RelativeSource={RelativeSource TemplatedParent}}"
-                dxe:EditorAppearanceProperties.ReadOnlyBackground="{Binding (dxe:EditorAppearanceProperties.ReadOnlyBackground), RelativeSource={RelativeSource TemplatedParent}}"
-                dxe:EditorAppearanceProperties.ReadOnlyBorderBrush="{Binding (dxe:EditorAppearanceProperties.ReadOnlyBorderBrush), RelativeSource={RelativeSource TemplatedParent}}"
-                Background="{TemplateBinding Background}"
-                BorderBrush="{TemplateBinding BorderBrush}"
-                BorderThickness="{TemplateBinding BorderThickness}"
-                Focusable="False"
-                Template="{TemplateBinding ActualBorderTemplate}">
-                <Grid
-                    x:Name="ButtonEditGrid"
-                    dx:BlendHelper2.ThemeInfo="Core\Core\Editors\Themes\Generic\ButtonEdit.xaml;86;8"
-                    SnapsToDevicePixels="True">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
-                    <dxe:ErrorControl x:Name="PART_ErrorPresenter" dx:BlendHelper2.ThemeInfo="Core\Core\Editors\Themes\Generic\ButtonEdit.xaml;93;10" />
-                    <dxe:ButtonsControl
-                        x:Name="PART_LeftButtons"
-                        Grid.Column="1"
-                        dx:BlendHelper2.ThemeInfo="Core\Core\Editors\Themes\Generic\ButtonEdit.xaml;94;10">
-                        <dxe:ButtonsControl.Visibility>
-                            <Binding Path="ActualShowLeftButtons" RelativeSource="{RelativeSource TemplatedParent}">
-                                <Binding.Converter>
-                                    <dx:BoolToVisibilityConverter />
-                                </Binding.Converter>
-                            </Binding>
-                        </dxe:ButtonsControl.Visibility>
-                    </dxe:ButtonsControl>
-                    <dxe:EditorControl
-                        x:Name="PART_Content"
-                        Grid.Column="2"
-                        VerticalAlignment="Stretch"
-                        dx:BlendHelper2.ThemeInfo="Core\Core\Editors\Themes\Generic\ButtonEdit.xaml;95;10"
-                        dx:FocusHelper2.Focusable="False"
-                        Focusable="False"
-                        Template="{TemplateBinding ActualEditorControlTemplate}" />
-                    <dxe:ButtonsControl
-                        x:Name="PART_RightButtons"
-                        Grid.Column="3"
-                        dx:BlendHelper2.ThemeInfo="Core\Core\Editors\Themes\Generic\ButtonEdit.xaml;96;10">
-                        <dxe:ButtonsControl.Visibility>
-                            <Binding Path="ActualShowRightButtons" RelativeSource="{RelativeSource TemplatedParent}">
-                                <Binding.Converter>
-                                    <dx:BoolToVisibilityConverter />
-                                </Binding.Converter>
-                            </Binding>
-                        </dxe:ButtonsControl.Visibility>
-                    </dxe:ButtonsControl>
-                </Grid>
-            </ContentControl>
-            <ControlTemplate.Triggers>
-                <MultiDataTrigger>
-                    <MultiDataTrigger.Conditions>
-                        <Condition Binding="{Binding (dxe:BaseEdit.OwnerEdit).(dxe:ActualPropertyProvider.Properties).IsTextEditable, RelativeSource={RelativeSource Self}}" Value="true" />
-                        <Condition Binding="{Binding EditMode, RelativeSource={RelativeSource Self}}" Value="Standalone" />
-                    </MultiDataTrigger.Conditions>
-                    <Setter TargetName="PART_Content" Property="Template" Value="{Binding EditTemplate, RelativeSource={RelativeSource TemplatedParent}}" />
-                </MultiDataTrigger>
-                <MultiDataTrigger>
-                    <MultiDataTrigger.Conditions>
-                        <Condition Binding="{Binding (dxe:BaseEdit.OwnerEdit).(dxe:ActualPropertyProvider.Properties).IsTextEditable, RelativeSource={RelativeSource Self}}" Value="false" />
-                        <Condition Binding="{Binding EditMode, RelativeSource={RelativeSource Self}}" Value="Standalone" />
-                    </MultiDataTrigger.Conditions>
-                    <Setter TargetName="PART_Content" Property="Template" Value="{Binding EditNonEditableTemplate, RelativeSource={RelativeSource TemplatedParent}}" />
-                </MultiDataTrigger>
-                <DataTrigger Binding="{Binding ShowBorder, RelativeSource={RelativeSource Self}}" Value="true">
-                    <Setter TargetName="PART_ErrorPresenter" Property="dx:WpfSvgPalette.Palette" Value="{DynamicResource {Custom3:InplaceBaseEditThemeKey ResourceKey=ValidationErrorSvgPalette, ThemeName=Office2019Colorful}}" />
-                </DataTrigger>
-            </ControlTemplate.Triggers>
-        </ControlTemplate>
     </Window.Resources>
-    <StackPanel>
+
+    <Grid>
         <dxe:ComboBoxEdit
             Width="150"
             Margin="0,5"
             HorizontalAlignment="Left"
-            ShowCustomItems="False"
-            ShowSizeGrip="False"
-            Template="{DynamicResource ButtonEditControlTemplate1}"
-            Text="Employees">
-            <dxe:ComboBoxEdit.EditNonEditableTemplate>
-                <ControlTemplate>
-                    <TextBlock Margin="4,2" Text="Employees" />
-                </ControlTemplate>
-            </dxe:ComboBoxEdit.EditNonEditableTemplate>
-
-            <dxe:ComboBoxEdit.StyleSettings>
-                <dxe:CheckedComboBoxStyleSettings />
-            </dxe:ComboBoxEdit.StyleSettings>
-
-            <dxe:ComboBoxEditItem Content="Tom" />
-            <dxe:ComboBoxEditItem Content="Jack" />
-            <dxe:ComboBoxEditItem Content="Bob" />
-            <dxe:ComboBoxEditItem Content="Mike" />
-        </dxe:ComboBoxEdit>
-
-        <dxe:ComboBoxEdit
-            Width="150"
-            Margin="0,5"
-            HorizontalAlignment="Left"
-            PopupClosing="ComboBoxEdit_PopupClosing"
-            ShowCustomItems="False"
-            ShowSizeGrip="False"
-            Text="Employees">
-
+            VerticalAlignment="Top">
             <dxe:ComboBoxEditItem>
-                <TreeView MaxHeight="50">
-                    <TreeViewItem Header="123">
-                        <TreeViewItem Header="A" />
-                        <TreeViewItem Header="B" />
-                        <TreeViewItem Header="C" />
-                    </TreeViewItem>
-                </TreeView>
-
+                <dxe:ComboBoxEditItem.Template>
+                    <ControlTemplate>
+                        <TextBox Text="abc" />
+                    </ControlTemplate>
+                </dxe:ComboBoxEditItem.Template>
             </dxe:ComboBoxEditItem>
-
-            <!--<dxe:ComboBoxEditItem Content="Tom" />
-            <dxe:ComboBoxEditItem Content="Jack" />
-            <dxe:ComboBoxEditItem Content="Bob" />
-            <dxe:ComboBoxEditItem Content="Mike" />-->
         </dxe:ComboBoxEdit>
 
         <ComboBox
+            DropDownOpened="ComboBox_DropDownOpened"
             Width="150"
-            Margin="0,5"
+            Margin="0,20,0,5"
             HorizontalAlignment="Left"
-            IsEditable="True"
-            SelectionChanged="ComboBox_SelectionChanged"
-            StaysOpenOnEdit="False"
-            Style="{StaticResource ComboBoxStyle1}"
-            Text="sssss">
-            <ComboBoxItem Content="自动递增（A）" />
-            <ComboBoxItem Content="自动递增（A）" />
-            <ComboBoxItem Content="自动递增（A）" />
-            <ComboBoxItem Content="自动递增（A）" />
-        </ComboBox>
-
-        <ComboBox
-            x:Name="cbProject"
-            Width="150"
-            Margin="0,5"
-            HorizontalAlignment="Left"
-            IsEditable="True">
-            <ComboBoxItem Content="自动递增（A）" />
-            <ComboBoxItem Content="自动递增（B）" />
-            <ComboBoxItem Content="自动递增（C）" />
+            VerticalAlignment="Top"
+            IsEditable="True" Style="{DynamicResource ComboBoxStyle1}">
             <ComboBoxItem>
-                <TreeView x:Name="treeProject" MaxHeight="50">
-                    <TreeViewItem Header="123">
-                        <TreeViewItem Header="A" />
-                        <TreeViewItem Header="B" />
-                        <TreeViewItem Header="C" />
-                    </TreeViewItem>
-                </TreeView>
-
+                <ComboBoxItem.Template>
+                    <ControlTemplate>
+                        <TextBox Text="sssss" />
+                    </ControlTemplate>
+                </ComboBoxItem.Template>
             </ComboBoxItem>
         </ComboBox>
 
-        <dxe:ComboBoxEdit
-            x:Name="checkedComboBox"
-            Width="150"
-            Margin="0,5"
-            HorizontalAlignment="Left"
-            IsTextEditable="False"
-            ShowCustomItems="False"
-            ShowSizeGrip="False"
-            Text="I'am checkedComboBox">
-            <dxe:ComboBoxEdit.StyleSettings>
-                <dxe:CheckedComboBoxStyleSettings />
-            </dxe:ComboBoxEdit.StyleSettings>
-        </dxe:ComboBoxEdit>
 
-        <Expander
-            x:Name="exp"
-            Width="150"
-            Margin="0,5"
-            HorizontalAlignment="Left"
-            Style="{DynamicResource ExpanderStyle1}">
-            <Expander.Header>
-                <TextBlock FontWeight="Bold" Text="标题" />
-            </Expander.Header>
-            <Expander.Content>
-                <Popup
-                    AllowsTransparency="True"
-                    IsOpen="{Binding Path=IsExpanded, ElementName=exp, Mode=TwoWay}"
-                    Placement="Bottom"
-                    StaysOpen="False">
-                    <StackPanel>
-                        <ComboBoxItem x:Name="cmbItem" Content="自动递增（A）" />
-                        <ComboBoxItem Content="自动递增（B）" />
-                        <ComboBoxItem Content="自动递增（C）" />
-                    </StackPanel>
-                </Popup>
-                <!--<TextBlock Text="这里是内容。" TextWrapping="Wrap" />-->
-            </Expander.Content>
-        </Expander>
+        <StackPanel Visibility="Collapsed">
+            <dxe:ComboBoxEdit
+                Width="150"
+                Margin="0,5"
+                HorizontalAlignment="Left"
+                ShowCustomItems="False"
+                ShowSizeGrip="False"
+                Text="Employees">
+                <dxe:ComboBoxEdit.EditNonEditableTemplate>
+                    <ControlTemplate>
+                        <TextBlock Margin="4,2" Text="Employees" />
+                    </ControlTemplate>
+                </dxe:ComboBoxEdit.EditNonEditableTemplate>
+
+                <dxe:ComboBoxEdit.StyleSettings>
+                    <dxe:CheckedComboBoxStyleSettings />
+                </dxe:ComboBoxEdit.StyleSettings>
+
+                <dxe:ComboBoxEditItem Content="Tom" />
+                <dxe:ComboBoxEditItem Content="Jack" />
+                <dxe:ComboBoxEditItem Content="Bob" />
+                <dxe:ComboBoxEditItem Content="Mike" />
+            </dxe:ComboBoxEdit>
+
+            <dxe:ComboBoxEdit
+                Width="150"
+                Margin="0,5"
+                HorizontalAlignment="Left"
+                ShowCustomItems="False"
+                ShowSizeGrip="False">
+                <dxe:ComboBoxEditItem>
+                    <dxe:ComboBoxEditItem.Template>
+                        <ControlTemplate>
+                            <TextBox Text="abc" />
+                        </ControlTemplate>
+                    </dxe:ComboBoxEditItem.Template>
+                </dxe:ComboBoxEditItem>
+
+            </dxe:ComboBoxEdit>
+
+            <ComboBox
+                Width="150"
+                Margin="0,5"
+                HorizontalAlignment="Left"
+                IsEditable="True"
+                SelectionChanged="ComboBox_SelectionChanged"
+                StaysOpenOnEdit="False"
+                Text="sssss">
+                <ComboBoxItem Content="自动递增（A）">
+                    <ComboBoxItem.Template>
+                        <ControlTemplate>
+                            <TextBox Text="sssss" />
+                        </ControlTemplate>
+                    </ComboBoxItem.Template>
+                </ComboBoxItem>
+                <ComboBoxItem Content="自动递增（A）" />
+                <ComboBoxItem Content="自动递增（A）" />
+                <ComboBoxItem Content="自动递增（A）" />
+            </ComboBox>
+
+            <ComboBox
+                x:Name="cbProject"
+                Width="150"
+                Margin="0,5"
+                HorizontalAlignment="Left"
+                IsEditable="True">
+                <ComboBoxItem Content="自动递增（A）" />
+                <ComboBoxItem Content="自动递增（B）" />
+                <ComboBoxItem Content="自动递增（C）" />
+                <ComboBoxItem>
+                    <TreeView x:Name="treeProject" MaxHeight="50">
+                        <TreeViewItem Header="123">
+                            <TreeViewItem Header="A" />
+                            <TreeViewItem Header="B" />
+                            <TreeViewItem Header="C" />
+                        </TreeViewItem>
+                    </TreeView>
+
+                </ComboBoxItem>
+            </ComboBox>
+
+            <dxe:ComboBoxEdit
+                x:Name="checkedComboBox"
+                Width="150"
+                Margin="0,5"
+                HorizontalAlignment="Left"
+                IsTextEditable="False"
+                ShowCustomItems="False"
+                ShowSizeGrip="False"
+                Text="I'am checkedComboBox">
+                <dxe:ComboBoxEdit.StyleSettings>
+                    <dxe:CheckedComboBoxStyleSettings />
+                </dxe:ComboBoxEdit.StyleSettings>
+            </dxe:ComboBoxEdit>
 
 
-    </StackPanel>
+
+        </StackPanel>
+
+    </Grid>
 </Window>

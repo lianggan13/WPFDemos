@@ -55,8 +55,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="UC\CircularProgressBar.xaml.cs">
+    <Compile Include="View\CircularProgressBar.xaml.cs">
       <DependentUpon>CircularProgressBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CoolingTower.xaml.cs">
+      <DependentUpon>CoolingTower.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GeneralPath.xaml.cs">
+      <DependentUpon>GeneralPath.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LineWinDemo.xaml.cs">
+      <DependentUpon>LineWinDemo.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -70,9 +79,21 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="UC\CircularProgressBar.xaml">
+    <Page Include="View\CircularProgressBar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CoolingTower.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GeneralPath.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LineWinDemo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>

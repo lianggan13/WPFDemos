@@ -1,6 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using System.Windows;
-using WPFTreeView.Model;
+﻿using System.Windows;
 
 namespace WPFTreeView
 {
@@ -9,8 +7,6 @@ namespace WPFTreeView
     /// </summary>
     public partial class MainWindow : Window
     {
-        ObservableCollection<BatchModel> BatchCategories { get; set; } = new ObservableCollection<BatchModel>();
-
         public MainWindow()
         {
             InitializeComponent();

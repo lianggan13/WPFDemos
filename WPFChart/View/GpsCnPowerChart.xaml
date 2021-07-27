@@ -43,7 +43,8 @@
             <!--#region Legend-->
             <dxc:ChartControl.Legend>
                 <dxc:Legend
-                    Margin="0"
+                    IsHitTestVisible="False"
+                    Margin="0,-20,-20,0"
                     Background="Transparent"
                     BorderBrush="Transparent"
                     BorderThickness="0"
@@ -154,6 +155,7 @@
                         TickmarksMinorVisible="False"
                         TickmarksVisible="True"
                         Visible="True">
+
                         <dxc:AxisY2D.Title>
                             <dxc:AxisTitle
                                 Margin="0"
@@ -166,14 +168,20 @@
                         <dxc:AxisY2D.Label>
                             <dxc:AxisLabel Padding="0" />
                         </dxc:AxisY2D.Label>
+
+                        <dxc:AxisY2D.WholeRange>
+                            <dxc:Range  dxc:AxisY2D.AlwaysShowZeroLevel="False" />
+                        </dxc:AxisY2D.WholeRange>
+
                         <dxc:AxisY2D.NumericScaleOptions>
-                            <dxc:ContinuousNumericScaleOptions AutoGrid="False" GridSpacing="10" />
+                            <!--<dxc:ContinuousNumericScaleOptions AutoGrid="False" GridSpacing="10" />-->
+                            <dxc:ContinuousNumericScaleOptions AutoGrid="True" />
                         </dxc:AxisY2D.NumericScaleOptions>
                     </dxc:AxisY2D>
                 </dxc:XYDiagram2D.AxisY>
                 <!--#endregion-->
 
-                <!--#region Pane -->
+                <!--#region Pane-->
                 <dxc:XYDiagram2D.DefaultPane>
                     <dxc:Pane x:Name="defaultPane" Focusable="False">
                         <dxc:Pane.AxisXScrollBarOptions>
@@ -193,7 +201,7 @@
                     Brush="#0055FF"
                     CrosshairContentShowMode="Label"
                     CrosshairEnabled="{DXBinding 'CnPowerPoints.Count > 0'}"
-                    CrosshairLabelPattern="{}{V}"
+                    CrosshairLabelPattern="{}{V:n2}"
                     DataSource="{Binding CnPowerPoints}"
                     MarkerSize="7"
                     ShowInLegend="True"
@@ -227,15 +235,16 @@
 
                 </dxc:PointSeries2D>
 
-                <dxc:LineSeries2D
+                <!--  CrosshairEnabled="{DXBinding 'FittedPoints.Count > 0'}"  -->
+                <dxc:SplineSeries2D
                     ArgumentDataMember="Cn"
                     Brush="#6DD400"
                     CrosshairContentShowMode="Label"
-                    CrosshairEnabled="{DXBinding 'FittedPoints.Count > 0'}"
-                    CrosshairLabelPattern="{}{V}"
+                    CrosshairEnabled="True"
+                    CrosshairLabelPattern="{}{V:n2}"
                     DataSource="{Binding FittedPoints}"
                     DisplayName="{Binding Formula}"
-                    MarkerSize="7"
+                    MarkerSize="5"
                     MarkerVisible="True"
                     ShowInLegend="True"
                     ValueDataMember="Power">
@@ -263,7 +272,7 @@
                             </StackPanel>
                         </DataTemplate>
                     </dxc:LineSeries2D.LegendMarkerTemplate>
-                </dxc:LineSeries2D>
+                </dxc:SplineSeries2D>
                 <!--#endregion-->
             </dxc:XYDiagram2D>
 

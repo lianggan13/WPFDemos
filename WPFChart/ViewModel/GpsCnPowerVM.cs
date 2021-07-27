@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
 using WPFChart.Model;
 using WPFCommon;
+using WPFCommon.Algorithm;
 
 namespace WPFChart.ViewModel
 {
@@ -63,22 +65,35 @@ namespace WPFChart.ViewModel
             {
 
             }
-            CnPowerPoints.Add(new GpsCnPowerModel(90, -16));
-            CnPowerPoints.Add(new GpsCnPowerModel(97.2, -26));
-            CnPowerPoints.Add(new GpsCnPowerModel(99, -30));
-            CnPowerPoints.Add(new GpsCnPowerModel(101, -33));
-            CnPowerPoints.Add(new GpsCnPowerModel(103, -35));
-            CnPowerPoints.Add(new GpsCnPowerModel(104.5, -40));
-            CnPowerPoints.Add(new GpsCnPowerModel(106, -43));
-            CnPowerPoints.Add(new GpsCnPowerModel(107.2, -45));
-            CnPowerPoints.Add(new GpsCnPowerModel(110, -47));
-            CnPowerPoints.Add(new GpsCnPowerModel(112, -50));
-            CnPowerPoints.Add(new GpsCnPowerModel(115.3, -52));
-            CnPowerPoints.Add(new GpsCnPowerModel(120, -54));
-            CnPowerPoints.Add(new GpsCnPowerModel(130, -56));
+            CnPowerPoints.Add(new GpsCnPowerModel(90, -140));
+            CnPowerPoints.Add(new GpsCnPowerModel(97.2, -138));
+            CnPowerPoints.Add(new GpsCnPowerModel(99, -136));
+            CnPowerPoints.Add(new GpsCnPowerModel(101, -134));
+            CnPowerPoints.Add(new GpsCnPowerModel(103, -132));
+            CnPowerPoints.Add(new GpsCnPowerModel(104.5, -130));
+            CnPowerPoints.Add(new GpsCnPowerModel(106, -128));
+            CnPowerPoints.Add(new GpsCnPowerModel(107.2, -126));
+            CnPowerPoints.Add(new GpsCnPowerModel(110, -124));
+            CnPowerPoints.Add(new GpsCnPowerModel(112, -122));
+            CnPowerPoints.Add(new GpsCnPowerModel(115.3, -120));
+            CnPowerPoints.Add(new GpsCnPowerModel(120, -118));
+            CnPowerPoints.Add(new GpsCnPowerModel(130, -116));
 
-            FittedPoints.Add(CnPowerPoints.OrderBy(g => g.Cn).First());
-            FittedPoints.Add(CnPowerPoints.OrderBy(g => g.Cn).Last());
+            var ps = CnPowerPoints.Select(c => new Point(c.Cn, c.Power)).ToList();
+            Utils.LinearRegression(ps.ToArray(), out double a, out double b);
+
+            var linePoints = CnPowerPoints.Select(c =>
+             {
+                 var linePower = Utils.LinearEquation(a, b, c.Cn);
+                 return new GpsCnPowerModel(c.Cn, linePower);
+
+             });
+
+
+            foreach (var p in linePoints)
+            {
+                FittedPoints.Add(p);
+            }
 
             Formula = "f(x)=ax+b";
         }

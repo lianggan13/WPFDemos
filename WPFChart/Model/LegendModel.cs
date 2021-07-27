@@ -1,4 +1,5 @@
 ﻿using DevExpress.Xpf.Charts;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -13,17 +14,25 @@ namespace WPFChart.Model
 
         public static Dictionary<string, Dictionary<string, SolidColorBrush>> Palette = new Dictionary<string, Dictionary<string, SolidColorBrush>>();
 
-        public static List<SolidColorBrush> ColorBrushes { get; }
+        public static List<SolidColorBrush> ColorBrushSource { get; }
 
         static PaletteManager()
         {
             CustomPalette ss = Application.Current.FindResource("Style.DXChart.CustomPalette") as CustomPalette;
-            ColorBrushes = new List<SolidColorBrush>(ss.Colors.Select(c => new SolidColorBrush(c)));
+            ColorBrushSource = new List<SolidColorBrush>(ss.Colors.Select(c => new SolidColorBrush(c)));
         }
 
         public static SolidColorBrush GetColor(Dictionary<string, SolidColorBrush> palette)
         {
-            return ColorBrushes.First(c => !palette.Values.Contains(c));
+            var cb = ColorBrushSource.FirstOrDefault(c => !palette.Values.Contains(c));
+            if (cb == null)
+            {
+                var rand = new Random(new Guid().GetHashCode());
+                int n = rand.Next(ColorBrushSource.Count);
+                cb = ColorBrushSource.ElementAt(n);
+            }
+
+            return cb;
         }
     }
 
@@ -55,7 +64,7 @@ namespace WPFChart.Model
 
             if (series.DisplayName.Contains(PolarType.cPhi))
             {
-                series.LineStyle.DashStyle.Dashes = new DoubleCollection(new double[] { 2 });
+                series.LineStyle.DashStyle.Dashes = new DoubleCollection(new double[] { 1, 4, 1 });
             }
         }
 

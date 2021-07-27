@@ -113,3 +113,7 @@ E:\Github\WPFDemos\WPFCommon\obj\Debug\Language\en-us.baml
 E:\Github\WPFDemos\WPFCommon\obj\Debug\Language\zh-cn.baml
 E:\Github\WPFDemos\WPFCommon\obj\Debug\Assets\Styles\Chart.baml
 E:\Github\WPFDemos\WPFCommon\obj\Debug\WPFCommon.csprojAssemblyReference.cache
+E:\Github\WPFDemos\WPFCommon\obj\Debug\Window1.g.cs
+E:\Github\WPFDemos\WPFCommon\obj\Debug\Window1.baml
+E:\Github\WPFDemos\WPFCommon\obj\Debug\GeneratedInternalTypeHelper.g.cs
+E:\Github\WPFDemos\WPFCommon\obj\Debug\Assets\Styles\TreeView.baml

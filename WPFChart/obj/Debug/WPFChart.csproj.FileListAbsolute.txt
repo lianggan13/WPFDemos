@@ -211,8 +211,6 @@ E:\Github\WPFDemos\WPFChart\obj\Debug\WPFChart.csproj.CoreCompileInputs.cache
 E:\Github\WPFDemos\WPFChart\obj\Debug\WPFChart.csproj.CopyComplete
 E:\Github\WPFDemos\WPFChart\obj\Debug\WPFChart.exe
 E:\Github\WPFDemos\WPFChart\obj\Debug\WPFChart.pdb
-E:\Github\WPFDemos\WPFChart\bin\Debug\Microsoft.Expression.Interactions.dll
-E:\Github\WPFDemos\WPFChart\bin\Debug\System.Windows.Interactivity.dll
 E:\Github\WPFDemos\WPFChart\bin\Debug\LiveCharts.dll
 E:\Github\WPFDemos\WPFChart\bin\Debug\LiveCharts.Wpf.dll
 E:\Github\WPFDemos\WPFChart\bin\Debug\LiveCharts.pdb
@@ -224,8 +222,8 @@ E:\Github\WPFDemos\WPFChart\bin\Debug\WPFCommon.pdb
 E:\Github\WPFDemos\WPFChart\bin\Debug\WPFCommon.dll
 E:\Github\WPFDemos\WPFChart\obj\Debug\View\GpsCnPowerChart.g.cs
 E:\Github\WPFDemos\WPFChart\obj\Debug\View\Mbps2DChartUC.g.cs
-E:\Github\WPFDemos\WPFChart\obj\Debug\App.baml
 E:\Github\WPFDemos\WPFChart\obj\Debug\View\GpsCnPowerChart.baml
 E:\Github\WPFDemos\WPFChart\obj\Debug\View\Mbps2DChartUC.baml
 E:\Github\WPFDemos\WPFChart\obj\Debug\View\Testing2DChart.g.cs
 E:\Github\WPFDemos\WPFChart\obj\Debug\View\Testing2DChart.baml
+E:\Github\WPFDemos\WPFChart\obj\Debug\App.baml

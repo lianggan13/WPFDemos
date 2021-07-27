@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
 
-namespace WPFCommon.Converters
+namespace GTS.MaxSign.Controls.Converters
 {
     [ValueConversion(typeof(int), typeof(Visibility))]
     public class IntToVisibilityConverter

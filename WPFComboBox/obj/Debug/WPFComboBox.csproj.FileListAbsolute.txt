@@ -44,6 +44,6 @@ E:\Github\WPFDemos\WPFComboBox\obj\Debug\WPFComboBox.csproj.CopyComplete
 E:\Github\WPFDemos\WPFComboBox\obj\Debug\WPFComboBox.exe
 E:\Github\WPFDemos\WPFComboBox\obj\Debug\WPFComboBox.pdb
 E:\Github\WPFDemos\WPFComboBox\obj\Debug\WPFComboBox.csprojAssemblyReference.cache
-E:\Github\WPFDemos\WPFComboBox\bin\Debug\Microsoft.Expression.Interactions.dll
-E:\Github\WPFDemos\WPFComboBox\bin\Debug\System.Windows.Interactivity.dll
-E:\Github\WPFDemos\WPFComboBox\obj\Debug\GeneratedInternalTypeHelper.g.cs
+E:\Github\WPFDemos\WPFComboBox\bin\Debug\WPFCommon.dll
+E:\Github\WPFDemos\WPFComboBox\bin\Debug\WPFCommon.pdb
+E:\Github\WPFDemos\WPFComboBox\obj\Debug\App.baml

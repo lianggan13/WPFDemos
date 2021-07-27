@@ -37,7 +37,7 @@
                         <TextBlock.Triggers>
                             <EventTrigger RoutedEvent="Loaded">
                                 <BeginStoryboard x:Name="st">
-                                    <Storyboard  RepeatBehavior="Forever">
+                                    <Storyboard RepeatBehavior="Forever">
                                         <StringAnimationUsingKeyFrames
                                             AutoReverse="False"
                                             RepeatBehavior="Forever"
@@ -161,7 +161,7 @@
                         <dxc:XYDiagram2D.SeriesTemplate>
                             <dxc:SplineSeries2D
                                 ArgumentDataMember="Power"
-                                CrosshairLabelPattern="{}{S}° : {V:n2} %"
+                                CrosshairLabelPattern="{}{V:n2}"
                                 Style="{StaticResource Style.DXChart.LineSeries2D}"
                                 ValueDataMember="Mbps">
                                 <dxc:LineSeries2D.LineStyle>
@@ -171,6 +171,34 @@
                                     </dxc:LineStyle.DashStyle>-->
                                     </dxc:LineStyle>
                                 </dxc:LineSeries2D.LineStyle>
+
+                                <!--<dxc:SplineSeries2D.LegendMarkerTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                -->
+                                <!--<Grid Width="12" Height="12">-->
+                                <!--
+                                            <Grid Width="20" Height="12">
+                                                <Line
+                                                    x:Name="ellipse"
+                                                    Stretch="Fill"
+                                                    Stroke="{Binding Path=MarkerLineBrush}"
+                                                    StrokeDashArray="{Binding Path=MarkerLineStyle.DashStyle.Dashes}"
+                                                    StrokeThickness="1"
+                                                    X1="0"
+                                                    X2="1" />
+                                            </Grid>
+                                -->
+                                <!--<TextBlock
+                                                Width="55"
+                                                Margin="4,0,0,0"
+                                                VerticalAlignment="Center"
+                                                Text="{Binding Path=Text}" />-->
+                                <!--
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </dxc:SplineSeries2D.LegendMarkerTemplate>-->
+
                             </dxc:SplineSeries2D>
                         </dxc:XYDiagram2D.SeriesTemplate>
                         <!--#endregion-->
@@ -181,7 +209,9 @@
                     Grid.Column="1"
                     Style="{StaticResource Style.DXChart.Legend.Border}"
                     Visibility="{DXBinding 'Legends.Count>0?`Visible`:`Collapsed`'}">
-                    <ItemsControl ItemTemplate="{StaticResource Style.DXChart.Legend.ItemTemplate}" ItemsSource="{Binding Legends}" />
+                    <ScrollViewer MaxHeight="420">
+                        <ItemsControl ItemTemplate="{StaticResource Style.DXChart.Legend.ItemTemplate}" ItemsSource="{Binding Legends}" />
+                    </ScrollViewer>
                 </Border>
             </Grid>
         </Grid>

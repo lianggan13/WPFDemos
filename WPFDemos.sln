@@ -39,6 +39,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFCommon", "WPFCommon\WPFC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF2DGraphics", "WPF2DGraphics\WPF2DGraphics.csproj", "{345D9C10-5ED4-41E4-A418-E4F658D02956}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF3DGraphics", "WPF3DGraphics\WPF3DGraphics.csproj", "{435B9BE0-BCD9-4C86-B6E4-D91212D8A441}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFGrid", "WPFGrid\WPFGrid.csproj", "{9725B827-C994-4D7B-BD21-C1EE71142714}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -117,6 +121,14 @@ Global
 		{345D9C10-5ED4-41E4-A418-E4F658D02956}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{345D9C10-5ED4-41E4-A418-E4F658D02956}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{345D9C10-5ED4-41E4-A418-E4F658D02956}.Release|Any CPU.Build.0 = Release|Any CPU
+		{435B9BE0-BCD9-4C86-B6E4-D91212D8A441}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{435B9BE0-BCD9-4C86-B6E4-D91212D8A441}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{435B9BE0-BCD9-4C86-B6E4-D91212D8A441}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{435B9BE0-BCD9-4C86-B6E4-D91212D8A441}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9725B827-C994-4D7B-BD21-C1EE71142714}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9725B827-C994-4D7B-BD21-C1EE71142714}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9725B827-C994-4D7B-BD21-C1EE71142714}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9725B827-C994-4D7B-BD21-C1EE71142714}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 E:\Github\WPFDemos\WPFPath\App.xaml
-21771906336
+41875027166
 
-61889604168
+81233530088
 14105661500
-MainWindow.xaml;UC\CircularProgressBar.xaml;
+MainWindow.xaml;View\CircularProgressBar.xaml;View\CoolingTower.xaml;View\GeneralPath.xaml;
 
 False
 

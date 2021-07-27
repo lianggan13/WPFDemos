@@ -29,28 +29,18 @@ namespace WPFChart
             mbps.VM.SetFreq(666);
             for (int i = 0; i < 32; i++)
             {
-                MbpsPointModel p2 = new MbpsPointModel()
+                for (int phi = 0; phi <= 360; phi++)
                 {
-                    Phi = 30,
-                    Power = i,
-                    Mbps = rand.Next(-10, 100)
-                };
-                MbpsPointModel p = new MbpsPointModel()
-                {
-                    Phi = 10,
-                    Power = i,
-                    Mbps = rand.Next(-10, 100)
-                };
-                MbpsPointModel p1 = new MbpsPointModel()
-                {
-                    Phi = 20,
-                    Power = i,
-                    Mbps = rand.Next(-10, 100)
-                };
+                    MbpsPointModel p = new MbpsPointModel()
+                    {
+                        Phi = phi,
+                        Power = i,
+                        Mbps = rand.Next(-10, 100)
+                    };
+                    mbps.VM.AddMbpsPoint(p);
 
-                mbps.VM.AddMbpsPoint(p);
-                mbps.VM.AddMbpsPoint(p1);
-                mbps.VM.AddMbpsPoint(p2);
+                }
+
             }
         }
     }
