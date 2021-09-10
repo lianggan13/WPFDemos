@@ -6,7 +6,7 @@ using System.Collections.Specialized;
 using System.Linq;
 using System.Windows;
 using WPFChart.Model;
-using WPFCommon;
+using WPFCommon.MVVMFoundation;
 
 namespace GTS.MaxSign.Controls.ViewModel
 {

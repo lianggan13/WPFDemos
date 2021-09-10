@@ -68,6 +68,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ViewModel\LoadingWaitViewModel.cs" />
+    <Compile Include="View\DropdownView.xaml.cs">
+      <DependentUpon>DropdownView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\LinearAnimationView.xaml.cs">
       <DependentUpon>LinearAnimationView.xaml</DependentUpon>
     </Compile>
@@ -95,6 +98,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\DropdownView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\LinearAnimationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -144,7 +151,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BrushStyle\" />
     <Folder Include="Model\" />
   </ItemGroup>
   <ItemGroup>

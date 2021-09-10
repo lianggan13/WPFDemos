@@ -47,3 +47,6 @@ E:\Github\WPFDemos\WPFComboBox\obj\Debug\WPFComboBox.csprojAssemblyReference.cac
 E:\Github\WPFDemos\WPFComboBox\bin\Debug\WPFCommon.dll
 E:\Github\WPFDemos\WPFComboBox\bin\Debug\WPFCommon.pdb
 E:\Github\WPFDemos\WPFComboBox\obj\Debug\App.baml
+E:\Github\WPFDemos\WPFComboBox\obj\Debug\View\ComboCheckBox.g.cs
+E:\Github\WPFDemos\WPFComboBox\obj\Debug\GeneratedInternalTypeHelper.g.cs
+E:\Github\WPFDemos\WPFComboBox\obj\Debug\View\ComboCheckBox.baml

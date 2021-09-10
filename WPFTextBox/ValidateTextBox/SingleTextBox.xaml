@@ -144,6 +144,16 @@
             Grid.Column="2"
             Source="/Assets/Images/icon_warn.png"
             ToolTip="{Binding ElementName=txtValue, Path=(Validation.Errors)[0].ErrorContent}"
-            Visibility="{Binding ElementName=txtValue, Path=(Validation.HasError), Converter={StaticResource BoolToVisibilityConverter}}" />
+            Visibility="{Binding ElementName=txtValue, Path=(Validation.HasError), Converter={StaticResource BoolToVisibilityConverter}}">
+            <!--<Image.Style>
+                <Style TargetType="{x:Type Image}">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Path=(Validation.HasError), RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type TextBox}}}" Value="True">
+                            <Setter Property="Visibility" Value="Visible" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>-->
+        </Image>
     </Grid>
 </UserControl>

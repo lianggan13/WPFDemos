@@ -63,10 +63,18 @@
     </ApplicationDefinition>
     <Compile Include="Assets\CourseDataTemplateSelector.cs" />
     <Compile Include="Model\CourseSeriesModel.cs" />
+    <Compile Include="Model\GroupingModel.cs" />
     <Compile Include="Model\LogModel.cs" />
     <Compile Include="Model\SeriesModel.cs" />
-    <Compile Include="ViewModel\MainVM.cs" />
+    <Compile Include="ViewModel\SelectorVM.cs" />
+    <Compile Include="ViewModel\GroupingVM.cs" />
     <Compile Include="ViewModel\RealTimeLogVM.cs" />
+    <Compile Include="View\GroupingView.xaml.cs">
+      <DependentUpon>GroupingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SelectorView.xaml.cs">
+      <DependentUpon>SelectorView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\RealTimeLogView.xaml.cs">
       <DependentUpon>RealTimeLogView.xaml</DependentUpon>
     </Compile>
@@ -82,6 +90,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\GroupingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SelectorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\RealTimeLogView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

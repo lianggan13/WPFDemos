@@ -8,7 +8,6 @@ namespace WPFTextBox.ValidateTextBox
     /// </summary>
     public partial class SingleTextBox : UserControl
     {
-
         public SingleTextBoxVM VM { get; }
         public SingleTextBox()
         {

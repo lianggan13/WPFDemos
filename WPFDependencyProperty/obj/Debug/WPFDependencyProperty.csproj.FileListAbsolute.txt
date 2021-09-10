@@ -12,3 +12,4 @@ E:\Github\WPFDemos\WPFDependencyProperty\obj\Debug\WPFDependencyProperty.csproj.
 E:\Github\WPFDemos\WPFDependencyProperty\obj\Debug\WPFDependencyProperty.csproj.CoreCompileInputs.cache
 E:\Github\WPFDemos\WPFDependencyProperty\obj\Debug\WPFDependencyProperty.exe
 E:\Github\WPFDemos\WPFDependencyProperty\obj\Debug\WPFDependencyProperty.pdb
+E:\Github\WPFDemos\WPFDependencyProperty\obj\Debug\WPFDependencyProperty.csprojAssemblyReference.cache

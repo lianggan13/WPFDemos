@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 E:\Github\WPFDemos\WPFTextBox\App.xaml
-3846279955
+3366559904
 
-14-1765502929
-15-1490892594
-MainWindow.xaml;ValidateTextBox\SearchTextBox.xaml;ValidateTextBox\SingleTextBox.xaml;
+131119027930
+16-31543488
+MainWindow.xaml;ValidateTextBox\SingleTextBox.xaml;View\WatermarkTextBox.xaml;
 
 True
 

@@ -249,6 +249,9 @@
         <TabItem Header="PathAnimation">
             <vm:LoadingWait />
         </TabItem>
+        <TabItem Header="DropdownView">
+            <vm:DropdownView />
+        </TabItem>
     </TabControl>
 
 

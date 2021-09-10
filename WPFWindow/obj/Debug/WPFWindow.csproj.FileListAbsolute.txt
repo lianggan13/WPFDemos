@@ -34,3 +34,6 @@ E:\Github\WPFDemos\WPFWindow\obj\Debug\WPFWindow.csproj.CoreCompileInputs.cache
 E:\Github\WPFDemos\WPFWindow\obj\Debug\WPFWindow.exe
 E:\Github\WPFDemos\WPFWindow\obj\Debug\WPFWindow.pdb
 E:\Github\WPFDemos\WPFWindow\obj\Debug\WPFWindow.csprojAssemblyReference.cache
+E:\Github\WPFDemos\WPFWindow\obj\Debug\View\DialogReplica.baml
+E:\Github\WPFDemos\WPFWindow\obj\Debug\View\DialogReplica.g.cs
+E:\Github\WPFDemos\WPFWindow\obj\Debug\GeneratedInternalTypeHelper.g.cs

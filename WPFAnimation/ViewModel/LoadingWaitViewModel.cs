@@ -1,4 +1,4 @@
-﻿using WPFCommon;
+﻿using WPFCommon.MVVMFoundation;
 
 namespace WPFAnimation.ViewModel
 {

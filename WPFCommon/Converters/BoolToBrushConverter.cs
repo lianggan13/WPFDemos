@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Windows.Data;
 using System.Windows.Media;
 
-namespace GTS.MaxSign.Controls.Converters
+namespace WPFCommon.Converters
 {
     public class BoolToBrushConverter : IValueConverter
     {

@@ -25,3 +25,7 @@ E:\Github\WPFDemos\WPFItemsControl\obj\Debug\WPFItemsControl.exe
 E:\Github\WPFDemos\WPFItemsControl\obj\Debug\WPFItemsControl.pdb
 E:\Github\WPFDemos\WPFItemsControl\obj\Debug\View\RealTimeLogView.g.cs
 E:\Github\WPFDemos\WPFItemsControl\obj\Debug\View\RealTimeLogView.baml
+E:\Github\WPFDemos\WPFItemsControl\obj\Debug\View\GroupingView.g.cs
+E:\Github\WPFDemos\WPFItemsControl\obj\Debug\View\GroupingView.baml
+E:\Github\WPFDemos\WPFItemsControl\obj\Debug\View\SelectorView.g.cs
+E:\Github\WPFDemos\WPFItemsControl\obj\Debug\View\SelectorView.baml

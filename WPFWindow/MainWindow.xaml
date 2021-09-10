@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:WPFWindow"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:view="clr-namespace:WPFWindow.View"
     Title="MaxSign Auto v1.6.0"
     Width="1034"
     Height="730"
@@ -127,12 +128,15 @@
                                                     </Style.Triggers>
                                                 </Style>
                                             </Border.Style>
+                                            <!--  Click="btnMax_Click"   SystemCommands.MaximizeWindowCommand  -->
+                                            <!--  Command="{x:Static SystemCommands.MinimizeWindowCommand}"  -->
                                             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
                                                 <Button
                                                     x:Name="btnMax"
                                                     Margin="0,10,0,8"
                                                     Click="btnMax_Click"
                                                     Cursor="Hand"
+                                                    IsTabStop="False"
                                                     Style="{StaticResource Style.Button.MainWindow.Normal}" />
                                                 <Button
                                                     x:Name="btnNormal"
@@ -171,7 +175,8 @@
                                     <ContentPresenter
                                         x:Name="MainContentPresenter"
                                         Content="{TemplateBinding Content}"
-                                        KeyboardNavigation.TabNavigation="Cycle" />
+                                        KeyboardNavigation.TabNavigation="Cycle"
+                                        WindowChrome.IsHitTestVisibleInChrome="True" />
                                 </AdornerDecorator>
 
                                 <!--  resize grip  -->
@@ -208,7 +213,6 @@
                                 <MultiTrigger.Setters>
                                     <Setter TargetName="ResizeGrip" Property="Visibility" Value="Visible" />
                                 </MultiTrigger.Setters>
-
                             </MultiTrigger>
                             <!--<Trigger Property="IsActive" Value="False">
                                 <Setter TargetName="TitleTextBlock" Property="Foreground" Value="{StaticResource Brush.TitleBar.InactiveForeground}" />
@@ -225,12 +229,6 @@
     </Window.Style>
 
     <Grid>
-        <TextBox
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Center"
-            Background="LightGray"
-            FontSize="50"
-            Text="Window Client Content"
-            TextAlignment="Center" />
+        <view:DialogReplica />
     </Grid>
 </Window>

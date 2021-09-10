@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Algorithm\Utils.cs" />
+    <Compile Include="Assets\Compent\PopupEx.cs" />
     <Compile Include="Assets\Compent\PopupPlus.cs" />
     <Compile Include="Assets\Compent\TreeViewAssist.cs" />
     <Compile Include="Converters\BoolConverter.cs" />
@@ -83,8 +84,11 @@
     <Compile Include="Converters\StringToBrushConverter.cs" />
     <Compile Include="Converters\StringToVisibilityConverter.cs" />
     <Compile Include="Converters\TreeViewLineConverter.cs" />
-    <Compile Include="NotifyPropertyChanged.cs" />
-    <Compile Include="RelayCommand.cs" />
+    <Compile Include="MVVMFoundation\AsyncRelayCommand.cs" />
+    <Compile Include="MVVMFoundation\Messenger.cs" />
+    <Compile Include="MVVMFoundation\NotifyPropertyChanged.cs" />
+    <Compile Include="MVVMFoundation\ObservableObject.cs" />
+    <Compile Include="MVVMFoundation\RelayCommand.cs" />
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
@@ -109,6 +113,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Assets\Styles\Expander.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Assets\Styles\Path.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

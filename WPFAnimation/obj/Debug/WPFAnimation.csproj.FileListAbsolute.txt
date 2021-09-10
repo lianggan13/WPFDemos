@@ -58,3 +58,5 @@ E:\Github\WPFDemos\WPFAnimation\obj\Debug\WPFAnimation.exe.licenses
 E:\Github\WPFDemos\WPFAnimation\obj\Debug\WPFAnimation.csproj.CopyComplete
 E:\Github\WPFDemos\WPFAnimation\bin\Debug\WPFCommon.dll
 E:\Github\WPFDemos\WPFAnimation\bin\Debug\WPFCommon.pdb
+E:\Github\WPFDemos\WPFAnimation\obj\Debug\View\DropdownView.g.cs
+E:\Github\WPFDemos\WPFAnimation\obj\Debug\View\DropdownView.baml

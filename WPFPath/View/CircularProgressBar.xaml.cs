@@ -3,7 +3,7 @@ using System.Timers;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
-using WPFCommon;
+using WPFCommon.MVVMFoundation;
 
 namespace WPFPath.UC
 {

@@ -3,8 +3,8 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using WPFChart.Model;
-using WPFCommon;
 using WPFCommon.Algorithm;
+using WPFCommon.MVVMFoundation;
 
 namespace WPFChart.ViewModel
 {

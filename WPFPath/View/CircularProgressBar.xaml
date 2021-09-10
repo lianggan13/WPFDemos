@@ -57,6 +57,7 @@
             StrokeStartLineCap="Round"
             StrokeThickness="4" />
 
+
         <TextBox
             x:Name="txtAngle"
             MinWidth="20"

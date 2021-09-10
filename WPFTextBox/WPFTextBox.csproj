@@ -62,17 +62,16 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Common\BoolToVisibilityConverter.cs" />
-    <Compile Include="Common\NotifyPropertyChanged.cs" />
     <Compile Include="Model\ValidatorBaseModel.cs" />
     <Compile Include="Model\SingleTextBoxModel.cs" />
-    <Compile Include="ValidateTextBox\SearchTextBox.xaml.cs">
-      <DependentUpon>SearchTextBox.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ValidateTextBox\SingleTextBox.xaml.cs">
       <DependentUpon>SingleTextBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="ValidateTextBox\WatermarkTextBox.cs" />
     <Compile Include="ViewModel\SingleTextBoxVM.cs" />
+    <Compile Include="View\WatermarkTextBox.xaml.cs">
+      <DependentUpon>WatermarkTextBox.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -85,11 +84,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="ValidateTextBox\SearchTextBox.xaml">
+    <Page Include="ValidateTextBox\SingleTextBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ValidateTextBox\SingleTextBox.xaml">
+    <Page Include="View\WatermarkTextBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -123,6 +122,11 @@
   <ItemGroup>
     <Resource Include="Assets\Images\icon_warn.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\WPFCommon\WPFCommon.csproj">
+      <Project>{A0F9C22B-B526-44DD-B58A-A837E3A833EC}</Project>
+      <Name>WPFCommon</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

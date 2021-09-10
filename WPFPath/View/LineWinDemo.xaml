@@ -29,7 +29,7 @@
             Y2="20" />
         <Line
             Stroke="Black"
-            StrokeDashArray="6"
+            StrokeDashArray="2"
             StrokeThickness="3"
             X1="10"
             X2="500"

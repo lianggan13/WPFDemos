@@ -12,7 +12,6 @@ E:\Github\WPFDemos\WPFTreeView\obj\Debug\WPFTreeView.csproj.GenerateResource.cac
 E:\Github\WPFDemos\WPFTreeView\obj\Debug\WPFTreeView.csproj.CoreCompileInputs.cache
 E:\Github\WPFDemos\WPFTreeView\obj\Debug\WPFTreeView.exe
 E:\Github\WPFDemos\WPFTreeView\obj\Debug\WPFTreeView.pdb
-E:\Github\WPFDemos\WPFTreeView\obj\Debug\WPFTreeView.csprojAssemblyReference.cache
 E:\Github\WPFDemos\WPFTreeView\obj\Debug\App.baml
 E:\Github\WPFDemos\WPFTreeView\bin\Debug\WPFCommon.dll
 E:\Github\WPFDemos\WPFTreeView\bin\Debug\WPFCommon.pdb

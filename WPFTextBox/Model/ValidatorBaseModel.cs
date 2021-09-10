@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Text.RegularExpressions;
 using System.Windows.Controls;
 using System.Windows.Input;
-using WPFTextBox.Common;
+using WPFCommon.MVVMFoundation;
 
 namespace WPFTextBox.Model
 {

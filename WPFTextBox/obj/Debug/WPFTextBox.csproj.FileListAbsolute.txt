@@ -17,5 +17,7 @@ E:\Github\WPFDemos\WPFTextBox\obj\Debug\WPFTextBox.exe
 E:\Github\WPFDemos\WPFTextBox\obj\Debug\WPFTextBox.pdb
 E:\Github\WPFDemos\WPFTextBox\obj\Debug\GeneratedInternalTypeHelper.g.cs
 E:\Github\WPFDemos\WPFTextBox\obj\Debug\WPFTextBox.csproj.CopyComplete
-E:\Github\WPFDemos\WPFTextBox\obj\Debug\ValidateTextBox\SearchTextBox.g.cs
-E:\Github\WPFDemos\WPFTextBox\obj\Debug\ValidateTextBox\SearchTextBox.baml
+E:\Github\WPFDemos\WPFTextBox\bin\Debug\WPFCommon.dll
+E:\Github\WPFDemos\WPFTextBox\bin\Debug\WPFCommon.pdb
+E:\Github\WPFDemos\WPFTextBox\obj\Debug\View\WatermarkTextBox.g.cs
+E:\Github\WPFDemos\WPFTextBox\obj\Debug\View\WatermarkTextBox.baml

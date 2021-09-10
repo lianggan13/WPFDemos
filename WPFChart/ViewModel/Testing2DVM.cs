@@ -6,7 +6,7 @@ using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
 using WPFChart.Model;
-using WPFCommon;
+using WPFCommon.MVVMFoundation;
 
 namespace WPFChart.ViewModel
 {

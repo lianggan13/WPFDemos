@@ -3,7 +3,7 @@ using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using WPFCommon;
+using WPFCommon.MVVMFoundation;
 using WPFContentControl.Common;
 using WPFContentControl.View;
 

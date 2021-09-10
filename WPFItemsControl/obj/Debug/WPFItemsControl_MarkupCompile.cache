@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 E:\Github\WPFDemos\WPFItemsControl\App.xaml
-2337389142
+4604129805
 
-12-811245089
+16-1304421563
 16263341320
-MainWindow.xaml;View\RealTimeLogView.xaml;
+MainWindow.xaml;View\GroupingView.xaml;View\SelectorView.xaml;View\RealTimeLogView.xaml;
 
 False
 

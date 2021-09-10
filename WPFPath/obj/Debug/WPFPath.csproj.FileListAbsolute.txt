@@ -3,7 +3,6 @@ E:\Github\WPFDemos\WPFPath\bin\Debug\WPFPath.exe
 E:\Github\WPFDemos\WPFPath\bin\Debug\WPFPath.pdb
 E:\Github\WPFDemos\WPFPath\bin\Debug\WPFCommon.dll
 E:\Github\WPFDemos\WPFPath\bin\Debug\WPFCommon.pdb
-E:\Github\WPFDemos\WPFPath\obj\Debug\WPFPath.csprojAssemblyReference.cache
 E:\Github\WPFDemos\WPFPath\obj\Debug\MainWindow.g.cs
 E:\Github\WPFDemos\WPFPath\obj\Debug\App.g.cs
 E:\Github\WPFDemos\WPFPath\obj\Debug\GeneratedInternalTypeHelper.g.cs
@@ -23,3 +22,5 @@ E:\Github\WPFDemos\WPFPath\obj\Debug\View\GeneralPath.g.cs
 E:\Github\WPFDemos\WPFPath\obj\Debug\View\CircularProgressBar.baml
 E:\Github\WPFDemos\WPFPath\obj\Debug\View\CoolingTower.baml
 E:\Github\WPFDemos\WPFPath\obj\Debug\View\GeneralPath.baml
+E:\Github\WPFDemos\WPFPath\obj\Debug\View\LineWinDemo.g.cs
+E:\Github\WPFDemos\WPFPath\obj\Debug\View\LineWinDemo.baml

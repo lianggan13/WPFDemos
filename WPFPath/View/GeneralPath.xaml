@@ -46,7 +46,7 @@
             StrokeThickness="2" />
 
         <Path
-            Data="M 75 75 A 72,72 0 1 1 74,75 Z"
+            Data="M 75 75 A 73,73 0 1 1 74,75 Z"
             Stroke="Yellow"
             StrokeThickness="4" />
         <TextBlock Margin="300,300,0,0">

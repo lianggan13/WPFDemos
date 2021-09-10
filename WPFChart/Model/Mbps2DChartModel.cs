@@ -1,4 +1,5 @@
-﻿using WPFCommon;
+﻿using WPFCommon.MVVMFoundation;
+
 
 namespace GTS.MaxSign.Controls.Model.UC
 {
