@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-E:\Github\WPFDemos\WPFVisualState\obj\Debug\
+D:\Github\WPFDemos\WPFVisualState\obj\Debug\
 WPFVisualState
 none
 false
 DEBUG;TRACE
-E:\Github\WPFDemos\WPFVisualState\App.xaml
+D:\Github\WPFDemos\WPFVisualState\App.xaml
 2-1732963830
 
-6-180742902
-1425963970
+7-1023102269
+14645249056
 MainWindow.xaml;View\LoadingWait.xaml;
 
-False
+True
 

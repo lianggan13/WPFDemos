@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-E:\Github\WPFDemos\WPFWindow\obj\Debug\
+D:\Github\WPFDemos\WPFWindow\obj\Debug\
 WPFWindow
 none
 false
 DEBUG;TRACE
-E:\Github\WPFDemos\WPFWindow\App.xaml
+D:\Github\WPFDemos\WPFWindow\App.xaml
 41459497057
 
-7-275324676
+81945466724
 13-1505183044
 MainWindow.xaml;Resource\style\Button.xaml;Resource\style\Combobox.xaml;View\DialogReplica.xaml;
 
-False
+True
 

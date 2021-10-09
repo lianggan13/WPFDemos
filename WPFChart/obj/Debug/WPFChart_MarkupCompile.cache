@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-E:\Github\WPFDemos\WPFChart\obj\Debug\
+D:\Github\WPFDemos\WPFChart\obj\Debug\
 WPFChart
 none
 false
 DEBUG;TRACE
-E:\Github\WPFDemos\WPFChart\App.xaml
+D:\Github\WPFDemos\WPFChart\App.xaml
 4-1697165376
 
-151763356652
-31507627593
+16920997285
+311646711992
 MainWindow.xaml;View\GpsCnPowerChart.xaml;View\Mbps2DChartUC.xaml;View\Testing2DChart.xaml;
 
 True

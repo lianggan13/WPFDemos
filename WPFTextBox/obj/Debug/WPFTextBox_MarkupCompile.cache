@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-E:\Github\WPFDemos\WPFTextBox\obj\Debug\
+D:\Github\WPFDemos\WPFTextBox\obj\Debug\
 WPFTextBox
 none
 false
 DEBUG;TRACE
-E:\Github\WPFDemos\WPFTextBox\App.xaml
+D:\Github\WPFDemos\WPFTextBox\App.xaml
 3366559904
 
-121961387297
-16-31543488
+131119027930
+16-661452312
 MainWindow.xaml;ValidateTextBox\SingleTextBox.xaml;View\WatermarkTextBox.xaml;
 
-False
+True
 

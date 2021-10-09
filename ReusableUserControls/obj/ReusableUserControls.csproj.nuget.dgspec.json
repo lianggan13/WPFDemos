@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Github\\WPFDemos\\ReusableUserControls\\ReusableUserControls.csproj": {}
+    "D:\\Github\\WPFDemos\\ReusableUserControls\\ReusableUserControls.csproj": {}
   },
   "projects": {
-    "E:\\Github\\WPFDemos\\ReusableUserControls\\ReusableUserControls.csproj": {
+    "D:\\Github\\WPFDemos\\ReusableUserControls\\ReusableUserControls.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Github\\WPFDemos\\ReusableUserControls\\ReusableUserControls.csproj",
+        "projectUniqueName": "D:\\Github\\WPFDemos\\ReusableUserControls\\ReusableUserControls.csproj",
         "projectName": "ReusableUserControls",
-        "projectPath": "E:\\Github\\WPFDemos\\ReusableUserControls\\ReusableUserControls.csproj",
-        "packagesPath": "C:\\Users\\67602\\.nuget\\packages\\",
-        "outputPath": "E:\\Github\\WPFDemos\\ReusableUserControls\\obj\\",
+        "projectPath": "D:\\Github\\WPFDemos\\ReusableUserControls\\ReusableUserControls.csproj",
+        "packagesPath": "C:\\Users\\lianggan13\\.nuget\\packages\\",
+        "outputPath": "D:\\Github\\WPFDemos\\ReusableUserControls\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "D:\\DevExpress 20.2\\Components\\Offline Packages",
+          "D:\\Apps\\DevExpress 20.2\\Components\\Offline Packages",
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\67602\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\lianggan13\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 20.2.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -28,7 +28,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "D:\\DevExpress 20.2\\Components\\System\\Components\\Packages": {},
+          "D:\\Apps\\DevExpress 20.2\\Components\\System\\Components\\Packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -64,7 +64,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

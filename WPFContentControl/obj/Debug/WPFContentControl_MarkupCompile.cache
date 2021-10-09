@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-E:\Github\WPFDemos\WPFContentControl\obj\Debug\
+D:\Github\WPFDemos\WPFContentControl\obj\Debug\
 WPFContentControl
 none
 false
 DEBUG;TRACE
-E:\Github\WPFDemos\WPFContentControl\App.xaml
+D:\Github\WPFDemos\WPFContentControl\App.xaml
 4-1226989691
 
-91388061058
-14105661500
+10545701691
+14-1059018622
 MainWindow.xaml;View\CenterPage.xaml;View\HomePage.xaml;View\SettingPage.xaml;
 
-False
+True
 

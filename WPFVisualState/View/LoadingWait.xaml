@@ -3,8 +3,6 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
-    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
     xmlns:local="clr-namespace:WPFVisualState.View"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:sys="clr-namespace:System;assembly=mscorlib"
@@ -12,7 +10,7 @@
     d:DesignWidth="800"
     mc:Ignorable="d">
     <Grid>
-        <Viewbox Width="{DXBinding @a($UserControl).Radius * 2}" Height="{DXBinding @a($UserControl).Radius * 2}">
+        <Viewbox x:Name="viewbox">
             <Canvas
                 x:Name="canvas"
                 Width="120"
@@ -24,13 +22,10 @@
                     <RotateTransform x:Name="rt" Angle="0" />
                 </Canvas.RenderTransform>
                 <Canvas.Resources>
-                    <sys:Double x:Key="R">50</sys:Double>
                     <SolidColorBrush x:Key="CirclesColor" Color="CornflowerBlue" />
                 </Canvas.Resources>
                 <Ellipse
                     x:Name="C0"
-                    Canvas.Left="{DXBinding @r(R) + @r(R) * ($sys:Math.Sin( 0 * $sys:Math.PI * 2 / 10.0 ))}"
-                    Canvas.Top="{DXBinding @r(R) + @r(R)  * ($sys:Math.Cos( 0 * $sys:Math.PI * 2 / 10.0 ))}"
                     Width="20"
                     Height="20"
                     Fill="{StaticResource CirclesColor}"
@@ -38,8 +33,6 @@
                     Stretch="Fill" />
                 <Ellipse
                     x:Name="C1"
-                    Canvas.Left="{DXBinding @r(R) + @r(R) * ($sys:Math.Sin( 1 * $sys:Math.PI * 2 / 10.0 ))}"
-                    Canvas.Top="{DXBinding @r(R) + @r(R) * ($sys:Math.Cos( 1 * $sys:Math.PI * 2 / 10.0 ))}"
                     Width="20"
                     Height="20"
                     Fill="{StaticResource CirclesColor}"
@@ -47,8 +40,6 @@
                     Stretch="Fill" />
                 <Ellipse
                     x:Name="C2"
-                    Canvas.Left="{DXBinding @r(R) + @r(R) * ($sys:Math.Sin( 2 * $sys:Math.PI * 2 / 10.0 ))}"
-                    Canvas.Top="{DXBinding @r(R) + @r(R) * ($sys:Math.Cos( 2 * $sys:Math.PI * 2 / 10.0 ))}"
                     Width="20"
                     Height="20"
                     Fill="{StaticResource CirclesColor}"
@@ -56,8 +47,6 @@
                     Stretch="Fill" />
                 <Ellipse
                     x:Name="C3"
-                    Canvas.Left="{DXBinding @r(R) + @r(R) * ($sys:Math.Sin( 3 * $sys:Math.PI * 2 / 10.0 ))}"
-                    Canvas.Top="{DXBinding @r(R) + @r(R) * ($sys:Math.Cos( 3 * $sys:Math.PI * 2 / 10.0 ))}"
                     Width="20"
                     Height="20"
                     Fill="{StaticResource CirclesColor}"
@@ -65,8 +54,6 @@
                     Stretch="Fill" />
                 <Ellipse
                     x:Name="C4"
-                    Canvas.Left="{DXBinding @r(R) + @r(R) * ($sys:Math.Sin( 4 * $sys:Math.PI * 2 / 10.0 ))}"
-                    Canvas.Top="{DXBinding @r(R) + @r(R) * ($sys:Math.Cos( 4 * $sys:Math.PI * 2 / 10.0 ))}"
                     Width="20"
                     Height="20"
                     Fill="{StaticResource CirclesColor}"
@@ -74,8 +61,6 @@
                     Stretch="Fill" />
                 <Ellipse
                     x:Name="C5"
-                    Canvas.Left="{DXBinding @r(R) + @r(R) * ($sys:Math.Sin( 5 * $sys:Math.PI * 2 / 10.0 ))}"
-                    Canvas.Top="{DXBinding @r(R) + @r(R) * ($sys:Math.Cos( 5 * $sys:Math.PI * 2 / 10.0 ))}"
                     Width="20"
                     Height="20"
                     Fill="{StaticResource CirclesColor}"
@@ -83,8 +68,6 @@
                     Stretch="Fill" />
                 <Ellipse
                     x:Name="C6"
-                    Canvas.Left="{DXBinding @r(R) + @r(R) * ($sys:Math.Sin( 6 * $sys:Math.PI * 2 / 10.0 ))}"
-                    Canvas.Top="{DXBinding @r(R) + @r(R) * ($sys:Math.Cos( 6 * $sys:Math.PI * 2 / 10.0 ))}"
                     Width="20"
                     Height="20"
                     Fill="{StaticResource CirclesColor}"
@@ -92,8 +75,6 @@
                     Stretch="Fill" />
                 <Ellipse
                     x:Name="C7"
-                    Canvas.Left="{DXBinding @r(R) + @r(R) * ($sys:Math.Sin( 7 * $sys:Math.PI * 2 / 10.0 ))}"
-                    Canvas.Top="{DXBinding @r(R) + @r(R) * ($sys:Math.Cos( 7 * $sys:Math.PI * 2 / 10.0 ))}"
                     Width="20"
                     Height="20"
                     Fill="{StaticResource CirclesColor}"
@@ -101,8 +82,6 @@
                     Stretch="Fill" />
                 <Ellipse
                     x:Name="C8"
-                    Canvas.Left="{DXBinding @r(R) + @r(R) * ($sys:Math.Sin( 8 * $sys:Math.PI * 2 / 10.0 ))}"
-                    Canvas.Top="{DXBinding @r(R) + @r(R) * ($sys:Math.Cos( 8 * $sys:Math.PI * 2 / 10.0 ))}"
                     Width="20"
                     Height="20"
                     Fill="{StaticResource CirclesColor}"

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-E:\Github\WPFDemos\WPFItemsControl\obj\Debug\
+D:\Github\WPFDemos\WPFItemsControl\obj\Debug\
 WPFItemsControl
 none
 false
 DEBUG;TRACE
-E:\Github\WPFDemos\WPFItemsControl\App.xaml
+D:\Github\WPFDemos\WPFItemsControl\App.xaml
 4604129805
 
-16-1304421563
-16263341320
+17-2146780930
+16374356299
 MainWindow.xaml;View\GroupingView.xaml;View\SelectorView.xaml;View\RealTimeLogView.xaml;
 
-False
+True
 

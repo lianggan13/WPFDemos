@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-E:\Github\WPFDemos\WPF3DGraphics\obj\Debug\
+D:\Github\WPFDemos\WPF3DGraphics\obj\Debug\
 WPF3DGraphics
 none
 false
 DEBUG;TRACE
-E:\Github\WPFDemos\WPF3DGraphics\App.xaml
-11151548125
+D:\Github\WPFDemos\WPF3DGraphics\App.xaml
+31121020410
 
-5-2017746502
+7-433838514
 13-1505183044
-MainWindow.xaml;
+MainWindow.xaml;Rotate3D.xaml;View\HouseView.xaml;
 
 False
 

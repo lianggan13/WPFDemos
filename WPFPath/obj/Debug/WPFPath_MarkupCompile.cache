@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-E:\Github\WPFDemos\WPFPath\obj\Debug\
+D:\Github\WPFDemos\WPFPath\obj\Debug\
 WPFPath
 none
 false
 DEBUG;TRACE
-E:\Github\WPFDemos\WPFPath\App.xaml
+D:\Github\WPFDemos\WPFPath\App.xaml
 5-2125084974
 
-9-395878542
-14105661500
+10-1238237909
+14-1059018622
 MainWindow.xaml;View\CircularProgressBar.xaml;View\CoolingTower.xaml;View\GeneralPath.xaml;View\LineWinDemo.xaml;
 
-False
+True
 

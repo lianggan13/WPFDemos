@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-E:\Github\WPFDemos\WPF2DGraphics\obj\Debug\
+D:\Github\WPFDemos\WPF2DGraphics\obj\Debug\
 WPF2DGraphics
 none
 false
 DEBUG;TRACE
-E:\Github\WPFDemos\WPF2DGraphics\App.xaml
+D:\Github\WPFDemos\WPF2DGraphics\App.xaml
 4380493284
 
-8-293311345
+9-1135670712
 13-1505183044
 MainWindow.xaml;View\DrawingsView.xaml;View\ShapesView.xaml;View\VisualsView.xaml;
 
-False
+True
 

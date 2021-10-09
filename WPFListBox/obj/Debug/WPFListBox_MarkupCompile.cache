@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-E:\Github\WPFDemos\WPFListBox\obj\Debug\
+D:\Github\WPFDemos\WPFListBox\obj\Debug\
 WPFListBox
 none
 false
 DEBUG;TRACE
-E:\Github\WPFDemos\WPFListBox\App.xaml
+D:\Github\WPFDemos\WPFListBox\App.xaml
 21556156407
 
-81536611260
-16-1286319390
+9694251893
+161843967784
 MainWindow.xaml;View\ItemHighlightView.xaml;
 
-False
+True
 

@@ -15,7 +15,7 @@
     mc:Ignorable="d">
     <Window.Resources />
     <StackPanel>
-        <vt:SingleTextBox x:Name="txtSingle" Margin="0,4" />
+        <vt:SingleTextBox x:Name="txtSingle" />
         <vt:WatermarkTextBox Margin="0,4" WatermarkText="Watermark">
             <vt:WatermarkTextBox.Style>
                 <Style BasedOn="{StaticResource {x:Type TextBox}}" TargetType="{x:Type vt:WatermarkTextBox}">
@@ -116,5 +116,7 @@
             </vt:WatermarkTextBox.Style>
         </vt:WatermarkTextBox>
         <view:WatermarkTextBox Text="ssss" Watermark="please input sth..." />
+        <TextBox  InputScope="AddressStateOrProvince"></TextBox>
+        <TextBox AcceptsReturn="True" TextWrapping="Wrap" Height="150" ScrollViewer.VerticalScrollBarVisibility="Auto"   />
     </StackPanel>
 </Window>

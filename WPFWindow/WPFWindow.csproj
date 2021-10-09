@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Common\WindowManager.cs" />
     <Compile Include="View\DialogReplica.xaml.cs">
       <DependentUpon>DialogReplica.xaml</DependentUpon>
     </Compile>
