@@ -13,3 +13,17 @@ E:\Github\WPFDemos\WPFDependencyProperty\obj\Debug\WPFDependencyProperty.csproj.
 E:\Github\WPFDemos\WPFDependencyProperty\obj\Debug\WPFDependencyProperty.exe
 E:\Github\WPFDemos\WPFDependencyProperty\obj\Debug\WPFDependencyProperty.pdb
 E:\Github\WPFDemos\WPFDependencyProperty\obj\Debug\WPFDependencyProperty.csprojAssemblyReference.cache
+D:\Github\WPFDemos\WPFDependencyProperty\bin\Debug\WPFDependencyProperty.exe.config
+D:\Github\WPFDemos\WPFDependencyProperty\bin\Debug\WPFDependencyProperty.exe
+D:\Github\WPFDemos\WPFDependencyProperty\bin\Debug\WPFDependencyProperty.pdb
+D:\Github\WPFDemos\WPFDependencyProperty\obj\Debug\MainWindow.g.cs
+D:\Github\WPFDemos\WPFDependencyProperty\obj\Debug\App.g.cs
+D:\Github\WPFDemos\WPFDependencyProperty\obj\Debug\WPFDependencyProperty_MarkupCompile.cache
+D:\Github\WPFDemos\WPFDependencyProperty\obj\Debug\WPFDependencyProperty_MarkupCompile.lref
+D:\Github\WPFDemos\WPFDependencyProperty\obj\Debug\MainWindow.baml
+D:\Github\WPFDemos\WPFDependencyProperty\obj\Debug\WPFDependencyProperty.g.resources
+D:\Github\WPFDemos\WPFDependencyProperty\obj\Debug\WPFDependencyProperty.Properties.Resources.resources
+D:\Github\WPFDemos\WPFDependencyProperty\obj\Debug\WPFDependencyProperty.csproj.GenerateResource.cache
+D:\Github\WPFDemos\WPFDependencyProperty\obj\Debug\WPFDependencyProperty.csproj.CoreCompileInputs.cache
+D:\Github\WPFDemos\WPFDependencyProperty\obj\Debug\WPFDependencyProperty.exe
+D:\Github\WPFDemos\WPFDependencyProperty\obj\Debug\WPFDependencyProperty.pdb

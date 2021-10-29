@@ -80,7 +80,6 @@ D:\Github\WPFDemos\WPFVisualState\bin\Debug\de\DevExpress.Pdf.v20.2.Core.resourc
 D:\Github\WPFDemos\WPFVisualState\bin\Debug\es\DevExpress.Pdf.v20.2.Core.resources.dll
 D:\Github\WPFDemos\WPFVisualState\bin\Debug\ja\DevExpress.Pdf.v20.2.Core.resources.dll
 D:\Github\WPFDemos\WPFVisualState\bin\Debug\ru\DevExpress.Pdf.v20.2.Core.resources.dll
-D:\Github\WPFDemos\WPFVisualState\obj\Debug\WPFVisualState.csproj.AssemblyReference.cache
 D:\Github\WPFDemos\WPFVisualState\obj\Debug\MainWindow.g.cs
 D:\Github\WPFDemos\WPFVisualState\obj\Debug\View\LoadingWait.g.cs
 D:\Github\WPFDemos\WPFVisualState\obj\Debug\App.g.cs

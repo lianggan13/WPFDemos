@@ -1,17 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Windows.Media.Media3D;
+using WPF3DGraphics.Model;
 
 namespace WPF3DGraphics.View
 {
@@ -23,6 +14,16 @@ namespace WPF3DGraphics.View
         public HouseView()
         {
             InitializeComponent();
+            InitModel3D();
+        }
+
+        private void InitModel3D()
+        {
+            circle3Dm.Content = StereoModels.DrawCircle(new Vector3D(0, 0, 0), new Vector3D(0, 0, 1), radius: 5, Brushes.LightGreen, Brushes.Brown);
+        }
+
+        private void Door_Clicked(object sender, RoutedEventArgs e)
+        {
         }
     }
 }

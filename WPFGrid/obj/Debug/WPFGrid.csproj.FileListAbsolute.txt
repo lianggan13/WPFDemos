@@ -12,3 +12,17 @@ E:\Github\WPFDemos\WPFGrid\obj\Debug\WPFGrid.csproj.GenerateResource.cache
 E:\Github\WPFDemos\WPFGrid\obj\Debug\WPFGrid.csproj.CoreCompileInputs.cache
 E:\Github\WPFDemos\WPFGrid\obj\Debug\WPFGrid.exe
 E:\Github\WPFDemos\WPFGrid\obj\Debug\WPFGrid.pdb
+D:\Github\WPFDemos\WPFGrid\bin\Debug\WPFGrid.exe.config
+D:\Github\WPFDemos\WPFGrid\bin\Debug\WPFGrid.exe
+D:\Github\WPFDemos\WPFGrid\bin\Debug\WPFGrid.pdb
+D:\Github\WPFDemos\WPFGrid\obj\Debug\MainWindow.g.cs
+D:\Github\WPFDemos\WPFGrid\obj\Debug\App.g.cs
+D:\Github\WPFDemos\WPFGrid\obj\Debug\WPFGrid_MarkupCompile.cache
+D:\Github\WPFDemos\WPFGrid\obj\Debug\WPFGrid_MarkupCompile.lref
+D:\Github\WPFDemos\WPFGrid\obj\Debug\MainWindow.baml
+D:\Github\WPFDemos\WPFGrid\obj\Debug\WPFGrid.g.resources
+D:\Github\WPFDemos\WPFGrid\obj\Debug\WPFGrid.Properties.Resources.resources
+D:\Github\WPFDemos\WPFGrid\obj\Debug\WPFGrid.csproj.GenerateResource.cache
+D:\Github\WPFDemos\WPFGrid\obj\Debug\WPFGrid.csproj.CoreCompileInputs.cache
+D:\Github\WPFDemos\WPFGrid\obj\Debug\WPFGrid.exe
+D:\Github\WPFDemos\WPFGrid\obj\Debug\WPFGrid.pdb

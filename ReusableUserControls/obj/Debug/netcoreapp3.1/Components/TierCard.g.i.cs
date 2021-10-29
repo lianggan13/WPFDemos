@@ -61,7 +61,7 @@ namespace ReusableUserControls.Components {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ReusableUserControls;V1.0.0.0;component/components/tiercard.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ReusableUserControls;component/components/tiercard.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Components\TierCard.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

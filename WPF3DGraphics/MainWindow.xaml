@@ -11,6 +11,7 @@
     Height="450"
     mc:Ignorable="d">
     <Grid>
-        <view:HouseView />
+        <!--<view:HouseView />-->
+        <view:SimpleStereoView />
     </Grid>
 </Window>

@@ -15,7 +15,6 @@ E:\Github\WPFDemos\WPF3DGraphics\obj\Debug\WPF3DGraphics.pdb
 D:\Github\WPFDemos\WPF3DGraphics\bin\Debug\WPF3DGraphics.exe.config
 D:\Github\WPFDemos\WPF3DGraphics\bin\Debug\WPF3DGraphics.exe
 D:\Github\WPFDemos\WPF3DGraphics\bin\Debug\WPF3DGraphics.pdb
-D:\Github\WPFDemos\WPF3DGraphics\obj\Debug\WPF3DGraphics.csproj.AssemblyReference.cache
 D:\Github\WPFDemos\WPF3DGraphics\obj\Debug\MainWindow.g.cs
 D:\Github\WPFDemos\WPF3DGraphics\obj\Debug\App.g.cs
 D:\Github\WPFDemos\WPF3DGraphics\obj\Debug\WPF3DGraphics_MarkupCompile.cache
@@ -32,3 +31,5 @@ D:\Github\WPFDemos\WPF3DGraphics\obj\Debug\Rotate3D.baml
 D:\Github\WPFDemos\WPF3DGraphics\obj\Debug\View\HouseView.g.cs
 D:\Github\WPFDemos\WPF3DGraphics\obj\Debug\View\HouseView.baml
 D:\Github\WPFDemos\WPF3DGraphics\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Github\WPFDemos\WPF3DGraphics\obj\Debug\View\SimpleStereoView.g.cs
+D:\Github\WPFDemos\WPF3DGraphics\obj\Debug\View\SimpleStereoView.baml
