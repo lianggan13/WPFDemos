@@ -82,7 +82,7 @@ namespace SmartParking.Server.Service
         /// 立即保存全部修改
         /// 把增/删的savechange给放到这里，是为了保证事务的
         /// </summary>
-        void Commit();
+        int Commit();
 
         #endregion
     }

@@ -1,14 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using SmartParking.Server.DAL.EFCore;
+using SmartParking.Server.Service;
 
 namespace SmartParking.Server.Start
 {
@@ -24,6 +21,27 @@ namespace SmartParking.Server.Start
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // services: 服务容器
+
+            // Build DbContext
+            services.AddDbContext<MySqlDbContext>
+            (opts =>
+                {
+                    opts.UseMySql(Configuration.GetConnectionString("MySQL"),
+                    MySqlServerVersion.LatestSupportedServerVersion);
+                }
+            );
+
+            #region 获取指定配置文件
+            //var builder = new ConfigurationBuilder()
+            //          .SetBasePath(Directory.GetCurrentDirectory())
+            //          .AddJsonFile("appsettings.json");
+
+            //IConfigurationRoot configurationRoot = builder.Build(); 
+            #endregion
+
+            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IMenuService, MenuService>();
 
             services.AddControllers();
         }

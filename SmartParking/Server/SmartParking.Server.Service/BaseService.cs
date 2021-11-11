@@ -9,17 +9,16 @@ namespace SmartParking.Server.Service
 {
     public class BaseService : IBaseService, IDisposable
     {
-        protected EFCoreContext context { get; private set; }
+        protected MySqlDbContext context { get; private set; }
 
-        public BaseService(IEFContext ef)
+        public BaseService(MySqlDbContext context)
         {
-            this.context = ef.CreateDBContext();
+            this.context = context;
         }
 
-
-        public void Commit()
+        public int Commit()
         {
-            context.SaveChanges(true);
+            return context.SaveChanges(true);
         }
 
         public void Delete<T>(int Id) where T : class
@@ -46,6 +45,11 @@ namespace SmartParking.Server.Service
         }
 
         public T Find<T>(int id) where T : class
+        {
+            return context.Set<T>().Find(id);
+        }
+
+        public T Find<T>(long id) where T : class
         {
             return context.Set<T>().Find(id);
         }
