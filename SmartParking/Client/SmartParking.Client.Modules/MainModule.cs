@@ -12,8 +12,8 @@ namespace SmartParking.Client.Modules
         {
             // 添加组件 至 对应区域
             var regionManager = containerProvider.Resolve<IRegionManager>();
-            regionManager.RegisterViewWithRegion(ConstString.LeftMenuTreeRegion, typeof(TreeMenuView));
-            regionManager.RegisterViewWithRegion(ConstString.MainHeaderRegion, typeof(MainHeaderView));
+            regionManager.RegisterViewWithRegion(SystemString.LeftMenuTreeRegion, typeof(TreeMenuView));
+            regionManager.RegisterViewWithRegion(SystemString.MainHeaderRegion, typeof(MainHeaderView));
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
@@ -22,7 +22,6 @@ namespace SmartParking.Client.Modules
             containerRegistry.Register<MainHeaderView>();
 
             containerRegistry.RegisterForNavigation<UserManagementView>();
-
             containerRegistry.RegisterDialog<UserModifyDialog>();
         }
     }

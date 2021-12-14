@@ -75,7 +75,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartParking.Client.Model",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartParking.Client.Assets", "SmartParking\Client\SmartParking.Client.Assets\SmartParking.Client.Assets.csproj", "{6606B2A6-313C-4921-8914-72BFBC7D472C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartParking.Client.Modules", "SmartParking\Client\SmartParking.Client.Modules\SmartParking.Client.Modules.csproj", "{25678B8A-D564-42D7-A860-CE1D10489571}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartParking.Client.Modules", "SmartParking\Client\SmartParking.Client.Modules\SmartParking.Client.Modules.csproj", "{25678B8A-D564-42D7-A860-CE1D10489571}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PrismDemo", "PrismDemo", "{F1774249-C530-403B-95EA-7205F6C8D992}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismBlankApp1", "SmartParking\PrismDemo\PrismBlankApp1\PrismBlankApp1.csproj", "{4B8BD46B-31C6-4350-A0A3-E560874BA390}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrismModule1", "SmartParking\PrismDemo\PrismModule1\PrismModule1.csproj", "{C51A3C49-D935-4FC4-8680-10CFBA69F9D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFPanel", "WPFPanel\WPFPanel.csproj", "{F5EC7A49-2BB0-4B68-A21D-AC76EA31A317}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -219,6 +227,18 @@ Global
 		{25678B8A-D564-42D7-A860-CE1D10489571}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{25678B8A-D564-42D7-A860-CE1D10489571}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{25678B8A-D564-42D7-A860-CE1D10489571}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B8BD46B-31C6-4350-A0A3-E560874BA390}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B8BD46B-31C6-4350-A0A3-E560874BA390}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B8BD46B-31C6-4350-A0A3-E560874BA390}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B8BD46B-31C6-4350-A0A3-E560874BA390}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C51A3C49-D935-4FC4-8680-10CFBA69F9D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C51A3C49-D935-4FC4-8680-10CFBA69F9D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C51A3C49-D935-4FC4-8680-10CFBA69F9D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C51A3C49-D935-4FC4-8680-10CFBA69F9D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5EC7A49-2BB0-4B68-A21D-AC76EA31A317}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5EC7A49-2BB0-4B68-A21D-AC76EA31A317}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5EC7A49-2BB0-4B68-A21D-AC76EA31A317}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5EC7A49-2BB0-4B68-A21D-AC76EA31A317}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -237,6 +257,9 @@ Global
 		{54E3A3B1-F411-4166-8909-F4DA3CAC4F93} = {BDFF8811-5D25-455F-BEC4-6CFAF15C0E1D}
 		{6606B2A6-313C-4921-8914-72BFBC7D472C} = {BDFF8811-5D25-455F-BEC4-6CFAF15C0E1D}
 		{25678B8A-D564-42D7-A860-CE1D10489571} = {BDFF8811-5D25-455F-BEC4-6CFAF15C0E1D}
+		{F1774249-C530-403B-95EA-7205F6C8D992} = {84EF0321-48CD-4378-817E-FC86243AD892}
+		{4B8BD46B-31C6-4350-A0A3-E560874BA390} = {F1774249-C530-403B-95EA-7205F6C8D992}
+		{C51A3C49-D935-4FC4-8680-10CFBA69F9D9} = {F1774249-C530-403B-95EA-7205F6C8D992}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {70F2B916-BD65-472B-A64C-7FB1B7172A19}

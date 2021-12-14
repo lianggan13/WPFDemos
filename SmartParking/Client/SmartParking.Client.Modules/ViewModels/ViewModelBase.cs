@@ -6,10 +6,13 @@ using Unity;
 
 namespace SmartParking.Client.Modules.ViewModels
 {
-    public abstract class ViewModelBase : INavigationAware
+    public abstract class ViewModelBase : INavigationAware, IConfirmNavigationRequest, IRegionMemberLifetime
     {
         protected IUnityContainer unityContainer;
 
+        /// <summary>
+        /// 区域管理器
+        /// </summary>
         protected IRegionManager regionManager;
 
         public string NavUri { get; set; }
@@ -31,7 +34,7 @@ namespace SmartParking.Client.Modules.ViewModels
             {
                 var registration = unityContainer.Registrations.FirstOrDefault(r => r.Name == NavUri);
                 string typeName = registration.MappedToType.Name;
-                var region = regionManager.Regions[ConstString.MainContentRegion];
+                var region = regionManager.Regions[SystemString.MainContentRegion];
                 var view = region.Views.FirstOrDefault(v => v.GetType().Name == typeName);
                 if (view != null)
                 {
@@ -40,22 +43,47 @@ namespace SmartParking.Client.Modules.ViewModels
             });
         }
 
-        #region 导航方法组
+        /// <summary>
+        /// 标记上一个视图是否被销毁
+        /// </summary>
+        public bool KeepAlive => true;
+
+        public void ConfirmNavigationRequest(NavigationContext navigationContext, System.Action<bool> continuationCallback)
+        {
+            continuationCallback(true);
+        }
+
+        #region 导航接口方法组
+
+        /// <summary>
+        /// 是否使用导航后的目标视图
+        /// </summary>
+        /// <param name="navigationContext"></param>
+        /// <returns></returns>
+        public bool IsNavigationTarget(NavigationContext navigationContext)
+        {
+            return true;
+        }
+
+        /// <summary>
+        /// 导航前
+        /// </summary>
+        /// <param name="navigationContext"></param>
+        public void OnNavigatedFrom(NavigationContext navigationContext)
+        {
+
+        }
+
+        /// <summary>
+        /// 导航后
+        /// </summary>
+        /// <param name="navigationContext"></param>
         public void OnNavigatedTo(NavigationContext navigationContext)
         {
             NavUri = navigationContext.Uri.ToString();
         }
 
-        public bool IsNavigationTarget(NavigationContext navigationContext)
-        {
-            // 允许跳转
-            return true;
-        }
 
-        public void OnNavigatedFrom(NavigationContext navigationContext)
-        {
-
-        }
         #endregion
     }
 }

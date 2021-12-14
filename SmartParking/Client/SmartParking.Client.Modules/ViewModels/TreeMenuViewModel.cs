@@ -55,8 +55,8 @@ namespace SmartParking.Client.Modules.ViewModels
                 if ((item.Children == null || item.Children.Count == 0) &&
               !string.IsNullOrEmpty(item.TargetView))
                 {
-                    // 页面跳转
-                    regionManager.RequestNavigate(ConstString.MainContentRegion, item.TargetView);
+                    // 页面导航
+                    regionManager.RequestNavigate(SystemString.MainContentRegion, item.TargetView);
                 }
                 // 父项
                 else

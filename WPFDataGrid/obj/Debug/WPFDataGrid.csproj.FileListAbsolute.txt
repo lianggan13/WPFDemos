@@ -193,3 +193,6 @@ D:\Github\WPFDemos\WPFDataGrid\obj\Debug\WPFDataGrid.csproj.CoreCompileInputs.ca
 D:\Github\WPFDemos\WPFDataGrid\obj\Debug\WPFDataGrid.csproj.CopyComplete
 D:\Github\WPFDemos\WPFDataGrid\obj\Debug\WPFDataGrid.exe
 D:\Github\WPFDemos\WPFDataGrid\obj\Debug\WPFDataGrid.pdb
+D:\Github\WPFDemos\WPFDataGrid\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Github\WPFDemos\WPFDataGrid\bin\Debug\WPFCommon.dll
+D:\Github\WPFDemos\WPFDataGrid\bin\Debug\WPFCommon.pdb
