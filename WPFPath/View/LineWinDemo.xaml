@@ -10,18 +10,9 @@
     Height="567"
     mc:Ignorable="d">
     <Grid>
-        <!--  StrokeThickness：图形轮廓的粗细度；StrokeDashArray：形状轮廓的虚线间隙的样式；StrokeStartLineCap/StrokeEndLineCap：直线始端/末端的图形样式，属性值有Flat、Round、Square、Triangle  -->
-        <!--
-            StrokeDashArray属性，里面是一组double类型的数值，标识虚线，实线的长短，一个数字表示相同大小的虚部分和实部分，两个数字表示虚部分和实部分的小小，再多表示第一段，第二段，第三段...
-            RadiusX和RadiusY属性需要联合使用表示角的角度，单独设置不生效，RadiusX表示X轴方向角的弯曲度，RadiusY表示Y轴方向的弯曲度。
-            StrokeDashCap属性用于设置虚线的时候，虚线段开除的形状，无虚线不生效
-            StrokeDashOffset表示破折号开始的距离，偏移量
-            StrokeEndLineCap设置开始或结束处的形状，闭合曲线无效
-            StrokeMiterLimit斜接长度与笔画厚度之比的极限。这个值总是大于等于1的正数。
-        -->
         <Line
-           
             Stroke="Pink"
+            StrokeDashArray="10,10"
             StrokeThickness="10"
             X1="10"
             X2="500"
@@ -30,7 +21,7 @@
         <Line
             Stroke="Black"
             StrokeDashArray="2"
-            StrokeThickness="3"
+            StrokeThickness="10"
             X1="10"
             X2="500"
             Y1="50"
@@ -123,7 +114,7 @@
                             Height="{Binding RelativeSource={RelativeSource AncestorType={x:Type Border}}, Path=ActualHeight}"
                             Stroke="Red"
                             StrokeDashArray="1"
-                            StrokeThickness="5"/>
+                            StrokeThickness="5" />
                     </VisualBrush.Visual>
                 </VisualBrush>
             </Border.BorderBrush>

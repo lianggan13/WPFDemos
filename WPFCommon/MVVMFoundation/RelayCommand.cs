@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Windows.Input;
 
-namespace  WPFCommon.MVVMFoundation
+namespace WPFCommon.MVVMFoundation
 {
     /// <summary>
     /// A command whose sole purpose is to 
@@ -121,7 +121,8 @@ namespace  WPFCommon.MVVMFoundation
 
         #region ICommand Members
 
-        [DebuggerStepThrough]
+
+        [DebuggerStepThroughAttribute]
         public bool CanExecute(object parameter)
         {
             return _canExecute == null ? true : _canExecute((T)parameter);
@@ -143,11 +144,14 @@ namespace  WPFCommon.MVVMFoundation
 
         public void Execute(object parameter)
         {
+            //if (CanExecute(parameter))
+            //{
+            //    _execute((T)parameter);
+            //}
+
             _execute((T)parameter);
         }
 
         #endregion // ICommand Members
-
-
     }
 }

@@ -349,3 +349,4 @@ D:\Github\WPFDemos\WPFChart\obj\Debug\WPFChart.csproj.CoreCompileInputs.cache
 D:\Github\WPFDemos\WPFChart\obj\Debug\WPFChart.csproj.CopyComplete
 D:\Github\WPFDemos\WPFChart\obj\Debug\WPFChart.exe
 D:\Github\WPFDemos\WPFChart\obj\Debug\WPFChart.pdb
+D:\Github\WPFDemos\WPFChart\obj\Debug\WPFChart.csproj.SuggestedBindingRedirects.cache

@@ -17,6 +17,7 @@ namespace WPFAnimation.View
 
         private void HandleLoaded(object sender, RoutedEventArgs e)
         {
+
             return;
             //const double offset = Math.PI;
             const double offset = 0;

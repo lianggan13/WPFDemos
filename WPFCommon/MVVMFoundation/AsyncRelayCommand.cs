@@ -32,7 +32,6 @@ namespace WPFCommon.MVVMFoundation
 
         #endregion
 
-
         #region Constructors
 
         public AsyncRelayCommand(Func<Task> execute, Action<Exception> onException)
@@ -103,7 +102,6 @@ namespace WPFCommon.MVVMFoundation
         }
 
         #endregion
-
 
         #region Constructors
 

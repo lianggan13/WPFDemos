@@ -31,7 +31,8 @@
                 VerticalAlignment="Center"
                 Loaded="HandleLoaded"
                 RenderTransformOrigin="0.5,0.5"
-                Unloaded="HandleUnloaded">
+                Unloaded="HandleUnloaded"
+                Visibility="Visible">
                 <Canvas.Style>
                     <Style TargetType="{x:Type Canvas}">
                         <Setter Property="RenderTransform">
@@ -58,6 +59,31 @@
                                                 <DiscreteDoubleKeyFrame KeyTime="0:0:0.600" Value="288" />
                                                 <DiscreteDoubleKeyFrame KeyTime="0:0:0.675" Value="324" />
                                                 <DiscreteDoubleKeyFrame KeyTime="0:0:0.750" Value="360" />
+
+                                                <!--<SplineDoubleKeyFrame KeyTime="0:0:0" Value="0" />
+                                                <SplineDoubleKeyFrame KeyTime="0:0:0.075" Value="36" />
+                                                <SplineDoubleKeyFrame KeyTime="0:0:0.150" Value="72" />
+                                                <SplineDoubleKeyFrame KeyTime="0:0:0.225" Value="108" />
+                                                <SplineDoubleKeyFrame KeyTime="0:0:0.300" Value="144" />
+                                                <SplineDoubleKeyFrame KeyTime="0:0:0.375" Value="180" />
+                                                <SplineDoubleKeyFrame KeyTime="0:0:0.450" Value="216" />
+                                                <SplineDoubleKeyFrame KeyTime="0:0:0.525" Value="252" />
+                                                <SplineDoubleKeyFrame KeyTime="0:0:0.600" Value="288" />
+                                                <SplineDoubleKeyFrame KeyTime="0:0:0.675" Value="324" />
+                                                <SplineDoubleKeyFrame KeyTime="0:0:0.750" Value="360" />-->
+
+                                                <!--<LinearDoubleKeyFrame KeyTime="0:0:0" Value="0" />
+                                                <LinearDoubleKeyFrame KeyTime="0:0:0.075" Value="36" />
+                                                <LinearDoubleKeyFrame KeyTime="0:0:0.150" Value="72" />
+                                                <LinearDoubleKeyFrame KeyTime="0:0:0.225" Value="108" />
+                                                <LinearDoubleKeyFrame KeyTime="0:0:0.300" Value="144" />
+                                                <LinearDoubleKeyFrame KeyTime="0:0:0.375" Value="180" />
+                                                <LinearDoubleKeyFrame KeyTime="0:0:0.450" Value="216" />
+                                                <LinearDoubleKeyFrame KeyTime="0:0:0.525" Value="252" />
+                                                <LinearDoubleKeyFrame KeyTime="0:0:0.600" Value="288" />
+                                                <LinearDoubleKeyFrame KeyTime="0:0:0.675" Value="324" />
+                                                <LinearDoubleKeyFrame KeyTime="0:0:0.750" Value="360" />-->
+
                                             </DoubleAnimationUsingKeyFrames>
                                         </Storyboard>
                                     </BeginStoryboard>
@@ -158,6 +184,7 @@
             Content="Loading"
             IsChecked="{Binding IsLoading, Mode=TwoWay}" />
 
+        <!--#region 另外一种样式-->
         <Grid Width="35" Height="35">
             <Grid.Resources>
                 <DrawingBrush
@@ -376,6 +403,7 @@
                 </EventTrigger>
             </Grid.Triggers>
         </Grid>
+        <!--#endregion-->
 
 
 

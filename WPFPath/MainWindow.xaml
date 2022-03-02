@@ -6,39 +6,21 @@
     xmlns:local="clr-namespace:WPFPath"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:uc="clr-namespace:WPFPath.UC"
-    xmlns:vm="clr-namespace:WPFPath.View"
+    xmlns:view="clr-namespace:WPFPath.View"
     Title="MainWindow"
     Width="799"
     Height="532"
     mc:Ignorable="d">
     <Grid>
-        <UniformGrid Columns="3">
+        <UniformGrid Columns="2" Rows="2">
             <uc:CircularProgressBar Width="150" Height="150" />
 
-            <vm:CoolingTower
+            <view:CoolingTower
                 Width="205"
                 Height="245"
                 IsRunning="True" />
 
-            <Grid Width="20" Height="20">
-                <Line
-                    x:Name="ellipse"
-                    Stretch="Uniform"
-                    Stroke="Green"
-                    StrokeDashArray="1,2,1,2"
-                    StrokeThickness="2"
-                    X1="0"
-                    X2="1" />
-                <!--  StrokeThickness="{Binding Series.LineStyle.Thickness}"  -->
-            </Grid>
-            <TextBlock
-                x:Name="txt"
-                Grid.Column="1"
-                Margin="3,0,0,0"
-                VerticalAlignment="Center"
-                Foreground="#333333"
-                Text="{Binding Series.DisplayName}"
-                TextAlignment="Left" />
+            <view:WaterPipeline></view:WaterPipeline>
         </UniformGrid>
 
     </Grid>

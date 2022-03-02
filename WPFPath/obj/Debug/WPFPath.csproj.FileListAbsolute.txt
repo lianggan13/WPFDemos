@@ -50,3 +50,7 @@ D:\Github\WPFDemos\WPFPath\obj\Debug\WPFPath.csproj.CoreCompileInputs.cache
 D:\Github\WPFDemos\WPFPath\obj\Debug\WPFPath.csproj.CopyComplete
 D:\Github\WPFDemos\WPFPath\obj\Debug\WPFPath.exe
 D:\Github\WPFDemos\WPFPath\obj\Debug\WPFPath.pdb
+D:\Github\WPFDemos\WPFPath\obj\Debug\WPFPath.csproj.AssemblyReference.cache
+D:\Github\WPFDemos\WPFPath\obj\Debug\WPFPath.csproj.SuggestedBindingRedirects.cache
+D:\Github\WPFDemos\WPFPath\obj\Debug\View\WaterPipeline.g.cs
+D:\Github\WPFDemos\WPFPath\obj\Debug\View\WaterPipeline.baml

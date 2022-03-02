@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-E:\Github\WPFDemos\WPFPath\obj\Debug\
+D:\Github\WPFDemos\WPFPath\obj\Debug\
 WPFPath
 none
 false
 DEBUG;TRACE
-E:\Github\WPFDemos\WPFPath\App.xaml
-5-2125084974
+D:\Github\WPFDemos\WPFPath\App.xaml
+61620760478
 
-10-1238237909
-14105661500
-MainWindow.xaml;View\CircularProgressBar.xaml;View\CoolingTower.xaml;View\GeneralPath.xaml;View\LineWinDemo.xaml;
+111378277906
+14246749681
+MainWindow.xaml;View\CircularProgressBar.xaml;View\CoolingTower.xaml;View\GeneralPath.xaml;View\LineWinDemo.xaml;View\WaterPipeline.xaml;
 
 True
 
